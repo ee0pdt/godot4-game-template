@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://brmrxvtukr80b"]
+
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_a846j"]
+[ext_resource type="PackedScene" uid="uid://defeg5n6m8oia" path="res://Levels/Level1.tscn" id="2_6sr5u"]
+[ext_resource type="PackedScene" uid="uid://b4gq1hjq4uyfr" path="res://Levels/Level2.tscn" id="3_8hyp6"]
+[ext_resource type="PackedScene" uid="uid://7mjm67rfh8vj" path="res://GameComplete/GameComplete.tscn" id="4_ct1b2"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_a846j")
+levels = [ExtResource("2_6sr5u"), ExtResource("3_8hyp6")]
+game_complete = ExtResource("4_ct1b2")
