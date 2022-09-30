@@ -6,3 +6,7 @@ extends Node2D
 
 func _on_start_game_pressed():
 	AppEvents.start_game.emit()
+
+
+func _on_quit_pressed():
+	AppEvents.quit.emit()

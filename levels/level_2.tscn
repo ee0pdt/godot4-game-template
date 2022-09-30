@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4gq1hjq4uyfr"]
+[gd_scene load_steps=3 format=3 uid="uid://b4gq1hjq4uyfr"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_6wyap"]
+[ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="2_fiefd"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_6wyap")
@@ -26,7 +27,8 @@ offset_right = -250.0
 offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_fiefd")
 theme_override_font_sizes/font_size = 30
-text = "Finish level"
+text = "Finish Level"
 
 [connection signal="pressed" from="CanvasLayer/NextLevel" to="." method="_on_next_level_pressed"]

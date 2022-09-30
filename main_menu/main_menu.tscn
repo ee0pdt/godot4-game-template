@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=5 format=3 uid="uid://qywvxsjh5sln"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_p4fku"]
 [ext_resource type="PackedScene" uid="uid://brmrxvtukr80b" path="res://game/game.tscn" id="2_8d1ow"]
+[ext_resource type="Texture2D" uid="uid://b8ruhexokxns7" path="res://assets/baby_godot_logo.svg" id="3_agack"]
+[ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_p4fku")
@@ -9,27 +11,98 @@ game = ExtResource("2_8d1ow")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="main_menu" type="RichTextLabel" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 50
-text = "Main Menu"
-metadata/_edit_use_anchors_ = true
+color = Color(0.164706, 0.164706, 0.164706, 1)
 
-[node name="StartGame" type="Button" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 420.0
-offset_right = -156.0
-offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
+
+[node name="Spacer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 362.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 366.0
+offset_right = 686.0
+offset_bottom = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 320.0
+offset_bottom = 420.0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2i(320, 320)
+layout_mode = 2
+offset_top = 50.0
+offset_right = 320.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_agack")
+ignore_texture_size = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 424.0
+offset_right = 320.0
+offset_bottom = 492.0
+theme_override_constants/margin_bottom = 20
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+offset_right = 320.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_qljup")
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
-[connection signal="pressed" from="CanvasLayer/StartGame" to="." method="_on_start_game_pressed"]
+[node name="Quit" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 496.0
+offset_right = 320.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_qljup")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 690.0
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/StartGameButton" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
