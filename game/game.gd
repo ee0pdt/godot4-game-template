@@ -16,7 +16,7 @@ func _ready():
 
 
 func _register_events():
-	game/game_events.next_level.connect(self._handle_level_changed)
+	GameEvents.next_level.connect(self._handle_level_changed)
 
 
 func _handle_level_changed():

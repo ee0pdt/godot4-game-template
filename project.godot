@@ -10,15 +10,15 @@ config_version=5
 
 [application]
 
-config/name="LearningGodot"
+config/name="GameTemplate"
 run/main_scene="res://splash_screen/splash_screen.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
 
-game/game_events="*res://game/game_events.gd"
-app_events="*res://app/app_events.gd"
+GameEvents="*res://game/game_events.gd"
+AppEvents="*res://app/app_events.gd"
 App="*res://app/app.tscn"
 
 [display]

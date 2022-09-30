@@ -9,7 +9,7 @@ func _ready():
 
 
 func _register_events():
-	app_events.main_menu.connect(self._handle_main_menu)
+	AppEvents.main_menu.connect(self._handle_main_menu)
 
 
 func _handle_main_menu():
