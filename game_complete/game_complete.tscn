@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://7mjm67rfh8vj"]
 
-[ext_resource type="Script" path="res://GameComplete/GameComplete.gd" id="1_6u1f2"]
+[ext_resource type="Script" path="res://game_complete/game_complete.gd" id="1_6u1f2"]
 
-[node name="GameComplete" type="Node2D"]
+[node name="game_complete" type="Node2D"]
 script = ExtResource("1_6u1f2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -16,7 +16,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 50
 text = "Game Complete"
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer"]
+[node name="main_menuButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,4 +29,4 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Main Menu"
 
-[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/main_menuButton" to="." method="_on_main_menu_button_pressed"]

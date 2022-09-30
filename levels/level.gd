@@ -2,4 +2,4 @@ extends Node2D
 
 
 func _on_next_level_pressed():
-	GameEvents.next_level.emit()
+	game/game_events.next_level.emit()

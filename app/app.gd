@@ -9,8 +9,8 @@ func _ready():
 
 
 func _register_events():
-	AppEvents.main_menu.connect(self._handle_main_menu)
+	app_events.main_menu.connect(self._handle_main_menu)
 
 
 func _handle_main_menu():
-	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
