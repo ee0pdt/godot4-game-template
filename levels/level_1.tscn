@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=13 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
+[ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
+[ext_resource type="Script" path="res://levels/Button.gd" id="3_kwelt"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrb6b"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rdb8f"]
 size = Vector2(200, 200)
@@ -13,31 +17,55 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 
 [sub_resource type="Environment" id="Environment_sytva"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1dm4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86orb"]
+albedo_color = Color(1, 0, 0.32549, 1)
+emission_enabled = true
+emission = Color(1, 0, 0.278431, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_icqre"]
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
 
-[node name="HUD" type="CanvasLayer" parent="."]
-visible = false
+[node name="Node2d" type="Node2D" parent="."]
 
-[node name="Countdown" type="RichTextLabel" parent="HUD"]
-unique_name_in_owner = true
+[node name="HUD" type="CanvasLayer" parent="Node2d"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2d/HUD"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Countdown" type="RichTextLabel" parent="Node2d/HUD/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="CsgBox3d" type="CSGBox3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.15918)
+[node name="Room" type="CSGBox3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0323, 0)
 use_collision = true
-
-[node name="CsgBox3d2" type="CSGBox3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27603, 0.5, -0.318609)
-use_collision = true
+flip_faces = true
+size = Vector3(20, 6.53362, 20)
+material = SubResource("StandardMaterial3D_hrb6b")
 
 [node name="Floor" type="MeshInstance3D" parent="3DWorld"]
 mesh = SubResource("PlaneMesh_rdb8f")
@@ -50,6 +78,7 @@ shape = SubResource("ConcavePolygonShape3D_klh54")
 
 [node name="Player" type="CharacterBody3D" parent="3DWorld"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.74668)
 script = ExtResource("3_mxm1r")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Player"]
@@ -57,13 +86,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5qqo4")
 
 [node name="Neck" type="Node3D" parent="3DWorld/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3d" type="Camera3D" parent="3DWorld/Player/Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="3DWorld"]
-transform = Transform3D(0.44149, 0.448633, -0.777055, 0, 0.866025, 0.5, 0.897266, -0.220745, 0.382342, 0, 0, 0)
+[node name="Button" type="Node3D" parent="3DWorld"]
+script = ExtResource("3_kwelt")
+
+[node name="Pillar" type="CSGCylinder3D" parent="3DWorld/Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+use_collision = true
+radius = 0.25
+height = 1.4
+sides = 6
+material = SubResource("StandardMaterial3D_s1dm4")
+
+[node name="ButtonMesh" type="CSGCylinder3D" parent="3DWorld/Button/Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75279, 0)
+radius = 0.2
+height = 0.1
+sides = 6
+material = SubResource("StandardMaterial3D_86orb")
+
+[node name="SpotLight3d" type="SpotLight3D" parent="3DWorld/Button/Pillar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.08265, 0)
 shadow_enabled = true
+spot_range = 5.57398
+spot_angle = 13.981
+
+[node name="Area3d" type="Area3D" parent="3DWorld/Button"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Button/Area3d"]
+shape = SubResource("CylinderShape3D_icqre")
+
+[node name="CeilingLight" parent="3DWorld" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.47, 8)
+
+[node name="CeilingLight2" parent="3DWorld" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.47, 8)
+
+[node name="CeilingLight3" parent="3DWorld" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.47, -8)
+
+[node name="CeilingLight4" parent="3DWorld" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.47, -8)

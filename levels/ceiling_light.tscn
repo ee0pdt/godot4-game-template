@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d06s6ma4frtwt"]
+
+[node name="CeilingLight" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.28776, 4.46966, 0)
+shadow_enabled = true
+omni_range = 15.0
