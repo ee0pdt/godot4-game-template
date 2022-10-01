@@ -37,7 +37,6 @@ func _process(delta):
 			if countdown_secs <= 0:
 				countdown_secs = 0
 				current_state = States.OVER
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				GameEvents.next_level.emit()
 			else:
 				total_time += delta
