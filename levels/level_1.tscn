@@ -26,6 +26,7 @@ emission = Color(1, 0, 0.278431, 1)
 emission_energy_multiplier = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_icqre"]
+radius = 1.5
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -118,6 +119,7 @@ spot_range = 5.57398
 spot_angle = 13.981
 
 [node name="Area3d" type="Area3D" parent="3DWorld/Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Button/Area3d"]
 shape = SubResource("CylinderShape3D_icqre")
@@ -133,3 +135,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.47, -8)
 
 [node name="CeilingLight4" parent="3DWorld" instance=ExtResource("3_143dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.47, -8)
+
+[connection signal="body_entered" from="3DWorld/Button/Area3d" to="3DWorld/Button" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="3DWorld/Button/Area3d" to="3DWorld/Button" method="_on_area_3d_body_exited"]

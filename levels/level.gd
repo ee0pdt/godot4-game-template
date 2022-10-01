@@ -31,10 +31,18 @@ func _on_next_level_pressed():
 
 
 func _process(delta):
-	if current_state == States.PLAYING:
-		countdown_secs -= delta
-		total_time += delta
-		_update_hud()
+	match current_state:
+		States.PLAYING:
+			countdown_secs -= delta
+			if countdown_secs <= 0:
+				countdown_secs = 0
+				current_state = States.OVER
+			else:
+				total_time += delta
+			
+			_update_hud()
+		_:
+			pass
 
 
 func _update_hud():
