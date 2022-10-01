@@ -9,3 +9,6 @@
 script = ExtResource("1_a846j")
 levels = [ExtResource("2_6sr5u"), ExtResource("3_8hyp6")]
 game_complete = ExtResource("4_ct1b2")
+
+[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

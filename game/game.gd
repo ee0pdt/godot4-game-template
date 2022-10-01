@@ -13,6 +13,7 @@ func _ready():
 	_register_events()
 	current_level_scene = levels[0].instantiate()
 	add_child(current_level_scene)
+	$SoundMusic.play()
 
 
 func _register_events():
