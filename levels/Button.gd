@@ -6,6 +6,7 @@ var player_in_range: bool = false
 
 func _unhandled_key_input(event):
 	if player_in_range and Input.is_action_just_pressed("interact"):
+		$AnimationPlayer.play("ButtonRise")
 		GameEvents.button_pressed.emit()
 
 
