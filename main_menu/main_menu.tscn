@@ -31,20 +31,17 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="Spacer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 362.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 366.0
 offset_right = 686.0
 offset_bottom = 548.0
@@ -52,7 +49,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 420.0
 theme_override_constants/margin_top = 50
@@ -60,7 +56,6 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Logo" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2i(320, 320)
-layout_mode = 2
 offset_top = 50.0
 offset_right = 320.0
 offset_bottom = 370.0
@@ -70,35 +65,33 @@ texture = ExtResource("3_agack")
 ignore_texture_size = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 424.0
 offset_right = 320.0
 offset_bottom = 492.0
 theme_override_constants/margin_bottom = 20
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("4_qljup")
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [node name="Quit" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 496.0
 offset_right = 320.0
 offset_bottom = 544.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("4_qljup")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 690.0
 offset_right = 1052.0
 offset_bottom = 548.0

@@ -27,6 +27,7 @@ offset_right = -250.0
 offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_fiefd")
 theme_override_font_sizes/font_size = 30
 text = "Finish Level"
