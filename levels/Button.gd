@@ -13,7 +13,6 @@ func _unhandled_key_input(event):
 
 
 func _on_area_3d_body_entered(body):
-	print("body entered: ", body.name)
 	if body.name == "Player":
 		player_in_range = true
 
