@@ -2,7 +2,7 @@ extends Node
 
 
 @export var levels: Array[PackedScene]
-@export var game_complete: PackedScene
+@export_file("*.tscn") var game_complete
 
 
 var current_level_scene: Node
@@ -26,7 +26,7 @@ func _handle_level_changed():
 	var next_scene: PackedScene
 
 	if current_level >= levels.size():
-		next_scene = game_complete
+		next_scene = load(game_complete)
 	else:
 		next_scene = levels[current_level]
 	

@@ -1,9 +1,9 @@
 extends Node
 
 
-@export var main_menu: PackedScene
-@export var game: PackedScene
-@export var settings: PackedScene
+@export_file("*.tscn") var main_menu
+@export_file("*.tscn") var game
+@export_file("*.tscn") var settings
 
 
 func _ready():
@@ -18,11 +18,11 @@ func _register_events():
 
 
 func _handle_main_menu():
-	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_file(main_menu)
 
 
 func _handle_start_game():
-	get_tree().change_scene_to_packed(game)
+	get_tree().change_scene_to_file(game)
 
 
 func _handle_quit():
