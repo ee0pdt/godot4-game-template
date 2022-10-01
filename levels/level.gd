@@ -22,7 +22,7 @@ func _handle_button_pressed():
 			current_state = States.PLAYING
 		States.PLAYING:
 			countdown_secs = 10
-		_:
+		States.OVER:
 			pass
 
 
@@ -48,5 +48,9 @@ func _process(delta):
 
 
 func _update_hud():
-	var seconds_text: String = str(ceil(countdown_secs))
-	%Countdown.text = seconds_text
+	%Countdown.text = _time_to_str(countdown_secs)
+	%Countup.text = _time_to_str(total_time)
+
+
+func _time_to_str(time):
+	return str(ceil(time))
