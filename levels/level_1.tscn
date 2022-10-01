@@ -17,6 +17,7 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 script = ExtResource("1_3noco")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Countdown" type="RichTextLabel" parent="HUD"]
 unique_name_in_owner = true
@@ -55,7 +56,9 @@ script = ExtResource("3_mxm1r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5qqo4")
 
-[node name="Camera3d" type="Camera3D" parent="3DWorld/Player"]
+[node name="Neck" type="Node3D" parent="3DWorld/Player"]
+
+[node name="Camera3d" type="Camera3D" parent="3DWorld/Player/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]

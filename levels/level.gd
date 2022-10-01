@@ -14,5 +14,5 @@ func _process(delta):
 
 
 func _update_hud():
-	var seconds_text: String = str(countdown_secs)
+	var seconds_text: String = str(floor(countdown_secs))
 	%Countdown.text = seconds_text
