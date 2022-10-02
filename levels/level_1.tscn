@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
@@ -11,42 +11,37 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrb6b"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rdb8f"]
-size = Vector2(200, 200)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_klh54"]
-data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
 tonemap_mode = 3
 sdfgi_enabled = true
-volumetric_fog_enabled = true
+glow_enabled = true
+glow_bloom = 0.14
 
 [sub_resource type="Animation" id="Animation_l6woo"]
 resource_name = "Moves"
-length = 100.0
+length = 110.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Button:position")
+tracks/0/path = NodePath("Room/Button:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10.2, 20.2, 30.2, 40.2, 42.5, 44.4, 50.2, 56.2, 60.3, 63.3, 65, 70.3, 100),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 10.2, 20.2, 30.2, 40.2, 42.5, 44.4, 50.2, 56.2, 60.3, 63.3, 65, 70.3, 80.2, 90.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(4.72307, 0, 0), Vector3(4.72307, 0, 8.02947), Vector3(-6.30269, 0, 8.02947), Vector3(-6.30269, -0.0653665, 9.57059), Vector3(-6.30269, 1.84611, 11.0832), Vector3(0.462023, 1.84611, 11.0832), Vector3(7.25404, 1.84611, 11.0832), Vector3(7.25404, 4.24921, 11.0832), Vector3(9.49994, 4.24921, 11.0832), Vector3(11.1211, 4.24921, 9.46211), Vector3(11.1211, 4.24921, 4.16765), Vector3(11.1211, 4.24921, -7.23953)]
+"values": [Vector3(0, -3.34168, 0), Vector3(0, -3.342, 0), Vector3(4.723, -3.342, 0), Vector3(4.723, -3.342, 8.029), Vector3(-6.303, -3.342, 8.029), Vector3(-6.303, -3.342, 9.571), Vector3(-6.303, -1.5, 11.083), Vector3(0.462, -1.5, 11.083), Vector3(7.254, -1.5, 11.083), Vector3(7.254, -1, 11.083), Vector3(9.5, -1, 11.083), Vector3(11.121, -1, 9.462), Vector3(11.121, -1, 4.168), Vector3(11.121, 2.5, -7.24), Vector3(10.112, 2.5, -7.24)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button:rotation")
+tracks/1/path = NodePath("Room/Button:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 40.2, 42.5, 44.4, 63.3, 65, 100),
+"times": PackedFloat32Array(0, 40.2, 42.5, 44.4, 63.3, 65, 80.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, 1.5708, 0), Vector3(-1.5708, 1.5708, 0)]
@@ -58,10 +53,22 @@ tracks/2/path = NodePath("../SoundSecondInstruction:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 50.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 50.5, 70.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Room:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(80.2, 90.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.57113)]
 }
 
 [sub_resource type="Animation" id="Animation_ydusc"]
@@ -69,19 +76,19 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Button:position")
+tracks/0/path = NodePath("Room/Button:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, -3.342, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button:rotation")
+tracks/1/path = NodePath("Room/Button:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -92,7 +99,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("../SoundSecondInstruction:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -101,6 +108,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Room:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_65okn"]
@@ -128,12 +147,14 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -141,6 +162,7 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -150,6 +172,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -158,6 +181,7 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -172,20 +196,41 @@ text = "0"
 [node name="3DWorld" type="Node3D" parent="."]
 
 [node name="Room" type="CSGBox3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0323, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31169, 0)
 use_collision = true
 flip_faces = true
 size = Vector3(20, 6.53362, 20)
 material = SubResource("StandardMaterial3D_hrb6b")
 
-[node name="Floor" type="MeshInstance3D" parent="3DWorld"]
-mesh = SubResource("PlaneMesh_rdb8f")
-skeleton = NodePath("../..")
+[node name="Button" parent="3DWorld/Room" instance=ExtResource("3_ej6j2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.342, 0)
 
-[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Floor"]
+[node name="CeilingLight" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.54538, 8)
+light_color = Color(1, 1, 1, 1)
+omni_range = 10.0
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Floor/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_klh54")
+[node name="CeilingLight2" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.54538, 8)
+light_color = Color(1, 1, 1, 1)
+omni_range = 10.0
+
+[node name="CeilingLight3" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.54538, -8)
+light_color = Color(1, 1, 1, 1)
+omni_range = 10.0
+
+[node name="CeilingLight4" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.54538, -8)
+light_color = Color(1, 1, 1, 1)
+omni_range = 10.0
+
+[node name="SpotLight3d" type="SpotLight3D" parent="3DWorld/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33528, -6.73849)
+light_projector = ExtResource("5_45b7y")
+shadow_enabled = true
+spot_range = 5.13042
+spot_angle = 43.0725
 
 [node name="Player" type="CharacterBody3D" parent="3DWorld"]
 unique_name_in_owner = true
@@ -203,27 +248,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
-
-[node name="Button" parent="3DWorld" instance=ExtResource("3_ej6j2")]
-
-[node name="CeilingLight" parent="3DWorld" instance=ExtResource("3_143dq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.47, 8)
-
-[node name="CeilingLight2" parent="3DWorld" instance=ExtResource("3_143dq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.47, 8)
-
-[node name="CeilingLight3" parent="3DWorld" instance=ExtResource("3_143dq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.47, -8)
-
-[node name="CeilingLight4" parent="3DWorld" instance=ExtResource("3_143dq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.47, -8)
-
-[node name="SpotLight3d" type="SpotLight3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.97641, -6.73849)
-light_projector = ExtResource("5_45b7y")
-shadow_enabled = true
-spot_range = 5.13042
-spot_angle = 43.0725
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3DWorld"]
 libraries = {

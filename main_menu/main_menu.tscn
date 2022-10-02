@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_p4fku"]
 [ext_resource type="PackedScene" uid="uid://brmrxvtukr80b" path="res://game/game.tscn" id="2_8d1ow"]
-[ext_resource type="Texture2D" uid="uid://b8ruhexokxns7" path="res://assets/baby_godot_logo.svg" id="3_agack"]
+[ext_resource type="Texture2D" uid="uid://rcl1abkqbuym" path="res://assets/PushItLogo.svg" id="3_k06cf"]
 [ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
 
 [node name="main_menu" type="Node2D"]
@@ -47,27 +47,30 @@ grow_vertical = 2
 
 [node name="LogoWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 offset_right = 320.0
-offset_bottom = 320.0
+offset_bottom = 360.0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="Logo" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/LogoWrapper"]
 custom_minimum_size = Vector2i(320, 320)
+offset_top = 20.0
 offset_right = 320.0
-offset_bottom = 320.0
+offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_agack")
+texture = ExtResource("3_k06cf")
 ignore_texture_size = true
 
 [node name="StartGameWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 324.0
+offset_top = 364.0
 offset_right = 320.0
-offset_bottom = 416.0
+offset_bottom = 484.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper"]
 offset_right = 320.0
-offset_bottom = 72.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -76,6 +79,7 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [node name="SettingsWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 offset_top = 420.0
 offset_right = 320.0
 offset_bottom = 512.0
@@ -93,7 +97,7 @@ theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="QuitWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 516.0
+offset_top = 488.0
 offset_right = 320.0
 offset_bottom = 608.0
 size_flags_vertical = 3
@@ -101,7 +105,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/QuitWrapper"]
 offset_right = 320.0
-offset_bottom = 72.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
