@@ -14,6 +14,7 @@ var total_time: float = 0
 
 func _ready():
 	GameEvents.button_pressed.connect(self._handle_button_pressed)
+	$SoundFirstInstruction.play()
 
 
 func _handle_button_pressed():

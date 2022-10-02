@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=17 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
 [ext_resource type="PackedScene" uid="uid://wdfrwopsgurh" path="res://assets/button.tscn" id="3_ej6j2"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
 [ext_resource type="Texture2D" uid="uid://b2ipce5q2wx2o" path="res://assets/instructions.png" id="5_45b7y"]
-[ext_resource type="AudioStream" uid="uid://1okhuidwgh8" path="res://assets/10seconds.mp3" id="6_dccr2"]
+[ext_resource type="AudioStream" uid="uid://cg7x026ur23rp" path="res://assets/10seconds.mp3" id="6_dccr2"]
+[ext_resource type="AudioStream" uid="uid://dtk48k7cv2xkq" path="res://assets/first_instruction.mp3" id="7_2m4rm"]
+[ext_resource type="AudioStream" uid="uid://xg0cb28d886e" path="res://assets/second_instruction.mp3" id="8_wade6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrb6b"]
 
@@ -32,10 +34,34 @@ tracks/0/path = NodePath("Button:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10, 20, 30, 40, 50),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 10.2, 20.2, 30.2, 40.2, 42.5, 44.4, 50.2, 56.2, 60.3, 63.3, 65, 70.3, 100),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(4.72307, 0, 0), Vector3(4.72307, 0, 8.02947), Vector3(-6.30269, 0, 8.02947)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(4.72307, 0, 0), Vector3(4.72307, 0, 8.02947), Vector3(-6.30269, 0, 8.02947), Vector3(-6.30269, -0.0653665, 9.57059), Vector3(-6.30269, 1.84611, 11.0832), Vector3(0.462023, 1.84611, 11.0832), Vector3(7.25404, 1.84611, 11.0832), Vector3(7.25404, 4.24921, 11.0832), Vector3(9.49994, 4.24921, 11.0832), Vector3(11.1211, 4.24921, 9.46211), Vector3(11.1211, 4.24921, 4.16765), Vector3(11.1211, 4.24921, -7.23953)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 40.2, 42.5, 44.4, 63.3, 65, 100),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, 1.5708, 0), Vector3(-1.5708, 1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SoundSecondInstruction:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 50.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ydusc"]
@@ -51,6 +77,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SoundSecondInstruction:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_65okn"]
@@ -78,14 +128,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -93,7 +141,6 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -103,7 +150,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -112,7 +158,6 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -188,3 +233,11 @@ libraries = {
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dccr2")
 bus = &"Music"
+
+[node name="SoundFirstInstruction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2m4rm")
+bus = &"Dialog"
+
+[node name="SoundSecondInstruction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wade6")
+bus = &"Dialog"
