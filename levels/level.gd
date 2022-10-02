@@ -21,6 +21,7 @@ func _handle_button_pressed():
 		States.BEFORE:
 			$SoundMusic.play()
 			current_state = States.PLAYING
+			$"3DWorld/AnimationPlayer".play("Moves")
 		States.PLAYING:
 			countdown_secs = 10
 		States.OVER:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
@@ -21,6 +21,43 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 tonemap_mode = 3
 sdfgi_enabled = true
 volumetric_fog_enabled = true
+
+[sub_resource type="Animation" id="Animation_l6woo"]
+resource_name = "Moves"
+length = 100.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 20, 30, 40, 50),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(4.72307, 0, 0), Vector3(4.72307, 0, 8.02947), Vector3(-6.30269, 0, 8.02947)]
+}
+
+[sub_resource type="Animation" id="Animation_ydusc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65okn"]
+_data = {
+"Moves": SubResource("Animation_l6woo"),
+"RESET": SubResource("Animation_ydusc")
+}
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -142,6 +179,11 @@ light_projector = ExtResource("5_45b7y")
 shadow_enabled = true
 spot_range = 5.13042
 spot_angle = 43.0725
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3DWorld"]
+libraries = {
+"": SubResource("AnimationLibrary_65okn")
+}
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dccr2")
