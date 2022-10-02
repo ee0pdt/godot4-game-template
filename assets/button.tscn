@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://wdfrwopsgurh"]
+[gd_scene load_steps=9 format=3 uid="uid://wdfrwopsgurh"]
 
 [ext_resource type="Script" path="res://levels/Button.gd" id="1_glwq7"]
+[ext_resource type="AudioStream" uid="uid://dtn3c8vtdub3c" path="res://assets/zapsplat_vehicles_car_dash_button_press_toyota_corolla_2017_002_79114.mp3" id="2_0x4x2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1dm4"]
 
@@ -108,6 +109,10 @@ shape = SubResource("CylinderShape3D_icqre")
 libraries = {
 "": SubResource("AnimationLibrary_67065")
 }
+
+[node name="SoundButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0x4x2")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area3d" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3d" to="." method="_on_area_3d_body_exited"]

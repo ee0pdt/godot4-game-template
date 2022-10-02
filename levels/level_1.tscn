@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=12 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
 [ext_resource type="PackedScene" uid="uid://wdfrwopsgurh" path="res://assets/button.tscn" id="3_ej6j2"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
 [ext_resource type="Texture2D" uid="uid://b2ipce5q2wx2o" path="res://assets/instructions.png" id="5_45b7y"]
+[ext_resource type="AudioStream" uid="uid://1okhuidwgh8" path="res://assets/10seconds.mp3" id="6_dccr2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrb6b"]
 
@@ -141,3 +142,7 @@ light_projector = ExtResource("5_45b7y")
 shadow_enabled = true
 spot_range = 5.13042
 spot_angle = 43.0725
+
+[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dccr2")
+bus = &"Music"

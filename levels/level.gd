@@ -19,6 +19,7 @@ func _ready():
 func _handle_button_pressed():
 	match current_state:
 		States.BEFORE:
+			$SoundMusic.play()
 			current_state = States.PLAYING
 		States.PLAYING:
 			countdown_secs = 10
