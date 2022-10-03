@@ -25,6 +25,7 @@ func _handle_button_pressed():
 			current_state = States.PLAYING
 			%Button/AnimationPlayer.play("ButtonRise")
 			$"3DWorld/AnimationPlayer".play("Moves")
+			$"3DWorld/AnimationPlayer".advance(100)
 		States.PLAYING:
 			button_hit = true
 		States.OVER:
