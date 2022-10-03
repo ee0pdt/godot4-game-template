@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=19 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -10,14 +10,34 @@
 [ext_resource type="AudioStream" uid="uid://dtk48k7cv2xkq" path="res://assets/first_instruction.mp3" id="7_2m4rm"]
 [ext_resource type="AudioStream" uid="uid://xg0cb28d886e" path="res://assets/second_instruction.mp3" id="8_wade6"]
 
+[sub_resource type="Gradient" id="Gradient_khbwc"]
+offsets = PackedFloat32Array(0.345494, 1)
+colors = PackedColorArray(0.941406, 0.924961, 0.932242, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f17m4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jhgj3"]
+invert = true
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_khbwc")
+noise = SubResource("FastNoiseLite_f17m4")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrb6b"]
+albedo_color = Color(0.996078, 0.996078, 0.996078, 1)
+albedo_texture = SubResource("NoiseTexture2D_jhgj3")
+roughness = 0.12
+emission = Color(0.984314, 0.984314, 0.984314, 1)
+emission_energy_multiplier = 0.3
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
+ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
-glow_enabled = true
 glow_bloom = 0.14
 
 [sub_resource type="Animation" id="Animation_l6woo"]
@@ -258,29 +278,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.342, 0)
 
 [node name="CeilingLight" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.54538, 8)
-light_color = Color(1, 1, 1, 1)
+light_color = Color(1, 0, 0.929412, 1)
 omni_range = 10.0
 
 [node name="CeilingLight2" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.54538, 8)
-light_color = Color(1, 1, 1, 1)
+light_color = Color(1, 0.537255, 0, 1)
 omni_range = 10.0
 
 [node name="CeilingLight3" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.54538, -8)
-light_color = Color(1, 1, 1, 1)
+light_color = Color(0, 0.564706, 1, 1)
 omni_range = 10.0
 
 [node name="CeilingLight4" parent="3DWorld/Room" instance=ExtResource("3_143dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.54538, -8)
-light_color = Color(1, 1, 1, 1)
+light_color = Color(0.0627451, 1, 0, 1)
 omni_range = 10.0
 
 [node name="SpotLight3d" type="SpotLight3D" parent="3DWorld/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.893809, -6.73849)
+transform = Transform3D(0.988135, -0.153589, 0, 0.153589, 0.988135, 0, 0, 0, 1, 0, 0.381828, -4.55112)
 light_projector = ExtResource("5_45b7y")
 shadow_enabled = true
-spot_range = 6.80583
+spot_range = 9.2761
 spot_angle = 36.0133
 
 [node name="CsgBox3d" type="CSGBox3D" parent="3DWorld/Room"]
