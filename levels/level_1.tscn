@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
+[ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://d06s6ma4frtwt" path="res://levels/ceiling_light.tscn" id="3_143dq"]
 [ext_resource type="PackedScene" uid="uid://wdfrwopsgurh" path="res://assets/button.tscn" id="3_ej6j2"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
@@ -209,6 +210,7 @@ size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
@@ -236,6 +238,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_de73j")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "0"
