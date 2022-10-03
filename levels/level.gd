@@ -63,3 +63,7 @@ func _update_hud():
 
 func _time_to_str(time):
 	return str(ceil(time))
+
+
+func _on_animation_player_animation_finished(anim_name):
+	AppEvents.main_menu.emit() # Replace with function body.

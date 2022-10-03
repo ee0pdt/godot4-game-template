@@ -45,7 +45,7 @@ glow_bloom = 0.14
 
 [sub_resource type="Animation" id="Animation_l6woo"]
 resource_name = "Moves"
-length = 160.0
+length = 170.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -519,3 +519,5 @@ bus = &"Dialog"
 [node name="SoundFifthInstruction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_w6r1s")
 bus = &"Dialog"
+
+[connection signal="animation_finished" from="3DWorld/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
