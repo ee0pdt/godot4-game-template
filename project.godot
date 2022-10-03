@@ -25,6 +25,7 @@ App="*res://app/app.tscn"
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [input]
 

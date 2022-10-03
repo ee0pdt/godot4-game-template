@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=22 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://wdfrwopsgurh" path="res://assets/button.tscn" id="3_ej6j2"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
 [ext_resource type="Texture2D" uid="uid://b2ipce5q2wx2o" path="res://assets/instructions.png" id="5_45b7y"]
-[ext_resource type="AudioStream" uid="uid://cg7x026ur23rp" path="res://assets/10seconds.mp3" id="6_dccr2"]
+[ext_resource type="AudioStream" uid="uid://cmpctyse55rem" path="res://assets/10seconds.mp3" id="6_dccr2"]
 [ext_resource type="AudioStream" uid="uid://dtk48k7cv2xkq" path="res://assets/first_instruction.mp3" id="7_2m4rm"]
 [ext_resource type="AudioStream" uid="uid://xg0cb28d886e" path="res://assets/second_instruction.mp3" id="8_wade6"]
 [ext_resource type="AudioStream" uid="uid://bfwbirjbrkh2k" path="res://assets/third_instruction.mp3" id="10_qgsyb"]
 [ext_resource type="AudioStream" uid="uid://br64jfpw7vi0u" path="res://assets/fourth_instruction.mp3" id="11_8ks6v"]
+[ext_resource type="AudioStream" uid="uid://dk4gbmg6437kj" path="res://assets/fifth_instruction.mp3" id="12_w6r1s"]
 
 [sub_resource type="Gradient" id="Gradient_khbwc"]
 offsets = PackedFloat32Array(0.345494, 1)
@@ -44,7 +45,7 @@ glow_bloom = 0.14
 
 [sub_resource type="Animation" id="Animation_l6woo"]
 resource_name = "Moves"
-length = 140.0
+length = 160.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -177,6 +178,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../SoundFifthInstruction:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(140),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ydusc"]
 length = 0.001
@@ -274,7 +287,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(11.0245, 0.00298748, -5.89856)]
+"values": [Vector3(11.5761, 0.00298738, -5.89856)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -307,6 +320,18 @@ tracks/10/path = NodePath("../SoundFourthInstruction:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../SoundFifthInstruction:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -438,7 +463,7 @@ flip_faces = true
 size = Vector3(2, 6.70229, 2)
 
 [node name="CsgBox3d4" type="CSGBox3D" parent="3DWorld/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -1.04308e-07, -8.00355e-11, 1, 11.0245, 0.00298748, -5.89856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -1.04308e-07, -8.00355e-11, 1, 11.5761, 0.00298738, -5.89856)
 operation = 2
 flip_faces = true
 size = Vector3(3, 6.74706, 2)
@@ -489,4 +514,8 @@ bus = &"Dialog"
 
 [node name="SoundFourthInstruction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_8ks6v")
+bus = &"Dialog"
+
+[node name="SoundFifthInstruction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_w6r1s")
 bus = &"Dialog"
