@@ -64,6 +64,9 @@ use_collision = true
 
 [node name="Player" parent="." instance=ExtResource("2_mj2tr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21748, 0)
+ACCELERATION = 4.0
+MAX_SPEED = 8.0
+DOUBLE_JUMP_SCALE = 1.0
 HANG_TIME_MOVE_RATE = 0.2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

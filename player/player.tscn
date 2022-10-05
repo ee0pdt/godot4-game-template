@@ -1,15 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://b57eylpx8su7k"]
+[gd_scene load_steps=7 format=3 uid="uid://b57eylpx8su7k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_2o2nq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jpdbf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dcu1"]
+albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.72
+emission = Color(0.0392157, 0.635294, 1, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kw3li"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5ec7"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.07
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_7kr2g"]
+material = SubResource("StandardMaterial3D_d5ec7")
+height = 0.5
+is_hemisphere = true
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2o2nq")
@@ -17,11 +30,17 @@ script = ExtResource("1_2o2nq")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_jpdbf")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 material_override = SubResource("StandardMaterial3D_1dcu1")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_kw3li")
 skeleton = NodePath("../CollisionShape3d")
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0.731, -0.173746)
+mesh = SubResource("SphereMesh_7kr2g")
+skeleton = NodePath("../..")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.1965)

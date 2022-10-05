@@ -97,12 +97,16 @@ func _physics_process(delta):
 			current_state = PlayerStates.IDLE
 	
 	# "Animate" the player mesh
-	if velocity.x < 0:
-		$MeshInstance3d.rotation.z = deg_to_rad(5)
-	elif direction.x > 0:
-		$MeshInstance3d.rotation.z = -deg_to_rad(5)
+	if velocity.x < 0 or direction.x > 0:
+		%Body.rotation.x = -deg_to_rad(5)
 	else:
-		$MeshInstance3d.rotation.z = move_toward($MeshInstance3d.rotation.z, 0, deg_to_rad(0.5))
+		%Body.rotation.x = move_toward(%Body.rotation.x, 0, deg_to_rad(0.5)) 
+	
+	# "Animate" the player mesh
+	if direction.x < 0:
+		%Body.rotation.y = move_toward(%Body.rotation.y, deg_to_rad(90), 1) 
+	elif direction.x > 0:
+		%Body.rotation.y = move_toward(%Body.rotation.y, -deg_to_rad(90), 1) 
 	
 	match current_state:
 		PlayerStates.IN_AIR:
