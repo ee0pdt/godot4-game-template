@@ -10,13 +10,13 @@ enum PlayerStates{
 
 @export var ACCELERATION: float = 2.0
 @export var MAX_SPEED: float = 8
-@export var JUMP_VELOCITY: float  = 6.5
+@export var JUMP_VELOCITY: float  = 9.0
 @export var DOUBLE_JUMP_SCALE: float  = 0.8
 @export var JUMP_BUFFER_TIME: float  = 0.1
 @export var COYOTE_TIME: float  = 0.01
 @export var FRICTION: float  = 1.5
-@export var GRAVITY_MULTIPLIER = 2.5
-@export var JUMP_THRUST_TIME = 0.1
+@export var GRAVITY_MULTIPLIER = 3
+@export var JUMP_THRUST_TIME = 0.2
 @export var HANG_TIME_MOVE_RATE = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -118,9 +118,9 @@ func _physics_process(delta):
 				if abs(direction.x) > 0 and sign(velocity.x) != sign(direction.x):
 					velocity.x = move_toward(velocity.x, direction.x * MAX_SPEED * HANG_TIME_MOVE_RATE, MAX_SPEED)
 				
-				# Increase gravity if already falling
-				if velocity.y < 0:
-					gravity_multipler = GRAVITY_MULTIPLIER
+#				# Increase gravity if already falling
+#				if velocity.y < 0:
+				gravity_multipler = GRAVITY_MULTIPLIER
 				
 				if jump_thrust_timer > JUMP_THRUST_TIME:
 					# Apply gravity to player
