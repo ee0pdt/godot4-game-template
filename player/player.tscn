@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b57eylpx8su7k"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_2o2nq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jpdbf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dcu1"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.72
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kw3li"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_2o2nq")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_jpdbf")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1dcu1")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_kw3li")
+skeleton = NodePath("../CollisionShape3d")
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.1965)
+fov = 36.9
+
+[node name="OmniLight3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.05269)
+light_energy = 0.6
+shadow_enabled = true
+shadow_opacity = 0.47
+omni_range = 8.01986
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundDoubleJump" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundEnter" type="AudioStreamPlayer" parent="."]

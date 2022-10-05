@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 
 
 func _on_next_level_pressed():
