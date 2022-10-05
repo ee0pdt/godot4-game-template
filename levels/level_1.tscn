@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://b57eylpx8su7k" path="res://player/player.tscn" id="2_mj2tr"]
@@ -8,6 +8,12 @@ size = Vector2(200, 200)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_muex6"]
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="Environment" id="Environment_3pqqx"]
+background_mode = 1
+tonemap_mode = 3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_oypdx"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -22,15 +28,44 @@ shape = SubResource("ConcavePolygonShape3D_muex6")
 
 [node name="CsgBox3d" type="CSGBox3D" parent="MeshInstance3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
+use_collision = true
 
 [node name="CsgBox3d2" type="CSGBox3D" parent="MeshInstance3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40644, 0.5, 0)
+use_collision = true
+
+[node name="CsgBox3d9" type="CSGBox3D" parent="MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01142, 3.51372, 0)
+use_collision = true
 
 [node name="CsgBox3d3" type="CSGBox3D" parent="MeshInstance3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3098, 0.5, 0)
+use_collision = true
 
 [node name="CsgBox3d4" type="CSGBox3D" parent="MeshInstance3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0278, 0.5, 0)
+use_collision = true
+
+[node name="CsgBox3d5" type="CSGBox3D" parent="MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9504, 0.5, -4.97188)
+use_collision = true
+
+[node name="CsgBox3d6" type="CSGBox3D" parent="MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45604, 0.5, -4.97188)
+use_collision = true
+
+[node name="CsgBox3d7" type="CSGBox3D" parent="MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2602, 0.5, -4.97188)
+use_collision = true
+
+[node name="CsgBox3d8" type="CSGBox3D" parent="MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07738, 0.5, -4.97188)
+use_collision = true
 
 [node name="Player" parent="." instance=ExtResource("2_mj2tr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21748, 0)
+HANG_TIME_MOVE_RATE = 0.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3pqqx")
+camera_attributes = SubResource("CameraAttributesPractical_oypdx")

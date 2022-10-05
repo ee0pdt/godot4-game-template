@@ -8,17 +8,22 @@ enum PlayerStates{
 	IN_AIR,
 }
 
-@export var SPEED: float = 4.0
+@export var ACCELERATION: float = 2.0
+@export var MAX_SPEED: float = 8
 @export var JUMP_VELOCITY: float  = 6.5
-@export var DOUBLE_JUMP_SCALE: float  = 1.0
+@export var DOUBLE_JUMP_SCALE: float  = 0.8
 @export var JUMP_BUFFER_TIME: float  = 0.1
-@export var COYOTE_TIME: float  = 0.1
-@export var FRICTION: float  = 0.4
+@export var COYOTE_TIME: float  = 0.01
+@export var FRICTION: float  = 1.5
+@export var GRAVITY_MULTIPLIER = 2.5
+@export var JUMP_THRUST_TIME = 0.1
+@export var HANG_TIME_MOVE_RATE = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jump_buffer_timer: float = 0
+var jump_thrust_timer: float = 0
 var coyote_timer: float = 0
 var double_jump: int = 1
 var current_state = PlayerStates.IDLE
@@ -29,12 +34,17 @@ func _ready():
 
 
 func _process(delta: float) ->  void:
+	match current_state:
+		PlayerStates.IN_AIR:
+			jump_thrust_timer += delta
+	
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
 	return null
 	
 
 func _zero_jump_timers() -> void:
+	jump_thrust_timer = 0
 	coyote_timer = 0
 	jump_buffer_timer = 0
 	return null
@@ -106,14 +116,17 @@ func _physics_process(delta):
 			else:
 				# Allow for change direction in mid-air
 				if abs(direction.x) > 0 and sign(velocity.x) != sign(direction.x):
-					velocity.x = move_toward(velocity.x, direction.x * 2, SPEED)
+					velocity.x = move_toward(velocity.x, direction.x * MAX_SPEED * HANG_TIME_MOVE_RATE, MAX_SPEED)
+				
 				# Increase gravity if already falling
 				if velocity.y < 0:
-					gravity_multipler = 2
-				# Apply gravity to player
-				velocity.y -= gravity * delta * gravity_multipler
+					gravity_multipler = GRAVITY_MULTIPLIER
+				
+				if jump_thrust_timer > JUMP_THRUST_TIME:
+					# Apply gravity to player
+					velocity.y -= gravity * delta * gravity_multipler
 		PlayerStates.WALKING:
-			velocity.x = direction.x * SPEED
+			velocity.x = move_toward(velocity.x, sign(direction.x) * MAX_SPEED , ACCELERATION)
 		PlayerStates.IDLE:
 			velocity.x = move_toward(velocity.x, 0, FRICTION)
 		PlayerStates.JUMPING:
@@ -126,6 +139,7 @@ func _physics_process(delta):
 			
 			# Apply jump velocity
 			velocity.y = jump_velocity
+			
 			# Reset jump timers
 			_zero_jump_timers()
 			# Exit the jump state
