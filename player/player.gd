@@ -15,7 +15,7 @@ enum PlayerStates{
 @export var JUMP_BUFFER_TIME: float  = 0.1
 @export var COYOTE_TIME: float  = 0.01
 @export var FRICTION: float  = 1.5
-@export var GRAVITY_MULTIPLIER = 3
+@export var GRAVITY_MULTIPLIER = 2.5
 @export var JUMP_THRUST_TIME = 0.2
 @export var HANG_TIME_MOVE_RATE = 1.5
 
@@ -116,7 +116,7 @@ func _physics_process(delta):
 			else:
 				# Allow for change direction in mid-air
 				if abs(direction.x) > 0 and sign(velocity.x) != sign(direction.x):
-					velocity.x = move_toward(velocity.x, direction.x * MAX_SPEED * HANG_TIME_MOVE_RATE, MAX_SPEED)
+					velocity.x = move_toward(velocity.x, sign(direction.x) * MAX_SPEED, ACCELERATION)
 				
 #				# Increase gravity if already falling
 #				if velocity.y < 0:
