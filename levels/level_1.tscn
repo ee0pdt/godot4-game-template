@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
+[ext_resource type="PackedScene" uid="uid://bxic3q3bohcpw" path="res://assets/Spacestation.glb" id="4_1lukr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
@@ -31,12 +32,14 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -44,6 +47,7 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -53,6 +57,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -61,6 +66,7 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -77,7 +83,7 @@ text = "0"
 
 [node name="Player" type="CharacterBody3D" parent="3DWorld"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.74668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7683, 4.74668)
 script = ExtResource("3_mxm1r")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Player"]
@@ -94,3 +100,10 @@ environment = SubResource("Environment_sytva")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="OmniLight3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.19434, 5.89722)
+shadow_enabled = true
+omni_range = 24.0346
+
+[node name="Spacestation" parent="." instance=ExtResource("4_1lukr")]
