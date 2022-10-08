@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -7,7 +7,18 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_un3ci"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0.635294, 0.670588, 1)
+ground_bottom_color = Color(0.160784, 0.00392157, 0.113725, 1)
+ground_horizon_color = Color(0, 0.588235, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_wrbb6"]
+sky_material = SubResource("ProceduralSkyMaterial_un3ci")
+
 [sub_resource type="Environment" id="Environment_sytva"]
+background_mode = 2
+sky = SubResource("Sky_wrbb6")
 ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
@@ -107,3 +118,27 @@ shadow_enabled = true
 omni_range = 24.0346
 
 [node name="Spacestation" parent="." instance=ExtResource("4_1lukr")]
+
+[node name="Spacestation2" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.188)
+
+[node name="Spacestation3" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 71.6083)
+
+[node name="Spacestation4" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, 0)
+
+[node name="Spacestation5" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, -72.188)
+
+[node name="Spacestation6" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, 71.6083)
+
+[node name="Spacestation7" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, 0)
+
+[node name="Spacestation8" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, -72.188)
+
+[node name="Spacestation9" parent="." instance=ExtResource("4_1lukr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, 71.6083)
