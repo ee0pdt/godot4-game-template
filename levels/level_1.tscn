@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=10 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="PackedScene" uid="uid://b57eylpx8su7k" path="res://player/player.tscn" id="2_mj2tr"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ulvxh"]
-size = Vector2(200, 200)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_muex6"]
-data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+[ext_resource type="Texture2D" uid="uid://q2tua6xr6gh0" path="res://assets/background_1.png" id="3_oy08x"]
+[ext_resource type="Texture2D" uid="uid://dush1nau1yiac" path="res://assets/background_2.png" id="4_gotpk"]
+[ext_resource type="PackedScene" uid="uid://b3bumo2liyvd6" path="res://assets/landscape.glb" id="5_f0tw3"]
+[ext_resource type="PackedScene" uid="uid://c0odwt01c3sd7" path="res://assets/terrain.glb" id="6_t6dsn"]
 
 [sub_resource type="Environment" id="Environment_3pqqx"]
 background_mode = 1
@@ -15,55 +13,17 @@ tonemap_mode = 3
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_oypdx"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_a4c0j"]
+flip_faces = true
+radius = 38.817
+height = 8.837
+is_hemisphere = true
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_ulvxh")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="MeshInstance3d"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="MeshInstance3d/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_muex6")
-
-[node name="CsgBox3d" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
-use_collision = true
-
-[node name="CsgBox3d2" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40644, 0.5, 0)
-use_collision = true
-
-[node name="CsgBox3d9" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01142, 3.51372, 0)
-use_collision = true
-
-[node name="CsgBox3d3" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3098, 0.5, 0)
-use_collision = true
-
-[node name="CsgBox3d4" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0278, 0.5, 0)
-use_collision = true
-
-[node name="CsgBox3d5" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9504, 0.5, -4.97188)
-use_collision = true
-
-[node name="CsgBox3d6" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45604, 0.5, -4.97188)
-use_collision = true
-
-[node name="CsgBox3d7" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2602, 0.5, -4.97188)
-use_collision = true
-
-[node name="CsgBox3d8" type="CSGBox3D" parent="MeshInstance3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07738, 0.5, -4.97188)
-use_collision = true
-
 [node name="Player" parent="." instance=ExtResource("2_mj2tr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21748, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.0247, 0)
 ACCELERATION = 4.0
 MAX_SPEED = 8.0
 DOUBLE_JUMP_SCALE = 1.0
@@ -72,3 +32,37 @@ HANG_TIME_MOVE_RATE = 0.2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3pqqx")
 camera_attributes = SubResource("CameraAttributesPractical_oypdx")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.94964, -12.0504)
+visible = false
+mesh = SubResource("SphereMesh_a4c0j")
+
+[node name="Projector" type="SpotLight3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -4.47035e-08, -1, 0, 1, -4.47035e-08, 0, -11.0085, 1.40951)
+light_projector = ExtResource("3_oy08x")
+shadow_enabled = true
+spot_range = 2262.72
+spot_attenuation = 0.000560885
+spot_angle = 74.38
+spot_angle_attenuation = 0.233258
+
+[node name="Background2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 77.3213, 5.94964, -12.0504)
+visible = false
+mesh = SubResource("SphereMesh_a4c0j")
+
+[node name="Projector" type="SpotLight3D" parent="Background2"]
+transform = Transform3D(1, 0, 0, 0, -4.47035e-08, -1, 0, 1, -4.47035e-08, 0, -10.8655, 1.40127)
+light_projector = ExtResource("4_gotpk")
+shadow_enabled = true
+spot_range = 2262.72
+spot_attenuation = 0.000560885
+spot_angle = 72.41
+spot_angle_attenuation = 0.233258
+
+[node name="landscape" parent="." instance=ExtResource("5_f0tw3")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 28.8153, 19.1333, -61.1751)
+
+[node name="terrain" parent="." instance=ExtResource("6_t6dsn")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30.9813, 2.13704, -4.44427)

@@ -5,9 +5,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jpdbf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dcu1"]
-albedo_color = Color(0, 0, 0, 1)
-emission_enabled = true
-emission = Color(0.0392157, 0.635294, 1, 1)
+metallic = 0.92
+roughness = 0.69
+emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kw3li"]
@@ -15,7 +15,6 @@ emission_energy_multiplier = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5ec7"]
 albedo_color = Color(0, 0, 0, 1)
 roughness = 0.07
-emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.7
 
@@ -43,15 +42,8 @@ mesh = SubResource("SphereMesh_7kr2g")
 skeleton = NodePath("../..")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.1965)
-fov = 36.9
-
-[node name="OmniLight3d" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.05269)
-light_energy = 0.6
-shadow_enabled = true
-shadow_opacity = 0.47
-omni_range = 8.01986
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47595, 20.6957)
+fov = 37.8
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
 
