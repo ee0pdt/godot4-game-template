@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=6 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
-[ext_resource type="AudioStream" uid="uid://cmpctyse55rem" path="res://assets/10seconds.mp3" id="6_dccr2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
@@ -99,5 +98,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 environment = SubResource("Environment_sytva")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_dccr2")
 bus = &"Music"
