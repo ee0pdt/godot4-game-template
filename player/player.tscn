@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://lw3r6erahia1"]
+
+[ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="1_55d41"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7683, 4.74668)
+script = ExtResource("1_55d41")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5qqo4")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+
+[node name="Camera3d" type="Camera3D" parent="Neck"]

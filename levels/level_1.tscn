@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
-[ext_resource type="Script" path="res://levels/CharacterBody3d.gd" id="3_mxm1r"]
-[ext_resource type="PackedScene" uid="uid://bxic3q3bohcpw" path="res://assets/Spacestation.glb" id="4_1lukr"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
+[ext_resource type="PackedScene" uid="uid://lw3r6erahia1" path="res://player/player.tscn" id="3_2qcib"]
+[ext_resource type="PackedScene" uid="uid://c5g4jf7erw0mi" path="res://assets/Spacestation.glb" id="4_1lukr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_un3ci"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -22,7 +20,10 @@ sky = SubResource("Sky_wrbb6")
 ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 glow_bloom = 0.14
+glow_blend_mode = 0
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -92,19 +93,8 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Player" type="CharacterBody3D" parent="3DWorld"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7683, 4.74668)
-script = ExtResource("3_mxm1r")
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_5qqo4")
-
-[node name="Neck" type="Node3D" parent="3DWorld/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Camera3d" type="Camera3D" parent="3DWorld/Player/Neck"]
+[node name="Player" parent="3DWorld" instance=ExtResource("3_2qcib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532581, 40.5617)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
@@ -113,32 +103,33 @@ environment = SubResource("Environment_sytva")
 bus = &"Music"
 
 [node name="OmniLight3d" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.19434, 5.89722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78782, 2.13329, 4.8703)
+light_color = Color(0.933333, 0.501961, 0, 1)
 shadow_enabled = true
-omni_range = 24.0346
+omni_range = 4.29974
+
+[node name="OmniLight3d2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70634, 2.13329, 4.8703)
+light_color = Color(0.933333, 0.501961, 0, 1)
+shadow_enabled = true
+omni_range = 4.29974
+
+[node name="OmniLight3d3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70634, 2.13329, -4.67574)
+light_color = Color(0.933333, 0.501961, 0, 1)
+shadow_enabled = true
+omni_range = 4.29974
+
+[node name="OmniLight3d4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9694, 2.13329, -4.67574)
+light_color = Color(0.933333, 0.501961, 0, 1)
+shadow_enabled = true
+omni_range = 4.29974
 
 [node name="Spacestation" parent="." instance=ExtResource("4_1lukr")]
 
-[node name="Spacestation2" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.188)
-
-[node name="Spacestation3" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 71.6083)
-
-[node name="Spacestation4" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, 0)
-
-[node name="Spacestation5" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, -72.188)
-
-[node name="Spacestation6" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1051, 0, 71.6083)
-
-[node name="Spacestation7" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, 0)
-
-[node name="Spacestation8" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, -72.188)
-
-[node name="Spacestation9" parent="." instance=ExtResource("4_1lukr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0815, 0, 71.6083)
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.600727, -0.307832, -0.737812, 0.799454, 0.231312, 0.554408, 0, -0.922895, 0.385053, 4.9694, 10.2692, -4.67574)
+light_energy = 0.2
+shadow_enabled = true
+sky_mode = 1
