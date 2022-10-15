@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -15,6 +15,8 @@ ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
 glow_bloom = 0.14
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ys2q8"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -100,6 +102,12 @@ environment = SubResource("Environment_sytva")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.368157, 0.929764, 0, -0.929764, 0.368157, 0, 9.99879, 0)
+
+[node name="Hotspot" type="Area3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25118, -1.92338)
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Hotspot"]
+shape = SubResource("BoxShape3D_ys2q8")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
