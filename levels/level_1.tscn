@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://lw3r6erahia1" path="res://player/player.tscn" id="3_2qcib"]
 [ext_resource type="PackedScene" uid="uid://c5g4jf7erw0mi" path="res://assets/Spacestation.glb" id="4_1lukr"]
+[ext_resource type="Texture2D" uid="uid://cushhudfv4c27" path="res://assets/scene_1.png" id="4_eh08l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_un3ci"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -102,9 +103,26 @@ environment = SubResource("Environment_sytva")
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
+[node name="SpotLight3d" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 4.86218, 1.40838, 3.33821)
+light_projector = ExtResource("4_eh08l")
+shadow_enabled = true
+spot_range = 5.54664
+spot_attenuation = 0.0473662
+spot_angle = 21.4646
+
+[node name="SpotLight3d2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.996061, 0, -0.0886684, 0, 1, 0, 0.0886684, 0, -0.996061, 5.89173, 1.40838, -0.354236)
+light_projector = ExtResource("4_eh08l")
+shadow_enabled = true
+spot_range = 3.59133
+spot_attenuation = 0.0473662
+spot_angle = 13.068
+
 [node name="OmniLight3d" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78782, 2.13329, 4.8703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42274, 2.57433, 4.8703)
 light_color = Color(0.933333, 0.501961, 0, 1)
+light_energy = 0.1
 shadow_enabled = true
 omni_range = 4.29974
 
