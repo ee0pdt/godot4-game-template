@@ -6,7 +6,6 @@
 
 [node name="Player" type="CharacterBody3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.74668)
 script = ExtResource("1_a6cdn")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -17,3 +16,11 @@ shape = SubResource("CapsuleShape3D_5qqo4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3d" type="Camera3D" parent="Neck"]
+
+[node name="Arm" type="CSGBox3D" parent="Neck/Camera3d"]
+transform = Transform3D(1, 0, 0, 0, 0.91919, 0.393814, 0, -0.393814, 0.91919, 0.610642, -0.423824, -0.351377)
+size = Vector3(0.22992, 0.242554, 1)
+
+[node name="CsgBox3d2" type="CSGBox3D" parent="Neck/Camera3d/Arm"]
+transform = Transform3D(0.979817, 4.32807e-09, 0.199898, 0.0861214, 0.902435, -0.422131, -0.180395, 0.430826, 0.884221, -0.107372, 0.212329, -0.914948)
+size = Vector3(0.22992, 0.242554, 1)

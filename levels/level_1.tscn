@@ -4,17 +4,17 @@
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
 
-[sub_resource type="Environment" id="Environment_sytva"]
-ambient_light_energy = 0.0
-tonemap_mode = 3
-ssil_enabled = true
-glow_bloom = 0.14
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="Environment" id="Environment_sytva"]
+ambient_light_energy = 0.0
+tonemap_mode = 3
+ssil_enabled = true
+glow_bloom = 0.14
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -84,18 +84,22 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
+[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
+mesh = SubResource("PlaneMesh_p827g")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
+shape = SubResource("ConcavePolygonShape3D_rs80d")
+
 [node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 0.368157, 0.929764, 0, -0.929764, 0.368157, 0, 9.99879, 0)
+
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_p827g")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
