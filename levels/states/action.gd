@@ -1,16 +1,24 @@
 extends State
 
 
+var loop_ending: bool
+
+
 func enter(_msg := {}) -> void:
 	owner.countdown = owner.action_wait_time
+	loop_ending = false
 
 
 func update(delta: float) -> void:
-	owner.countdown -= delta
-	if owner.countdown <= 0:
-		state_machine.transition_to(owner.States.keys()[owner.States.OVER])
-	else:
-		_check_for_right_action()
+	var time = (owner as Level).get_loop_time()
+	
+	if loop_ending:
+		if time < 1:
+			state_machine.transition_to(owner.States.keys()[owner.States.OVER])
+	elif time >= 2:
+		loop_ending = true 
+	
+	_check_for_right_action()
 
 
 func _check_for_right_action():
