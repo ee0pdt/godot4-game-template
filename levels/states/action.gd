@@ -18,3 +18,12 @@ func _check_actions():
 		(owner as Level).Actions.RAISE:
 			if Input.is_action_just_pressed("raise"):
 				state_machine.transition_to(owner.States.keys()[owner.States.INSTRUCTING])
+		(owner as Level).Actions.WAVE:
+			if Input.is_action_just_pressed("wave"):
+				state_machine.transition_to(owner.States.keys()[owner.States.INSTRUCTING])
+		(owner as Level).Actions.DIP:
+			if Input.is_action_just_pressed("dip"):
+				state_machine.transition_to(owner.States.keys()[owner.States.INSTRUCTING])
+		(owner as Level).Actions.BLESS:
+			if Input.is_action_just_pressed("bless"):
+				state_machine.transition_to(owner.States.keys()[owner.States.INSTRUCTING])
