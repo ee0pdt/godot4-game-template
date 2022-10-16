@@ -14,15 +14,15 @@ func enter(_msg := {}) -> void:
 func update(delta: float) -> void:
 	var time = (owner as Level).get_loop_time()
 	
-	print("Time: ", time)
+#	print("Time: ", time)
 	
 	if loop_ending:
 		if time < 0.5:
 			if success:
-				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])
 			else:
-				state_machine.transition_to(owner.States.keys()[owner.States.OVER])
-	elif time >= 1.99:
+				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.OVER])
+	elif time >= (owner as Level).LOOP_LENGTH:
 		loop_ending = true 
 	
 	_check_for_right_action()
@@ -58,4 +58,4 @@ func _check_for_wrong_action():
 		Input.is_action_just_released("wave") or \
 		Input.is_action_just_released("dip") or \
 		Input.is_action_just_released("bless"):
-			state_machine.transition_to(owner.States.keys()[owner.States.OVER])
+			state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.OVER])
