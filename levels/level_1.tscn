@@ -45,15 +45,31 @@ offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
 layout_mode = 2
+offset_right = 260.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[node name="CountdownLabel" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+offset_right = 260.0
+offset_bottom = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 50
+text = "Coundown"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 264.0
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
 
-[node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer3"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-offset_right = 524.0
+offset_right = 260.0
 offset_bottom = 548.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -64,20 +80,40 @@ text = "0"
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 528.0
+offset_right = 788.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[node name="StateLabel" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_right = 260.0
+offset_bottom = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_de73j")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "State"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 792.0
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
 
-[node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="State" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
-offset_left = 424.0
-offset_right = 524.0
+offset_right = 100.0
 offset_bottom = 548.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
 theme_override_font_sizes/normal_font_size = 50
