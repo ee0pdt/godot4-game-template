@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=19 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cpp3g7ip0gjlm" path="res://assets/wave_it.mp3" id="11_ywd5a"]
 [ext_resource type="AudioStream" uid="uid://cpp3q2kni0atf" path="res://assets/dip_it.mp3" id="12_l70o3"]
 [ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
+[ext_resource type="AudioStream" uid="uid://x5k1jh3dhqsu" path="res://assets/loop_1.mp3" id="14_86scu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -263,3 +264,8 @@ bus = &"Dialog"
 unique_name_in_owner = true
 stream = ExtResource("13_wvq8h")
 bus = &"Dialog"
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_86scu")
+bus = &"Music"
