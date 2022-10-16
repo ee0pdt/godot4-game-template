@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=23 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
+[ext_resource type="PackedScene" uid="uid://cjoj7y7ygvdk3" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="6_uv1rs"]
 [ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
@@ -15,26 +16,45 @@
 [ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
 [ext_resource type="AudioStream" uid="uid://x5k1jh3dhqsu" path="res://assets/loop_1.mp3" id="14_86scu"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
-size = Vector2(20, 20)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k154n"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="Sky" id="Sky_43h2k"]
+sky_material = SubResource("ProceduralSkyMaterial_k154n")
 
 [sub_resource type="Environment" id="Environment_sytva"]
-ambient_light_energy = 0.0
-tonemap_mode = 3
-ssil_enabled = true
+background_mode = 2
+sky = SubResource("Sky_43h2k")
+sdfgi_enabled = true
 glow_bloom = 0.14
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ys2q8"]
+
+[sub_resource type="Gradient" id="Gradient_lkkk0"]
+colors = PackedColorArray(0.740234, 0.652927, 0.45352, 1, 0.920186, 0.86278, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3l2ko"]
+frequency = 0.88
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0d0lg"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_lkkk0")
+noise = SubResource("FastNoiseLite_3l2ko")
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
 
 [node name="HUD" type="Node2D" parent="."]
+visible = false
 
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas"]
 anchors_preset = 15
@@ -199,28 +219,45 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
-mesh = SubResource("PlaneMesh_p827g")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
-
 [node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5057, 0.629859, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
-
-[node name="DirectionalLight3d" type="DirectionalLight3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 0.368157, 0.929764, 0, -0.929764, 0.368157, 0, 9.99879, 0)
 
 [node name="Hotspot" type="Area3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25118, -1.92338)
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Hotspot"]
 shape = SubResource("BoxShape3D_ys2q8")
+
+[node name="Room" parent="3DWorld" instance=ExtResource("4_ur23t")]
+
+[node name="OmniLight3d" type="OmniLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41634, 4.15499, 8.89307)
+light_color = Color(0, 0, 0, 1)
+shadow_enabled = true
+omni_range = 6.86582
+
+[node name="OmniLight3d5" type="OmniLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81536, 2.34154, 0.658409)
+light_color = Color(1, 0.839216, 0.0784314, 1)
+light_energy = 2.5
+shadow_enabled = true
+omni_range = 6.86582
+
+[node name="OmniLight3d3" type="OmniLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5828, 12.5095, -8.25124)
+light_color = Color(0.701961, 0.643137, 0.270588, 1)
+light_energy = 5.389
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 48.0158
+
+[node name="Decal" type="Decal" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32683, 0.792929, -1.04157)
+extents = Vector3(50, 50, 50)
+texture_albedo = SubResource("NoiseTexture2D_0d0lg")
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
