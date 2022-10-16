@@ -1,8 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=14 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
+[ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
+[ext_resource type="Script" path="res://levels/states/idle.gd" id="6_uv1rs"]
+[ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
+[ext_resource type="Script" path="res://levels/states/action.gd" id="8_5dvie"]
+[ext_resource type="Script" path="res://levels/states/over.gd" id="9_cxlu3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -147,3 +153,23 @@ shape = SubResource("BoxShape3D_ys2q8")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_jvko6")
+initial_state = NodePath("BEFORE")
+
+[node name="BEFORE" type="Node" parent="StateMachine"]
+script = ExtResource("5_gifts")
+
+[node name="IDLE" type="Node" parent="StateMachine"]
+script = ExtResource("6_uv1rs")
+
+[node name="INSTRUCTING" type="Node" parent="StateMachine"]
+script = ExtResource("7_2k3ct")
+
+[node name="ACTION" type="Node" parent="StateMachine"]
+script = ExtResource("8_5dvie")
+
+[node name="OVER" type="Node" parent="StateMachine"]
+script = ExtResource("9_cxlu3")
