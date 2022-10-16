@@ -222,9 +222,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25118, -1.92338)
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Hotspot"]
 shape = SubResource("BoxShape3D_ys2q8")
 
-[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_jvko6")
