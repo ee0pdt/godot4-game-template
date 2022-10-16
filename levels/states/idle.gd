@@ -6,19 +6,18 @@ var loop_ending: bool
 
 func enter(_msg := {}) -> void:
 	loop_ending = false
-	owner.countdown = owner.idle_wait_time
 	if %MusicLoop.is_playing() == false:
 		%MusicLoop.play()
+	print("Idle ", "- loop_ending: ", loop_ending)
 
 
 func update(delta: float) -> void:
-	var time = owner.get_loop_time()
-	print("Time is: ", time)
+	var time = (owner as Level).get_loop_time()
 	
 	if loop_ending:
-		if time < 1:
-			owner.loop_index += 1
-			print("loop_index: ", owner.loop_index)
-			state_machine.transition_to(owner.States.keys()[owner.States.INSTRUCTING])
-	elif time > 2:
+		if time < 0.5:
+			(owner as Level).loop_index += 1
+			print("loop_index: ", (owner as Level).loop_index)
+			state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.INSTRUCTING])
+	elif time > (owner as Level).LOOP_LENGTH:
 		loop_ending = true

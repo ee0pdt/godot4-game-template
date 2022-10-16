@@ -2,7 +2,7 @@ extends State
 
 
 func enter(_msg := {}) -> void:
-	owner.current_action = owner.Actions.values()[randi_range(0, owner.Actions.size()-1)]
+	(owner as Level).current_action = (owner as Level).Actions.values()[randi_range(0, (owner as Level).Actions.size()-1)]
 	
 	match owner.current_action:
 		(owner as Level).Actions.RAISE:
@@ -16,4 +16,4 @@ func enter(_msg := {}) -> void:
 
 
 func update(delta: float) -> void:
-	state_machine.transition_to(owner.States.keys()[owner.States.ACTION])
+	state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.ACTION])

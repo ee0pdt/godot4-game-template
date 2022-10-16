@@ -6,4 +6,4 @@ func enter(_msg := {}) -> void:
 
 
 func update(delta: float) -> void:
-	state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+	state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])

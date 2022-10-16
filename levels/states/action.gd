@@ -2,20 +2,27 @@ extends State
 
 
 var loop_ending: bool
+var success: bool
 
 
 func enter(_msg := {}) -> void:
-	owner.countdown = owner.action_wait_time
 	loop_ending = false
+	success = false
+	print("Action")
 
 
 func update(delta: float) -> void:
 	var time = (owner as Level).get_loop_time()
 	
+	print("Time: ", time)
+	
 	if loop_ending:
-		if time < 1:
-			state_machine.transition_to(owner.States.keys()[owner.States.OVER])
-	elif time >= 2:
+		if time < 0.5:
+			if success:
+				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+			else:
+				state_machine.transition_to(owner.States.keys()[owner.States.OVER])
+	elif time >= 1.99:
 		loop_ending = true 
 	
 	_check_for_right_action()
@@ -25,22 +32,22 @@ func _check_for_right_action():
 	match owner.current_action:
 		(owner as Level).Actions.RAISE:
 			if Input.is_action_just_released("raise"):
-				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.WAVE:
 			if Input.is_action_just_released("wave"):
-				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.DIP:
 			if Input.is_action_just_released("dip"):
-				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.BLESS:
 			if Input.is_action_just_released("bless"):
-				state_machine.transition_to(owner.States.keys()[owner.States.IDLE])
+				success = true
 			else:
 				_check_for_wrong_action()
 

@@ -16,34 +16,19 @@ enum States {
 	OVER
 }
 
+const LOOP_LENGTH = 1.99
+
 var current_action: Actions
 var current_state: States = States.BEFORE
 var countdown: float
 var loop_index: int = 1
+var previous_time: float = 0
 @export var idle_wait_time: float = 5
 @export var action_wait_time: float = 10
 
 
 func _process(delta):
 	_updateHud()
-#	match current_state:
-#		States.BEFORE:
-#			countdown = idle_wait_time
-#			current_state = States.IDLE
-#		States.IDLE:
-#			countdown -= delta
-#			if countdown <= 0:
-#				current_state = States.INSTRUCTING
-#		States.INSTRUCTING:
-#			current_action = Actions.values()[randi_range(0, Actions.size())]
-#			countdown = action_wait_time
-#			current_state = States.ACTION
-#		States.ACTION:
-#			countdown -= delta
-#			if countdown <= 0:
-#				current_state = States.OVER
-#		States.OVER:
-#			pass
 
 
 func _updateHud() -> void:
@@ -57,4 +42,7 @@ func get_loop_time() -> float:
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()
 	
-	return time
+	if time > previous_time or time < 0.5 and previous_time > 1.5:
+		previous_time = time
+	
+	return previous_time
