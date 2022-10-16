@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=18 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
 [ext_resource type="Script" path="res://levels/states/action.gd" id="8_5dvie"]
 [ext_resource type="Script" path="res://levels/states/over.gd" id="9_cxlu3"]
+[ext_resource type="AudioStream" uid="uid://nwvlwgact53c" path="res://assets/raise_it.mp3" id="10_6448r"]
+[ext_resource type="AudioStream" uid="uid://cpp3g7ip0gjlm" path="res://assets/wave_it.mp3" id="11_ywd5a"]
+[ext_resource type="AudioStream" uid="uid://cpp3q2kni0atf" path="res://assets/dip_it.mp3" id="12_l70o3"]
+[ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -239,3 +243,23 @@ script = ExtResource("8_5dvie")
 
 [node name="OVER" type="Node" parent="StateMachine"]
 script = ExtResource("9_cxlu3")
+
+[node name="DialogRaiseIt" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_6448r")
+bus = &"Dialog"
+
+[node name="DialogWaveIt" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_ywd5a")
+bus = &"Dialog"
+
+[node name="DialogDipIt" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_l70o3")
+bus = &"Dialog"
+
+[node name="DialogBlessIt" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_wvq8h")
+bus = &"Dialog"

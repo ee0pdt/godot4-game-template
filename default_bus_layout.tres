@@ -10,12 +10,11 @@ gain = 1.4
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_inn6x"]
 resource_name = "Reverb"
-room_size = 0.7
-damping = 0.6
-spread = 0.28
-wet = 0.14
+room_size = 0.96
+wet = 0.07
 
 [resource]
+bus/0/volume_db = 1.35602
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
@@ -28,15 +27,15 @@ bus/2/name = &"Music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -4.12528
+bus/2/volume_db = 1.35602
 bus/2/send = &"Master"
 bus/3/name = &"Dialog"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 2.647
+bus/3/volume_db = 2.34925
 bus/3/send = &"Master"
 bus/3/effect/0/effect = SubResource("AudioEffectCompressor_yucvq")
-bus/3/effect/0/enabled = true
+bus/3/effect/0/enabled = false
 bus/3/effect/1/effect = SubResource("AudioEffectReverb_inn6x")
 bus/3/effect/1/enabled = true
