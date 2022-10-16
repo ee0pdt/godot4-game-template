@@ -1,3 +1,4 @@
+class_name Level
 extends Node3D
 
 enum Actions {
@@ -19,7 +20,7 @@ var current_action: Actions
 var current_state: States = States.BEFORE
 var countdown: float
 @export var idle_wait_time: float = 5
-@export var action_wait_time: float = 3
+@export var action_wait_time: float = 10
 
 
 func _process(delta):
@@ -47,3 +48,4 @@ func _process(delta):
 func _updateHud():
 	%Countdown.text = str(ceil(countdown))
 	%State.text = %StateMachine.state.name
+	%Action.text = Actions.keys()[current_action]
