@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=29 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
 [ext_resource type="PackedScene" uid="uid://cjoj7y7ygvdk3" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
+[ext_resource type="PackedScene" uid="uid://d370k5q4spl6t" path="res://assets/Hammer.glb" id="5_spcw8"]
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="6_uv1rs"]
 [ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
 [ext_resource type="Script" path="res://levels/states/action.gd" id="8_5dvie"]
@@ -325,6 +326,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27468, 6.23183, -1.04157)
 extents = Vector3(20, 11.11, 20)
 texture_albedo = SubResource("NoiseTexture2D_0d0lg")
 
+[node name="SpotLight3d" type="SpotLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 0.00921518, 0.999958, 0, -0.999958, 0.00921518, 0, 7.97257, 0)
+light_energy = 16.0
+spot_range = 10.5098
+spot_angle = 27.3096
+
+[node name="Hammer" parent="3DWorld" instance=ExtResource("5_spcw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36099, 0)
+
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_jvko6")
@@ -384,7 +394,7 @@ unique_name_in_owner = true
 stream = ExtResource("18_rs64x")
 bus = &"Dialog"
 script = ExtResource("16_tu68o")
-subtitle_text = "When you are ready to begin your learning, step forward pick up the celestial tool"
+subtitle_text = "When you are ready to begin your learning, step forward and pick up the celestial tool"
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
