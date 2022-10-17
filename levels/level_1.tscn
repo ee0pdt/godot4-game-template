@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=26 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://cpp3q2kni0atf" path="res://assets/dip_it.mp3" id="12_l70o3"]
 [ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
 [ext_resource type="AudioStream" uid="uid://x5k1jh3dhqsu" path="res://assets/loop_1.mp3" id="14_86scu"]
+[ext_resource type="AudioStream" uid="uid://b1krtw0tymt2a" path="res://assets/another_new_recruit.mp3" id="15_rau4d"]
+[ext_resource type="Script" path="res://levels/subtitle.gd" id="16_tu68o"]
+[ext_resource type="AudioStream" uid="uid://c04e2tkaypomb" path="res://assets/do_not_be_nervous.mp3" id="17_owcnm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k154n"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -223,6 +226,61 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "0"
 
+[node name="SubtitleOverlay" type="Node2D" parent="."]
+
+[node name="Canvas" type="CanvasLayer" parent="SubtitleOverlay"]
+
+[node name="MarginContainer" type="MarginContainer" parent="SubtitleOverlay/Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubtitleOverlay/Canvas/MarginContainer"]
+layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 453.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 457.0
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Subtitle" type="RichTextLabel" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+
 [node name="3DWorld" type="Node3D" parent="."]
 
 [node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
@@ -304,6 +362,20 @@ bus = &"Dialog"
 unique_name_in_owner = true
 stream = ExtResource("13_wvq8h")
 bus = &"Dialog"
+
+[node name="DialogAnotherNewRecruit" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("15_rau4d")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Ah, another new recruit, you have come to complete the initiation ceremony"
+
+[node name="DialogDoNotBeNervous" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("17_owcnm")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Do not be nervous, the ritual is largely painless, to complete it you must learn but four movements"
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
