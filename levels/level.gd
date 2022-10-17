@@ -16,7 +16,7 @@ enum States {
 	OVER
 }
 
-const LOOP_LENGTH = 1.99
+const LOOP_LENGTH = 1.98
 
 var current_action: Actions
 var current_state: States = States.BEFORE

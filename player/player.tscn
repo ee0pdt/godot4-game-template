@@ -19,3 +19,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Camera3d" type="Camera3D" parent="Neck"]
 
 [node name="Arms" parent="Neck/Camera3d" instance=ExtResource("2_8xspj")]
+unique_name_in_owner = true

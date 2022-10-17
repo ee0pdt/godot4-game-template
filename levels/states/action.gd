@@ -25,28 +25,33 @@ func update(delta: float) -> void:
 	elif time >= (owner as Level).LOOP_LENGTH:
 		loop_ending = true 
 	
-	_check_for_right_action()
+	if not success:
+		_check_for_right_action()
 
 
 func _check_for_right_action():
 	match owner.current_action:
 		(owner as Level).Actions.RAISE:
 			if Input.is_action_just_released("raise"):
+				%Player.raise_it()
 				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.WAVE:
 			if Input.is_action_just_released("wave"):
+				%Player.wave_it()
 				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.DIP:
 			if Input.is_action_just_released("dip"):
+				%Player.dip_it()
 				success = true
 			else:
 				_check_for_wrong_action()
 		(owner as Level).Actions.BLESS:
 			if Input.is_action_just_released("bless"):
+				%Player.bless_it()
 				success = true
 			else:
 				_check_for_wrong_action()

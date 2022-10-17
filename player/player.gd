@@ -43,3 +43,20 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func raise_it() -> void:
+	%Arms/AnimationPlayer.play("RaiseIt")
+
+
+func wave_it() -> void:
+	%Arms/AnimationPlayer.play("WaveIt")
+
+
+func dip_it() -> void:
+	%Arms/AnimationPlayer.play("DipIt")
+
+
+func bless_it() -> void:
+	%Arms/AnimationPlayer.play("BlessIt")
+
