@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctx2kwjfd3xgs"]
+[gd_scene load_steps=8 format=3 uid="uid://ctx2kwjfd3xgs"]
 
 [ext_resource type="PackedScene" uid="uid://bgjgsgbyvpm0o" path="res://hammer/hammer.tscn" id="1_ghifm"]
 
@@ -347,8 +347,79 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 1, 1.6, 3)
 }
 
+[sub_resource type="Animation" id="Animation_2ksje"]
+resource_name = "BlessIt"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.130533, -0.25, 0, 0.25, 0, -0.372362, -0.25, 0, 0.25, 0, -0.372362, -0.25, 0, 0.25, 0, -0.21254, -0.25, 0, 0.25, 0, -0.130533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.6, 1.9, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.203005, -0.25, 0, 0.25, 0, 0.440813, -0.25, 0, 0.25, 0, 0.440813, -0.25, 0, 0.25, 0, 0.418712, -0.25, 0, 0.25, 0, 0.203005, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.6, 1.9, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightArm:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.0267868, -0.25, 0, 0.25, 0, 0.162187, -0.25, 0, 0.25, 0, 0.162187, -0.25, 0, 0.25, 0, 0.238568, -0.25, 0, 0.25, 0, -0.0267868, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.6, 1.9, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-1.22369, -0.25, 0, 0.25, 0, -0.309796, -0.25, 0, 0.25, 0, -0.450591, -0.25, 0, 0.25, 0, -0.450591, -0.25, 0, 0.25, 0, -0.199253, -0.25, 0, 0.25, 0, -1.22369, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.8, 1.3, 1.6, 1.9, 3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LeftArm:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.494022, -0.25, 0, 0.25, 0, -0.494022, -0.25, 0, 0.25, 0, -0.450549, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.8, 1.3, 1.6, 1.9, 3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LeftArm:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.0559273, -0.25, 0, 0.25, 0, 0.0559273, -0.25, 0, 0.25, 0, -0.0789954, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.8, 1.3, 1.6, 1.9, 3)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d87ad"]
 _data = {
+"BlessIt": SubResource("Animation_2ksje"),
 "DipIt": SubResource("Animation_mia7o"),
 "RESET": SubResource("Animation_u5pef"),
 "RaiseIt": SubResource("Animation_uptqj"),
@@ -379,7 +450,7 @@ size = Vector3(0.1, 0.1, 0.1)
 transform = Transform3D(0.767542, 0.0773373, -0.636316, -0.0895826, 0.995895, 0.0129831, 0.634708, 0.0470378, 0.771319, 0, 0, 0)
 
 [node name="LeftArm" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.340183, 0.940359, 0, -0.940359, 0.340182, -0.597337, -0.225032, -0.093031)
+transform = Transform3D(1, 0, 0, 0, 0.340183, 0.940359, 0, -0.94036, 0.340182, -0.597337, -0.225032, -0.093031)
 
 [node name="UpperArm_l" type="CSGBox3D" parent="LeftArm"]
 transform = Transform3D(0.999999, 0, 0, 3.72529e-09, 1, 0, -2.98023e-08, 2.98023e-08, 1, 0.0661014, 0.00657433, -0.188121)
