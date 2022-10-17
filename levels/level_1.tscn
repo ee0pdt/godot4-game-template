@@ -36,10 +36,16 @@ volumetric_fog_density = 0.03
 [sub_resource type="BoxShape3D" id="BoxShape3D_ys2q8"]
 
 [sub_resource type="Gradient" id="Gradient_lkkk0"]
-colors = PackedColorArray(0.740234, 0.652927, 0.45352, 1, 0.920186, 0.86278, 1, 1)
+offsets = PackedFloat32Array(0.0145228, 1)
+colors = PackedColorArray(0.740234, 0.724663, 0.730321, 1, 0.920186, 0.86278, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3l2ko"]
-frequency = 0.88
+noise_type = 4
+frequency = 1.0
+fractal_octaves = 8
+fractal_gain = 1.2
+fractal_weighted_strength = 0.66
+domain_warp_enabled = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0d0lg"]
 in_3d_space = true
@@ -255,8 +261,8 @@ shadow_enabled = true
 omni_range = 48.0158
 
 [node name="Decal" type="Decal" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32683, 0.792929, -1.04157)
-extents = Vector3(50, 50, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27468, 6.23183, -1.04157)
+extents = Vector3(20, 11.11, 20)
 texture_albedo = SubResource("NoiseTexture2D_0d0lg")
 
 [node name="StateMachine" type="Node" parent="."]
