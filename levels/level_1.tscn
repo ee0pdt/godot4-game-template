@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=28 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -14,10 +14,12 @@
 [ext_resource type="AudioStream" uid="uid://cpp3g7ip0gjlm" path="res://assets/wave_it.mp3" id="11_ywd5a"]
 [ext_resource type="AudioStream" uid="uid://cpp3q2kni0atf" path="res://assets/dip_it.mp3" id="12_l70o3"]
 [ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
-[ext_resource type="AudioStream" uid="uid://x5k1jh3dhqsu" path="res://assets/loop_1.mp3" id="14_86scu"]
+[ext_resource type="AudioStream" uid="uid://qsfitlj0ckfb" path="res://assets/loop_1.mp3" id="14_86scu"]
 [ext_resource type="AudioStream" uid="uid://b1krtw0tymt2a" path="res://assets/another_new_recruit.mp3" id="15_rau4d"]
 [ext_resource type="Script" path="res://levels/subtitle.gd" id="16_tu68o"]
 [ext_resource type="AudioStream" uid="uid://c04e2tkaypomb" path="res://assets/do_not_be_nervous.mp3" id="17_owcnm"]
+[ext_resource type="AudioStream" uid="uid://cxg2h8os2bgdb" path="res://assets/when_you_are_ready_to_begin.mp3" id="18_rs64x"]
+[ext_resource type="AudioStream" uid="uid://ducb0or3o6f75" path="res://assets/atmosphere.mp3" id="20_f15ip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k154n"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -377,7 +379,19 @@ bus = &"Dialog"
 script = ExtResource("16_tu68o")
 subtitle_text = "Do not be nervous, the ritual is largely painless, to complete it you must learn but four movements"
 
+[node name="DialogWhenYouAreReady" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("18_rs64x")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "When you are ready to begin your learning, step forward pick up the celestial tool"
+
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_86scu")
+bus = &"Music"
+
+[node name="MusicAtmosphere" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("20_f15ip")
 bus = &"Music"

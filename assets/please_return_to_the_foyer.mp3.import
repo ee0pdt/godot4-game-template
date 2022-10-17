@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bve805dmo6x6o"
+uid="uid://1g30splpnm5k"
 path="res://.godot/imported/please_return_to_the_foyer.mp3-a54a4b9174dbf9ecb1e559b34a8ed53d.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/please_return_to_the_foyer.mp3-a54a4b9174dbf9
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

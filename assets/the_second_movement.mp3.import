@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://c5ai6nfui7tif"
+uid="uid://dbm8ky5j2856"
 path="res://.godot/imported/the_second_movement.mp3-054b5eaf8c366b59c61b0f9860b75e2a.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/the_second_movement.mp3-054b5eaf8c366b59c61b0
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

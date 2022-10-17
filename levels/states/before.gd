@@ -2,10 +2,13 @@ extends State
 
 
 func enter(_msg := {}) -> void:
+	%MusicAtmosphere.play()
 	%DialogAnotherNewRecruit.play()
 	await %DialogAnotherNewRecruit.finished
 	%DialogDoNotBeNervous.play()
 	await %DialogDoNotBeNervous.finished
+	%DialogWhenYouAreReady.play()
+	await %DialogWhenYouAreReady.finished
 
 
 func update(delta: float) -> void:

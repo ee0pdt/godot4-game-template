@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bffmqer731vdl"
+uid="uid://cxg2h8os2bgdb"
 path="res://.godot/imported/when_you_are_ready_to_begin.mp3-977382efbaa5d6b4b5a4d544fb7939db.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/when_you_are_ready_to_begin.mp3-977382efbaa5d
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dhqenvabjsse4"
+uid="uid://cfuwunrmpmw6p"
 path="res://.godot/imported/in_the_first_movement.mp3-49fe5f250f2e48f0ec62a41ebd72890f.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/in_the_first_movement.mp3-49fe5f250f2e48f0ec6
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
