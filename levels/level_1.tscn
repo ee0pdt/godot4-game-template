@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
-[ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="PackedScene" uid="uid://cffd3nq7qahot" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
 [ext_resource type="PackedScene" uid="uid://cjoj7y7ygvdk3" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]

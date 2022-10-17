@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyxaalm3c5gml"]
+[gd_scene load_steps=4 format=3 uid="uid://cffd3nq7qahot"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_a6cdn"]
-[ext_resource type="PackedScene" uid="uid://ctx2kwjfd3xgs" path="res://arms/right_arm.tscn" id="2_8xspj"]
+[ext_resource type="PackedScene" uid="uid://ctx2kwjfd3xgs" path="res://arms/arms.tscn" id="2_8xspj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
@@ -18,4 +18,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3d" type="Camera3D" parent="Neck"]
 
-[node name="RightArm" parent="Neck/Camera3d" instance=ExtResource("2_8xspj")]
+[node name="Arms" parent="Neck/Camera3d" instance=ExtResource("2_8xspj")]
