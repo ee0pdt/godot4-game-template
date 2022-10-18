@@ -23,6 +23,7 @@ var current_state: States = States.BEFORE
 var countdown: float
 var loop_index: int = 1
 var previous_time: float = 0
+var has_hammer: bool = false
 @export var idle_wait_time: float = 5
 @export var action_wait_time: float = 10
 
@@ -46,3 +47,9 @@ func get_loop_time() -> float:
 		previous_time = time
 	
 	return previous_time
+
+
+func _on_hammer_area_body_entered(body):
+	%HammerArea.hide()
+	%Player.show_hammer()
+	has_hammer = true

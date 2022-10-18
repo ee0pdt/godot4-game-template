@@ -14,7 +14,7 @@ room_size = 0.96
 wet = 0.07
 
 [resource]
-bus/0/volume_db = 1.35602
+bus/0/volume_db = -32.9912
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false

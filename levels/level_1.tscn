@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=30 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -58,6 +58,9 @@ in_3d_space = true
 seamless = true
 color_ramp = SubResource("Gradient_lkkk0")
 noise = SubResource("FastNoiseLite_3l2ko")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ywpwt"]
+radius = 1.07656
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -332,7 +335,14 @@ light_energy = 16.0
 spot_range = 10.5098
 spot_angle = 27.3096
 
-[node name="Hammer" parent="3DWorld" instance=ExtResource("5_spcw8")]
+[node name="HammerArea" type="Area3D" parent="3DWorld"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/HammerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56139, 0)
+shape = SubResource("CylinderShape3D_ywpwt")
+
+[node name="Hammer" parent="3DWorld/HammerArea" instance=ExtResource("5_spcw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36099, 0)
 
 [node name="StateMachine" type="Node" parent="."]
@@ -359,21 +369,29 @@ script = ExtResource("9_cxlu3")
 unique_name_in_owner = true
 stream = ExtResource("10_6448r")
 bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Raise it!"
 
 [node name="DialogWaveIt" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_ywd5a")
 bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Wave it!"
 
 [node name="DialogDipIt" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("12_l70o3")
 bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Dip it!"
 
 [node name="DialogBlessIt" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_wvq8h")
 bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Bless it!"
 
 [node name="DialogAnotherNewRecruit" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -406,3 +424,5 @@ unique_name_in_owner = true
 stream = ExtResource("20_f15ip")
 volume_db = -13.667
 bus = &"Music"
+
+[connection signal="body_entered" from="3DWorld/HammerArea" to="." method="_on_hammer_area_body_entered"]

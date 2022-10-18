@@ -12,5 +12,5 @@ func enter(_msg := {}) -> void:
 
 
 func update(delta: float) -> void:
-	if Input.is_action_just_released("raise"):
+	if (owner as Level).has_hammer:
 		state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])

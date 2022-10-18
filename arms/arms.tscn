@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctx2kwjfd3xgs"]
+[gd_scene load_steps=9 format=3 uid="uid://ctx2kwjfd3xgs"]
 
+[ext_resource type="Script" path="res://arms/arms.gd" id="1_47fhm"]
 [ext_resource type="PackedScene" uid="uid://bgjgsgbyvpm0o" path="res://hammer/hammer.tscn" id="1_ghifm"]
 
 [sub_resource type="Animation" id="Animation_2ksje"]
@@ -427,6 +428,7 @@ _data = {
 }
 
 [node name="Arms" type="Node3D"]
+script = ExtResource("1_47fhm")
 
 [node name="RightArm" type="Node3D" parent="."]
 transform = Transform3D(0.979817, 4.67523e-07, 0.199898, -0.0265557, 0.991136, 0.130162, -0.198127, -0.132844, 0.971131, 0.58348, -0.225032, -0.093031)
@@ -447,6 +449,7 @@ transform = Transform3D(0.999863, 0.0165219, 0.000670324, -0.0165219, 0.996579, 
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Hammer" parent="RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r" instance=ExtResource("1_ghifm")]
+unique_name_in_owner = true
 transform = Transform3D(-0.707968, -0.239757, 0.664303, -0.0638273, 0.958485, 0.277909, -0.703355, 0.15435, -0.69388, 0, 0, 0)
 visible = false
 

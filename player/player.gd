@@ -60,3 +60,6 @@ func dip_it() -> void:
 func bless_it() -> void:
 	%Arms/AnimationPlayer.play("BlessIt")
 
+
+func show_hammer() -> void:
+	%Arms.show_hammer()
