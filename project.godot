@@ -32,7 +32,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ritual"
+config/name="The Initiation"
 run/main_scene="res://splash_screen/splash_screen.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
