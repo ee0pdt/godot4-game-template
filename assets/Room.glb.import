@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjoj7y7ygvdk3"
+uid="uid://gcodde7fmb26"
 path="res://.godot/imported/Room.glb-315a1ca7409a95a7feb0c77052fd1679.scn"
 
 [deps]
@@ -26,4 +26,11 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 import_script/path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Room_Cylinder": {
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/room_mesh.res"
+}
+}
+}
