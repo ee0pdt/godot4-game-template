@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=37 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cffd3nq7qahot" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="Texture2D" uid="uid://d2mijrji8p80p" path="res://assets/emerald_decal.png" id="3_ffqig"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
-[ext_resource type="PackedScene" uid="uid://cjoj7y7ygvdk3" path="res://assets/Room.glb" id="4_ur23t"]
+[ext_resource type="PackedScene" uid="uid://gcodde7fmb26" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
 [ext_resource type="PackedScene" uid="uid://d370k5q4spl6t" path="res://assets/Hammer.glb" id="5_spcw8"]
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="6_uv1rs"]
@@ -48,8 +49,8 @@ volumetric_fog_density = 0.03
 [sub_resource type="BoxShape3D" id="BoxShape3D_ys2q8"]
 
 [sub_resource type="Gradient" id="Gradient_lkkk0"]
-offsets = PackedFloat32Array(0.0145228, 1)
-colors = PackedColorArray(0.740234, 0.724663, 0.730321, 1, 0.920186, 0.86278, 1, 1)
+offsets = PackedFloat32Array(0.0210526, 0.964912)
+colors = PackedColorArray(0.382812, 0.37476, 0.377686, 1, 0, 0, 0, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3l2ko"]
 noise_type = 4
@@ -325,9 +326,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27468, 6.23183, -1.04157)
 extents = Vector3(20, 11.11, 20)
 texture_albedo = SubResource("NoiseTexture2D_0d0lg")
 
+[node name="Decal2" type="Decal" parent="3DWorld"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, 0.466227, 0.0307992)
+extents = Vector3(1.7387, 0.881098, 1.42846)
+texture_albedo = ExtResource("3_ffqig")
+texture_emission = ExtResource("3_ffqig")
+emission_energy = 0.5
+
 [node name="SpotLight3d" type="SpotLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.00921518, 0.999958, 0, -0.999958, 0.00921518, 0, 7.97257, 0)
 light_energy = 16.0
+shadow_enabled = true
 spot_range = 10.5098
 spot_angle = 27.3096
 
@@ -367,90 +376,6 @@ script = ExtResource("9_cxlu3")
 [node name="WIN" type="Node" parent="StateMachine"]
 script = ExtResource("12_x3rd8")
 
-[node name="DialogRaiseIt" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("10_6448r")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Raise it!"
-
-[node name="DialogWaveIt" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("11_ywd5a")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Wave it!"
-
-[node name="DialogDipIt" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("12_l70o3")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Dip it!"
-
-[node name="DialogBlessIt" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("13_wvq8h")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Bless it!"
-
-[node name="DialogNoThatIsIncorrect" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("17_jykm6")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "No. That is incorrect"
-
-[node name="DialogYouHaveFailed" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("18_wxptk")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Oh I’m afraid you have failed your initiation. Please come back when you are ready to try again."
-
-[node name="DialogAnotherNewRecruit" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("15_rau4d")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Ah, another new recruit, you have come to complete the initiation ceremony"
-
-[node name="DialogDoNotBeNervous" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("17_owcnm")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Do not be nervous, the ritual is largely painless, to complete it you must learn but four movements"
-
-[node name="DialogWhenYouAreReady" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("18_rs64x")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "When you are ready to begin your learning, step forward and pick up the celestial tool"
-
-[node name="DialogVeryGood" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("23_4hd2k")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Very good!"
-
-[node name="DialogCongratulations" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("24_rtx24")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Congratulations, you have completed the initiation!"
-
-[node name="DialogPleaseReturnToTheFoyer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("25_h47n0")
-bus = &"Dialog"
-script = ExtResource("16_tu68o")
-subtitle_text = "Please return to the foyer and speak to Carol on reception, she will provide your certificate and badge. Good day!"
-
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_86scu")
@@ -462,5 +387,91 @@ unique_name_in_owner = true
 stream = ExtResource("20_f15ip")
 volume_db = -13.667
 bus = &"Music"
+
+[node name="Dialog" type="Node" parent="."]
+
+[node name="DialogRaiseIt" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("10_6448r")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Raise it!"
+
+[node name="DialogWaveIt" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("11_ywd5a")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Wave it!"
+
+[node name="DialogDipIt" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("12_l70o3")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Dip it!"
+
+[node name="DialogBlessIt" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("13_wvq8h")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Bless it!"
+
+[node name="DialogNoThatIsIncorrect" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("17_jykm6")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "No. That is incorrect"
+
+[node name="DialogYouHaveFailed" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("18_wxptk")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Oh I’m afraid you have failed your initiation. Please come back when you are ready to try again."
+
+[node name="DialogAnotherNewRecruit" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("15_rau4d")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Ah, another new recruit, you have come to complete the initiation ceremony"
+
+[node name="DialogDoNotBeNervous" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("17_owcnm")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Do not be nervous, the ritual is largely painless, to complete it you must learn but four movements"
+
+[node name="DialogWhenYouAreReady" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("18_rs64x")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "When you are ready to begin your learning, step forward and pick up the celestial tool"
+
+[node name="DialogVeryGood" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("23_4hd2k")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Very good!"
+
+[node name="DialogCongratulations" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("24_rtx24")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Congratulations, you have completed the initiation!"
+
+[node name="DialogPleaseReturnToTheFoyer" type="AudioStreamPlayer" parent="Dialog"]
+unique_name_in_owner = true
+stream = ExtResource("25_h47n0")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Please return to the foyer and speak to Carol on reception, she will provide your certificate and badge. Good day!"
 
 [connection signal="body_entered" from="3DWorld/HammerArea" to="." method="_on_hammer_area_body_entered"]
