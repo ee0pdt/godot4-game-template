@@ -6,9 +6,12 @@ var loop_ending: bool
 
 func enter(_msg := {}) -> void:
 	loop_ending = false
+	
 	if %MusicLoop.is_playing() == false:
 		%MusicLoop.play()
-	print("Idle ", "- loop_ending: ", loop_ending)
+	
+	if (owner as Level).points > (owner as Level).points_target:
+		state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.WIN])
 
 
 func update(delta: float) -> void:

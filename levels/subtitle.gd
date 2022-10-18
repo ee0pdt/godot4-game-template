@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 
-@export var subtitle_text: String
+@export var subtitle_text: String = "Enter title here"
 
 
 func _ready():

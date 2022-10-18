@@ -13,19 +13,21 @@ enum States {
 	IDLE,
 	INSTRUCTING,
 	ACTION,
-	OVER
+	OVER,
+	WIN
 }
 
 const LOOP_LENGTH = 1.97
 
 var current_action: Actions
 var current_state: States = States.BEFORE
-var countdown: float
+var points: int = 0
 var loop_index: int = 1
 var previous_time: float = 0
 var has_hammer: bool = false
 @export var idle_wait_time: float = 5
 @export var action_wait_time: float = 10
+@export var points_target: int = 5
 
 
 func _process(delta):
@@ -33,7 +35,6 @@ func _process(delta):
 
 
 func _updateHud() -> void:
-	%Countdown.text = str(ceil(countdown))
 	%State.text = %StateMachine.state.name
 	%Action.text = Actions.keys()[current_action]
 

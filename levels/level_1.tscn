@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=36 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -14,13 +14,19 @@
 [ext_resource type="AudioStream" uid="uid://nwvlwgact53c" path="res://assets/raise_it.mp3" id="10_6448r"]
 [ext_resource type="AudioStream" uid="uid://cpp3g7ip0gjlm" path="res://assets/wave_it.mp3" id="11_ywd5a"]
 [ext_resource type="AudioStream" uid="uid://cpp3q2kni0atf" path="res://assets/dip_it.mp3" id="12_l70o3"]
+[ext_resource type="Script" path="res://levels/states/win.gd" id="12_x3rd8"]
 [ext_resource type="AudioStream" uid="uid://d0kf86ukthyva" path="res://assets/bless_it.mp3" id="13_wvq8h"]
 [ext_resource type="AudioStream" uid="uid://qsfitlj0ckfb" path="res://assets/loop_1.mp3" id="14_86scu"]
 [ext_resource type="AudioStream" uid="uid://b1krtw0tymt2a" path="res://assets/another_new_recruit.mp3" id="15_rau4d"]
 [ext_resource type="Script" path="res://levels/subtitle.gd" id="16_tu68o"]
+[ext_resource type="AudioStream" uid="uid://m30kwae4t6ta" path="res://assets/no_that_is_incorrect.mp3" id="17_jykm6"]
 [ext_resource type="AudioStream" uid="uid://c04e2tkaypomb" path="res://assets/do_not_be_nervous.mp3" id="17_owcnm"]
 [ext_resource type="AudioStream" uid="uid://cxg2h8os2bgdb" path="res://assets/when_you_are_ready_to_begin.mp3" id="18_rs64x"]
+[ext_resource type="AudioStream" uid="uid://bllgjocr8in5k" path="res://assets/oh_im_afraid_you_have_failed.mp3" id="18_wxptk"]
 [ext_resource type="AudioStream" uid="uid://ducb0or3o6f75" path="res://assets/atmosphere.mp3" id="20_f15ip"]
+[ext_resource type="AudioStream" uid="uid://bguv021pxppf2" path="res://assets/very_good.mp3" id="23_4hd2k"]
+[ext_resource type="AudioStream" uid="uid://b2jklgqpcp1p2" path="res://assets/congratulations_you_have_completed.mp3" id="24_rtx24"]
+[ext_resource type="AudioStream" uid="uid://1g30splpnm5k" path="res://assets/please_return_to_the_foyer.mp3" id="25_h47n0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k154n"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -289,9 +295,6 @@ bbcode_enabled = true
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5057, 0.629859, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
@@ -306,13 +309,6 @@ shape = SubResource("BoxShape3D_ys2q8")
 [node name="OmniLight3d" type="OmniLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41634, 4.15499, 8.89307)
 light_color = Color(0, 0, 0, 1)
-shadow_enabled = true
-omni_range = 6.86582
-
-[node name="OmniLight3d5" type="OmniLight3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81536, 2.34154, 0.658409)
-light_color = Color(1, 0.839216, 0.0784314, 1)
-light_energy = 2.5
 shadow_enabled = true
 omni_range = 6.86582
 
@@ -345,6 +341,9 @@ shape = SubResource("CylinderShape3D_ywpwt")
 [node name="Hammer" parent="3DWorld/HammerArea" instance=ExtResource("5_spcw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36099, 0)
 
+[node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9491, 0.884674, 0)
+
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_jvko6")
@@ -364,6 +363,9 @@ script = ExtResource("8_5dvie")
 
 [node name="OVER" type="Node" parent="StateMachine"]
 script = ExtResource("9_cxlu3")
+
+[node name="WIN" type="Node" parent="StateMachine"]
+script = ExtResource("12_x3rd8")
 
 [node name="DialogRaiseIt" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -393,6 +395,20 @@ bus = &"Dialog"
 script = ExtResource("16_tu68o")
 subtitle_text = "Bless it!"
 
+[node name="DialogNoThatIsIncorrect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("17_jykm6")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "No. That is incorrect"
+
+[node name="DialogYouHaveFailed" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("18_wxptk")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Oh I’m afraid you have failed your initiation. Please come back when you are ready to try again."
+
 [node name="DialogAnotherNewRecruit" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("15_rau4d")
@@ -414,9 +430,31 @@ bus = &"Dialog"
 script = ExtResource("16_tu68o")
 subtitle_text = "When you are ready to begin your learning, step forward and pick up the celestial tool"
 
+[node name="DialogVeryGood" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("23_4hd2k")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Very good!"
+
+[node name="DialogCongratulations" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("24_rtx24")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Congratulations, you have completed the initiation!"
+
+[node name="DialogPleaseReturnToTheFoyer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("25_h47n0")
+bus = &"Dialog"
+script = ExtResource("16_tu68o")
+subtitle_text = "Please return to the foyer and speak to Carol on reception, she will provide your certificate and badge. Good day!"
+
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_86scu")
+volume_db = -12.694
 bus = &"Music"
 
 [node name="MusicAtmosphere" type="AudioStreamPlayer" parent="."]

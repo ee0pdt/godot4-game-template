@@ -8,7 +8,6 @@ var success: bool
 func enter(_msg := {}) -> void:
 	loop_ending = false
 	success = false
-	print("Action")
 
 
 func update(delta: float) -> void:
@@ -19,6 +18,7 @@ func update(delta: float) -> void:
 	if loop_ending:
 		if time < 0.5:
 			if success:
+				(owner as Level).points += 1
 				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])
 			else:
 				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.OVER])
