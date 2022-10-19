@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cffd3nq7qahot" path="res://player/player.tscn" id="3_3ejiu"]
-[ext_resource type="Texture2D" uid="uid://d2mijrji8p80p" path="res://assets/emerald_decal.png" id="3_ffqig"]
+[ext_resource type="Texture2D" uid="uid://clwfoefktnke2" path="res://assets/emerald_decal.png" id="3_ffqig"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
 [ext_resource type="PackedScene" uid="uid://gcodde7fmb26" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
@@ -328,8 +328,9 @@ texture_albedo = SubResource("NoiseTexture2D_0d0lg")
 
 [node name="Decal2" type="Decal" parent="3DWorld"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, 0.466227, 0.0307992)
-extents = Vector3(1.7387, 0.881098, 1.42846)
+extents = Vector3(1.6, 1.6, 1.6)
 texture_albedo = ExtResource("3_ffqig")
+texture_normal = ExtResource("3_ffqig")
 texture_emission = ExtResource("3_ffqig")
 emission_energy = 0.5
 
