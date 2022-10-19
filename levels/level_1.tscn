@@ -352,7 +352,7 @@ shape = SubResource("CylinderShape3D_ywpwt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36099, 0)
 
 [node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9491, 0.884674, 0)
+transform = Transform3D(0.276996, 0, 0.960871, 0, 1, 0, -0.960871, 0, 0.276996, 19.6759, 0.884674, 0)
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true

@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = ((neck as Node3D).transform.basis.rotated(Vector3.UP, rotation.y) * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
