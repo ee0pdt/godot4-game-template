@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=34 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -47,24 +47,6 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.03
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ys2q8"]
-
-[sub_resource type="Gradient" id="Gradient_lkkk0"]
-offsets = PackedFloat32Array(0.0210526, 0.964912)
-colors = PackedColorArray(0.382812, 0.37476, 0.377686, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3l2ko"]
-noise_type = 4
-frequency = 1.0
-fractal_octaves = 8
-fractal_gain = 1.2
-fractal_weighted_strength = 0.66
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0d0lg"]
-in_3d_space = true
-seamless = true
-color_ramp = SubResource("Gradient_lkkk0")
-noise = SubResource("FastNoiseLite_3l2ko")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ywpwt"]
 radius = 1.07656
@@ -321,13 +303,8 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 48.0158
 
-[node name="Decal" type="Decal" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27468, 6.23183, -1.04157)
-extents = Vector3(20, 11.11, 20)
-texture_albedo = SubResource("NoiseTexture2D_0d0lg")
-
 [node name="Decal2" type="Decal" parent="3DWorld"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, 0.466227, 0.0307992)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, -0.913061, 0.0307992)
 extents = Vector3(1.6, 1.6, 1.6)
 texture_albedo = ExtResource("3_ffqig")
 texture_normal = ExtResource("3_ffqig")
