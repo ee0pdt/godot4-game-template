@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctx2kwjfd3xgs"]
+[gd_scene load_steps=12 format=3 uid="uid://ctx2kwjfd3xgs"]
 
 [ext_resource type="Script" path="res://arms/arms.gd" id="1_47fhm"]
 [ext_resource type="PackedScene" uid="uid://bgjgsgbyvpm0o" path="res://hammer/hammer.tscn" id="1_ghifm"]
+[ext_resource type="ArrayMesh" uid="uid://dy6c4ghbf1g4t" path="res://arms/UpperArmRightMesh.res" id="2_82jyj"]
+[ext_resource type="ArrayMesh" uid="uid://h6n5181s2k0b" path="res://arms/LowerArmRight.res" id="3_vkl46"]
+[ext_resource type="ArrayMesh" uid="uid://bkkacupqx2xre" path="res://arms/HandRightMesh.res" id="4_e7hme"]
 
 [sub_resource type="Animation" id="Animation_2ksje"]
 resource_name = "BlessIt"
@@ -112,7 +115,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:x")
+tracks/3/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -123,7 +126,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:y")
+tracks/4/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -134,7 +137,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:z")
+tracks/5/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -145,7 +148,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:x")
+tracks/6/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -156,7 +159,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:y")
+tracks/7/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -167,7 +170,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:z")
+tracks/8/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:z")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -247,7 +250,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:x")
+tracks/6/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -258,7 +261,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:y")
+tracks/7/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -269,7 +272,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r:rotation:z")
+tracks/8/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r:rotation:z")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -280,7 +283,7 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:x")
+tracks/9/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -291,7 +294,7 @@ tracks/9/keys = {
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:y")
+tracks/10/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -302,7 +305,7 @@ tracks/10/keys = {
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("RightArm/UpperArm_r/ElbowJoint_r:rotation:z")
+tracks/11/path = NodePath("RightArm/MeshInstance3d/ElbowJoint_r:rotation:z")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -433,25 +436,33 @@ script = ExtResource("1_47fhm")
 [node name="RightArm" type="Node3D" parent="."]
 transform = Transform3D(0.979817, 4.67523e-07, 0.199898, -0.0265557, 0.991136, 0.130162, -0.198127, -0.132844, 0.971131, 0.58348, -0.225032, -0.093031)
 
+[node name="MeshInstance3d" type="MeshInstance3D" parent="RightArm"]
+transform = Transform3D(1.12718, 0.205099, 0.356928, -0.205097, -0.622331, 1.00531, 0.356929, -1.00531, -0.549512, 0.00763893, -0.0666324, -0.0374435)
+mesh = ExtResource("2_82jyj")
+
+[node name="ElbowJoint_r" type="Node3D" parent="RightArm/MeshInstance3d"]
+transform = Transform3D(0.890742, 1.62558e-07, 0.181726, 0.0998456, 0.75958, -0.489401, -0.151839, 0.499482, 0.74425, 0.000321984, 0.424897, -0.00157835)
+
+[node name="LowerArm_r" type="MeshInstance3D" parent="RightArm/MeshInstance3d/ElbowJoint_r"]
+transform = Transform3D(0.869865, -0.470876, -0.147005, 0.484763, 0.871158, 0.0780324, 0.0913213, -0.139141, 0.986053, 0.0319949, 0.00459576, -0.000997484)
+mesh = ExtResource("3_vkl46")
+
+[node name="Hand_r" type="Node3D" parent="RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r"]
+transform = Transform3D(0.999862, 0.0165218, 0.000670323, -0.0165219, 0.996575, 0.0809834, 0.000669969, -0.0809834, 0.996712, -0.031553, 0.565209, -0.00338441)
+
+[node name="HandMesh_r" type="MeshInstance3D" parent="RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r"]
+transform = Transform3D(-1.45558, -0.173021, 0.318367, -0.21532, 1.47303, -0.183907, -0.291429, -0.224161, -1.45424, 0.0322191, -0.146565, 0.00641444)
+mesh = ExtResource("4_e7hme")
+
+[node name="Hammer" parent="RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r/HandMesh_r" instance=ExtResource("1_ghifm")]
+unique_name_in_owner = true
+transform = Transform3D(0.253917, 0.0465068, -0.305554, 0.307985, -0.0712257, 0.245097, -0.0259116, -0.390851, -0.0810221, 0.011163, 0.125966, -0.0313358)
+visible = false
+
 [node name="UpperArm_r" type="CSGBox3D" parent="RightArm"]
 transform = Transform3D(0.979816, 0.10983, -0.167023, 3.8743e-07, 0.835539, 0.549431, 0.199899, -0.538342, 0.818676, 0.0708565, -0.170905, -0.211429)
-size = Vector3(0.1, 0.1, 0.5)
-
-[node name="ElbowJoint_r" type="Node3D" parent="RightArm/UpperArm_r"]
-transform = Transform3D(0.979817, 1.78814e-07, 0.199898, 0.10983, 0.835539, -0.538341, -0.167023, 0.549431, 0.818674, -0.0271621, 0.00178289, -0.256854)
-
-[node name="LowerArm_r" type="CSGBox3D" parent="RightArm/UpperArm_r/ElbowJoint_r"]
-transform = Transform3D(0.974244, -0.0278276, 0.223773, 0.0449431, 0.996408, -0.07176, -0.220972, 0.0799686, 0.971997, -0.0306859, 0.00798607, -0.250844)
-size = Vector3(0.1, 0.1, 0.5)
-
-[node name="Hand_r" type="CSGBox3D" parent="RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r"]
-transform = Transform3D(0.999863, 0.0165219, 0.000670324, -0.0165219, 0.996579, 0.0809835, 0.00066997, -0.0809837, 0.996714, -0.0159082, -0.000818431, -0.302877)
-size = Vector3(0.1, 0.1, 0.1)
-
-[node name="Hammer" parent="RightArm/UpperArm_r/ElbowJoint_r/LowerArm_r/Hand_r" instance=ExtResource("1_ghifm")]
-unique_name_in_owner = true
-transform = Transform3D(-0.707968, -0.239757, 0.664303, -0.0638273, 0.958485, 0.277909, -0.703355, 0.15435, -0.69388, 0, 0, 0)
 visible = false
+size = Vector3(0.1, 0.1, 0.5)
 
 [node name="LeftArm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.340178, 0.94036, 0, -0.940362, 0.340178, -0.597337, -0.225032, -0.093031)
