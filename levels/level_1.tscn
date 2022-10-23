@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=36 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
 [ext_resource type="PackedScene" uid="uid://cx33qpkip7m2x" path="res://assets/carvings.tscn" id="7_tgwio"]
 [ext_resource type="Script" path="res://levels/states/action.gd" id="8_5dvie"]
+[ext_resource type="Texture2D" uid="uid://beol58iyt67t8" path="res://assets/emerald_concept_07.png" id="8_h3yuw"]
 [ext_resource type="Script" path="res://levels/states/over.gd" id="9_cxlu3"]
 [ext_resource type="AudioStream" uid="uid://nwvlwgact53c" path="res://assets/raise_it.mp3" id="10_6448r"]
 [ext_resource type="AudioStream" uid="uid://cpp3g7ip0gjlm" path="res://assets/wave_it.mp3" id="11_ywd5a"]
@@ -333,7 +334,7 @@ transform = Transform3D(0.276996, 0, 0.960871, 0, 1, 0, -0.960871, 0, 0.276996, 
 [node name="Carvings" parent="3DWorld" instance=ExtResource("7_tgwio")]
 
 [node name="Carvings6" parent="3DWorld" instance=ExtResource("7_tgwio")]
-transform = Transform3D(-0.504422, 0, -0.863457, 0, 1, 0, 0.863457, 0, -0.504422, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
 
 [node name="Carvings5" parent="3DWorld" instance=ExtResource("7_tgwio")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
@@ -348,6 +349,59 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.017
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -0.0173378, 0, 0)
 
 [node name="Room2" parent="3DWorld" instance=ExtResource("7_1yqyx")]
+
+[node name="Node3d" type="Node3D" parent="3DWorld"]
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
+
+[node name="Node3d2" type="Node3D" parent="3DWorld"]
+transform = Transform3D(0.513451, 0, 0.858119, 0, 1, 0, -0.858119, 0, 0.513451, 0, 0, 0)
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d2"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
+
+[node name="Node3d3" type="Node3D" parent="3DWorld"]
+transform = Transform3D(-0.499426, 0, 0.866357, 0, 1, 0, -0.866357, 0, -0.499426, 0, 0, 0)
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d3"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
+
+[node name="Node3d4" type="Node3D" parent="3DWorld"]
+transform = Transform3D(-0.999997, 0, -0.00226885, 0, 1, 0, 0.00226885, 0, -0.999997, 0, 0, 0)
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d4"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
+
+[node name="Node3d5" type="Node3D" parent="3DWorld"]
+transform = Transform3D(-0.477098, 0, -0.87885, 0, 1, 0, 0.87885, 0, -0.477098, 0, 0, 0)
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d5"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
+
+[node name="Node3d6" type="Node3D" parent="3DWorld"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="OuterEmerald" type="Decal" parent="3DWorld/Node3d6"]
+transform = Transform3D(-0.00773167, 6.75925e-10, 0.99997, -8.74228e-08, -1, 0, 0.99997, -8.74202e-08, 0.00773167, 10.4616, 0.312024, 0.0307992)
+extents = Vector3(0.6, 0.251636, 0.6)
+texture_albedo = ExtResource("8_h3yuw")
+emission_energy = 0.5
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
