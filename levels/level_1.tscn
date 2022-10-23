@@ -72,32 +72,27 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 180.0
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 size_flags_horizontal = 3
 
 [node name="CountdownLabel" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -107,7 +102,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Countdown"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 180.0
@@ -115,7 +109,6 @@ size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -125,14 +118,12 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 184.0
 offset_right = 1052.0
 offset_bottom = 364.0
 size_flags_vertical = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 size_flags_horizontal = 3
@@ -140,7 +131,6 @@ size_flags_horizontal = 3
 [node name="StateLabel" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -152,7 +142,6 @@ bbcode_enabled = true
 text = "State"
 
 [node name="MarginContainer4" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 180.0
@@ -161,7 +150,6 @@ size_flags_horizontal = 3
 [node name="State" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_right = 100.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -174,21 +162,18 @@ bbcode_enabled = true
 text = "0"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 368.0
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_vertical = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 size_flags_horizontal = 3
 
 [node name="ActionLabel" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer2"]
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -200,7 +185,6 @@ bbcode_enabled = true
 text = "Action"
 
 [node name="MarginContainer4" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 180.0
@@ -209,7 +193,6 @@ size_flags_horizontal = 3
 [node name="Action" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_right = 100.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -237,20 +220,17 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SubtitleOverlay/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 453.0
 size_flags_horizontal = 3
@@ -258,7 +238,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 457.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -267,7 +246,6 @@ size_flags_vertical = 3
 
 [node name="Subtitle" type="RichTextLabel" parent="SubtitleOverlay/Canvas/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 91.0
 grow_horizontal = 2
