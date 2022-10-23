@@ -19,6 +19,11 @@ func update(delta: float) -> void:
 		if time < 0.5:
 			if success:
 				(owner as Level).points += 1
+				if (owner as Level).points % 4 == 0:
+					(owner as Level).time_scale += 0.1
+					Engine.time_scale *= (owner as Level).time_scale
+					(%MusicLoop as AudioStreamPlayer).pitch_scale = owner.time_scale
+				
 				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])
 			else:
 				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.OVER])

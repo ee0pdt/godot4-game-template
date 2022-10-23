@@ -25,9 +25,10 @@ var points: int = 0
 var loop_index: int = 1
 var previous_time: float = 0
 var has_hammer: bool = false
+@export var time_scale: float = 1.0
 @export var idle_wait_time: float = 5
 @export var action_wait_time: float = 10
-@export var points_target: int = 5
+@export var points_target: int = 12
 
 
 func _process(delta):

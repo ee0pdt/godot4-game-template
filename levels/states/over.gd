@@ -6,3 +6,6 @@ func enter(_msg := {}) -> void:
 	%DialogNoThatIsIncorrect.play()
 	await %DialogNoThatIsIncorrect.finished
 	%DialogYouHaveFailed.play()
+	await %DialogYouHaveFailed.finished
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	AppEvents.main_menu.emit()
