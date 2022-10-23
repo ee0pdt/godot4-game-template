@@ -304,10 +304,11 @@ shadow_enabled = true
 omni_range = 48.0158
 
 [node name="CentralEmerald" type="Decal" parent="3DWorld"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, -0.913061, 0.0307992)
-extents = Vector3(1.6, 1.6, 1.6)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, 0.359926, 0.0307992)
+extents = Vector3(1.6, 0.418083, 1.6)
 texture_albedo = ExtResource("3_ffqig")
 texture_normal = ExtResource("3_ffqig")
+texture_orm = ExtResource("3_ffqig")
 texture_emission = ExtResource("3_ffqig")
 emission_energy = 0.5
 

@@ -9,9 +9,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.3814
 
 [node name="Carving2" parent="." instance=ExtResource("1_4tge1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.01897, 0.194146, -0.020849)
+visible = false
 
 [node name="Carving3" parent="." instance=ExtResource("1_4tge1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.6826, 0.194146, -0.020849)
+visible = false
 
 [node name="Carving4" parent="." instance=ExtResource("1_4tge1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.37173, 0.194146, -0.020849)
+visible = false
