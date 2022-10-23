@@ -1,0 +1,30 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://bfw51ukwga0x6"]
+
+[sub_resource type="Gradient" id="Gradient_0p6gl"]
+colors = PackedColorArray(0.292969, 0.242847, 0.182814, 1, 0.324219, 0.31863, 0.260617, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n7oo7"]
+frequency = 0.115
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tnsg8"]
+color_ramp = SubResource("Gradient_0p6gl")
+noise = SubResource("FastNoiseLite_n7oo7")
+
+[sub_resource type="Gradient" id="Gradient_1h8yg"]
+offsets = PackedFloat32Array(0, 0.565905)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8d75s"]
+noise_type = 2
+frequency = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n4xhm"]
+color_ramp = SubResource("Gradient_1h8yg")
+noise = SubResource("FastNoiseLite_8d75s")
+
+[resource]
+resource_name = "Jacket"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_tnsg8")
+roughness_texture = SubResource("NoiseTexture2D_n4xhm")
+uv1_triplanar = true

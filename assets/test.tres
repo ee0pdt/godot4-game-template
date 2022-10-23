@@ -1,0 +1,34 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://blgo5pwhcgx2c"]
+
+[sub_resource type="Gradient" id="Gradient_jciob"]
+colors = PackedColorArray(0.126953, 0.0689388, 0.0114368, 1, 0.273438, 0.237294, 0.183913, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3vt4m"]
+noise_type = 3
+frequency = 0.049
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_en3ai"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_jciob")
+noise = SubResource("FastNoiseLite_3vt4m")
+
+[sub_resource type="Gradient" id="Gradient_wukup"]
+offsets = PackedFloat32Array(0, 0.998243)
+colors = PackedColorArray(0.722656, 0.722656, 0.722656, 1, 0.957031, 0.957031, 0.957031, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i2yxs"]
+noise_type = 3
+frequency = 0.102
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nrcqi"]
+color_ramp = SubResource("Gradient_wukup")
+noise = SubResource("FastNoiseLite_i2yxs")
+
+[resource]
+resource_name = "Jacket"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_en3ai")
+roughness_texture = SubResource("NoiseTexture2D_nrcqi")
+uv1_triplanar = true
