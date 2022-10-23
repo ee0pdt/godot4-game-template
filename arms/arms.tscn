@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctx2kwjfd3xgs"]
+[gd_scene load_steps=15 format=3 uid="uid://ctx2kwjfd3xgs"]
 
 [ext_resource type="Script" path="res://arms/arms.gd" id="1_47fhm"]
 [ext_resource type="PackedScene" uid="uid://bgjgsgbyvpm0o" path="res://hammer/hammer.tscn" id="1_ghifm"]
 [ext_resource type="ArrayMesh" uid="uid://dy6c4ghbf1g4t" path="res://arms/UpperArmRightMesh.res" id="2_82jyj"]
 [ext_resource type="ArrayMesh" uid="uid://h6n5181s2k0b" path="res://arms/LowerArmRight.res" id="3_vkl46"]
 [ext_resource type="ArrayMesh" uid="uid://bkkacupqx2xre" path="res://arms/HandRightMesh.res" id="4_e7hme"]
+[ext_resource type="ArrayMesh" uid="uid://bbs7w8ua270wx" path="res://arms/LowerArmLeftMesh.res" id="6_rwspt"]
+[ext_resource type="ArrayMesh" uid="uid://db0iuqs8d42ob" path="res://arms/HandLeftMesh.res" id="7_5r1pq"]
+[ext_resource type="ArrayMesh" uid="uid://ddqi7mpiol0ab" path="res://arms/UpperArmLeftMesh.res" id="8_mfetp"]
 
 [sub_resource type="Animation" id="Animation_2ksje"]
 resource_name = "BlessIt"
@@ -467,20 +470,20 @@ size = Vector3(0.1, 0.1, 0.5)
 [node name="LeftArm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.340178, 0.94036, 0, -0.940362, 0.340178, -0.597337, -0.225032, -0.093031)
 
-[node name="UpperArm_l" type="CSGBox3D" parent="LeftArm"]
-transform = Transform3D(0.999999, 0, 0, 3.72529e-09, 1, 0, -2.98023e-08, 2.98023e-08, 1, 0.0661014, 0.00657433, -0.188121)
-size = Vector3(0.1, 0.1, 0.5)
+[node name="ElbowJoint_l" type="Node3D" parent="LeftArm"]
+transform = Transform3D(0.970033, 0.117665, -0.21258, -0.209246, 0.849256, -0.484749, 0.123497, 0.514704, 0.848427, -0.0120962, 0.0881053, -0.531406)
 
-[node name="ElbowJoint_l" type="Node3D" parent="LeftArm/UpperArm_l"]
-transform = Transform3D(0.970034, 0.117665, -0.21258, -0.228481, 0.739378, -0.633338, 0.0826548, 0.66293, 0.744104, -0.0271624, 0.00178298, -0.256854)
+[node name="LowerArm_l" type="MeshInstance3D" parent="LeftArm/ElbowJoint_l"]
+transform = Transform3D(0.930043, -0.0736561, -0.359992, 0.344165, -0.168591, 0.923649, -0.128724, -0.98293, -0.131448, 0.0740616, -0.0139567, -0.0594432)
+mesh = ExtResource("6_rwspt")
 
-[node name="LowerArm_l" type="CSGBox3D" parent="LeftArm/UpperArm_l/ElbowJoint_l"]
-transform = Transform3D(1, -2.4869e-14, 2.84217e-14, 7.10543e-14, 1, 1.19209e-07, 2.84217e-14, -1.19209e-07, 1, 0.0294552, 0.00798598, -0.250844)
-size = Vector3(0.1, 0.1, 0.5)
+[node name="Hand_l" type="MeshInstance3D" parent="LeftArm/ElbowJoint_l/LowerArm_l"]
+transform = Transform3D(1, -1.86265e-08, 2.08616e-07, 1.11759e-07, 1, 2.08616e-07, -2.75671e-07, -2.08616e-07, 0.999999, -0.00978607, 0.410502, 0.0104928)
+mesh = ExtResource("7_5r1pq")
 
-[node name="Hand_l" type="CSGBox3D" parent="LeftArm/UpperArm_l/ElbowJoint_l/LowerArm_l"]
-transform = Transform3D(0.999863, 0.016522, 0.000670046, -0.0165219, 0.996579, 0.0809839, 0.000669941, -0.0809838, 0.996714, 0.00645727, 0.00189441, -0.307778)
-size = Vector3(0.1, 0.1, 0.1)
+[node name="UpperArm_l" type="MeshInstance3D" parent="LeftArm"]
+transform = Transform3D(0.999999, 0, 0, -2.8461e-08, 0.199402, 0.979918, -9.59312e-09, -0.979918, 0.199402, 0.0661014, 0.00657433, -0.188121)
+mesh = ExtResource("8_mfetp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

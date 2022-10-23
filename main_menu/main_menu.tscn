@@ -37,19 +37,16 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
 offset_top = 20.0
 offset_right = 1152.0
 offset_bottom = 628.0
 
 [node name="Spacer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 412.0
 offset_bottom = 608.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 416.0
 offset_right = 736.0
 offset_bottom = 608.0
@@ -57,7 +54,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LogoWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 360.0
 theme_override_constants/margin_top = 20
@@ -65,7 +61,6 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Logo" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/LogoWrapper"]
 custom_minimum_size = Vector2i(320, 320)
-layout_mode = 2
 offset_top = 20.0
 offset_right = 320.0
 offset_bottom = 340.0
@@ -73,7 +68,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartGameWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 364.0
 offset_right = 320.0
 offset_bottom = 484.0
@@ -81,7 +75,6 @@ size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 100.0
 grow_horizontal = 2
@@ -93,7 +86,6 @@ text = "Start Game"
 
 [node name="SettingsWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
-layout_mode = 2
 offset_top = 420.0
 offset_right = 320.0
 offset_bottom = 512.0
@@ -101,7 +93,6 @@ size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/SettingsWrapper"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 72.0
 grow_horizontal = 2
@@ -112,7 +103,6 @@ theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="QuitWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 488.0
 offset_right = 320.0
 offset_bottom = 608.0
@@ -120,7 +110,6 @@ size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/QuitWrapper"]
-layout_mode = 2
 offset_right = 320.0
 offset_bottom = 100.0
 grow_horizontal = 2
@@ -131,7 +120,6 @@ theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 740.0
 offset_right = 1152.0
 offset_bottom = 608.0

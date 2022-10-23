@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bomlomib0csgx"
+uid="uid://krnvoqq8pxiy"
 path="res://.godot/imported/Arms.glb-802e0ff580b68c1c82e5cecb2855bd17.scn"
 
 [deps]
@@ -38,6 +38,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://arms/LowerArmRight.res"
 },
+"Arms_Cylinder001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://arms/LowerArmLeftMesh.res"
+},
 "Arms_Cylinder002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -57,6 +67,26 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://arms/UpperArmRightMesh.res"
+},
+"Arms_Cylinder004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://arms/HandLeftMesh.res"
+},
+"Arms_Cylinder005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://arms/UpperArmLeftMesh.res"
 }
 }
 }
