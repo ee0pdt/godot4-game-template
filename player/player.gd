@@ -46,19 +46,31 @@ func _physics_process(delta: float) -> void:
 
 
 func raise_it() -> void:
+	%Glow.show()
 	%Arms/AnimationPlayer.play("RaiseIt")
+	await %Arms/AnimationPlayer.animation_finished
+	%Glow.hide()
 
 
 func wave_it() -> void:
+	%Glow.show()
 	%Arms/AnimationPlayer.play("WaveIt")
+	await %Arms/AnimationPlayer.animation_finished
+	%Glow.hide()
 
 
 func dip_it() -> void:
+	%Glow.show()
 	%Arms/AnimationPlayer.play("DipIt")
+	await %Arms/AnimationPlayer.animation_finished
+	%Glow.hide()
 
 
 func bless_it() -> void:
+	%Glow.show()
 	%Arms/AnimationPlayer.play("BlessIt")
+	await %Arms/AnimationPlayer.animation_finished
+	%Glow.hide()
 
 
 func show_hammer() -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cffd3nq7qahot"]
+[gd_scene load_steps=5 format=3 uid="uid://cffd3nq7qahot"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_a6cdn"]
 [ext_resource type="PackedScene" uid="uid://ctx2kwjfd3xgs" path="res://arms/arms.tscn" id="2_8xspj"]
+[ext_resource type="Script" path="res://player/glow.gd" id="3_p0m2i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qqo4"]
 
@@ -21,3 +22,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Arms" parent="Neck/Camera3d" instance=ExtResource("2_8xspj")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22787, 0)
+
+[node name="Glow" type="Node3D" parent="Neck/Camera3d"]
+unique_name_in_owner = true
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.0140131, -0.892423)
+visible = false
+script = ExtResource("3_p0m2i")
+
+[node name="OmniLight3d" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d2" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d3" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(0.788698, -0.614781, 0, 0.614781, 0.788698, 0, 0, 0, 1, -0.716387, 0.697703, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d4" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(0.788698, -0.614781, 0, 0.614781, 0.788698, 0, 0, 0, 1, 0.716387, -0.697703, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d5" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(0.208236, -0.978079, 0, 0.978079, 0.208236, 0, 0, 0, 1, -0.997317, 0.0732034, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d6" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(0.208236, -0.978079, 0, 0.978079, 0.208236, 0, 0, 0, 1, 0.997317, -0.0732034, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d7" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(-0.550991, -0.834511, 0, 0.834511, -0.550991, 0, 0, 0, 1, -0.751771, -0.659425, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
+
+[node name="OmniLight3d8" type="OmniLight3D" parent="Neck/Camera3d/Glow"]
+transform = Transform3D(-0.550991, -0.834511, 0, 0.834511, -0.550991, 0, 0, 0, 1, 0.751771, 0.659425, 0)
+light_color = Color(0.654902, 1, 0.227451, 1)
+light_energy = 3.433
+omni_range = 0.2
