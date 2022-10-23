@@ -1,15 +1,16 @@
-[gd_scene load_steps=34 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=35 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cffd3nq7qahot" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="Texture2D" uid="uid://clwfoefktnke2" path="res://assets/emerald_decal.png" id="3_ffqig"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="4_jvko6"]
-[ext_resource type="PackedScene" uid="uid://gcodde7fmb26" path="res://assets/Room.glb" id="4_ur23t"]
 [ext_resource type="Script" path="res://levels/states/before.gd" id="5_gifts"]
 [ext_resource type="PackedScene" uid="uid://d370k5q4spl6t" path="res://assets/Hammer.glb" id="5_spcw8"]
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="6_uv1rs"]
+[ext_resource type="PackedScene" uid="uid://c5aum4ssbnj06" path="res://assets/room.tscn" id="7_1yqyx"]
 [ext_resource type="Script" path="res://levels/states/instructing.gd" id="7_2k3ct"]
+[ext_resource type="PackedScene" uid="uid://cx33qpkip7m2x" path="res://assets/carvings.tscn" id="7_tgwio"]
 [ext_resource type="Script" path="res://levels/states/action.gd" id="8_5dvie"]
 [ext_resource type="Script" path="res://levels/states/over.gd" id="9_cxlu3"]
 [ext_resource type="AudioStream" uid="uid://nwvlwgact53c" path="res://assets/raise_it.mp3" id="10_6448r"]
@@ -287,8 +288,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25118, -1.92338)
 [node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Hotspot"]
 shape = SubResource("BoxShape3D_ys2q8")
 
-[node name="Room" parent="3DWorld" instance=ExtResource("4_ur23t")]
-
 [node name="OmniLight3d" type="OmniLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41634, 4.15499, 8.89307)
 light_color = Color(0, 0, 0, 1)
@@ -303,7 +302,7 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 48.0158
 
-[node name="Decal2" type="Decal" parent="3DWorld"]
+[node name="CentralEmerald" type="Decal" parent="3DWorld"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0715141, -0.913061, 0.0307992)
 extents = Vector3(1.6, 1.6, 1.6)
 texture_albedo = ExtResource("3_ffqig")
@@ -330,6 +329,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36099, 0)
 
 [node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
 transform = Transform3D(0.276996, 0, 0.960871, 0, 1, 0, -0.960871, 0, 0.276996, 19.6759, 0.884674, 0)
+
+[node name="Carvings" parent="3DWorld" instance=ExtResource("7_tgwio")]
+
+[node name="Carvings6" parent="3DWorld" instance=ExtResource("7_tgwio")]
+transform = Transform3D(-0.504422, 0, -0.863457, 0, 1, 0, 0.863457, 0, -0.504422, 0, 0, 0)
+
+[node name="Carvings5" parent="3DWorld" instance=ExtResource("7_tgwio")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="Carvings4" parent="3DWorld" instance=ExtResource("7_tgwio")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="Carvings2" parent="3DWorld" instance=ExtResource("7_tgwio")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0173378, 0, 0)
+
+[node name="Carvings3" parent="3DWorld" instance=ExtResource("7_tgwio")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -0.0173378, 0, 0)
+
+[node name="Room2" parent="3DWorld" instance=ExtResource("7_1yqyx")]
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true

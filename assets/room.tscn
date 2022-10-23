@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5aum4ssbnj06"]
+
+[ext_resource type="PackedScene" uid="uid://gcodde7fmb26" path="res://assets/Room.glb" id="1_gx4lr"]
+
+[sub_resource type="Gradient" id="Gradient_47gq3"]
+offsets = PackedFloat32Array(0, 0.998243)
+colors = PackedColorArray(0, 0, 0, 1, 0.574219, 0.574219, 0.574219, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dtcm5"]
+noise_type = 5
+frequency = 0.083
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lvxar"]
+width = 1024
+height = 1024
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_47gq3")
+noise = SubResource("FastNoiseLite_dtcm5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_adjqu"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7hi8y"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_adjqu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0td4w"]
+albedo_texture = SubResource("NoiseTexture2D_lvxar")
+roughness_texture = SubResource("NoiseTexture2D_7hi8y")
+uv1_triplanar = true
+
+[node name="Room" instance=ExtResource("1_gx4lr")]
+
+[node name="Floor" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_0td4w")

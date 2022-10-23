@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx33qpkip7m2x"]
+
+[ext_resource type="PackedScene" uid="uid://b3ie812kia80y" path="res://assets/carving.tscn" id="1_4tge1"]
+
+[node name="Carvings" type="Node3D"]
+
+[node name="Carving" parent="." instance=ExtResource("1_4tge1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38149, 0.194146, -0.020849)
+
+[node name="Carving2" parent="." instance=ExtResource("1_4tge1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.01897, 0.194146, -0.020849)
+
+[node name="Carving3" parent="." instance=ExtResource("1_4tge1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.6826, 0.194146, -0.020849)
+
+[node name="Carving4" parent="." instance=ExtResource("1_4tge1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.37173, 0.194146, -0.020849)

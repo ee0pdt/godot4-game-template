@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ie812kia80y"]
+
+[ext_resource type="Texture2D" uid="uid://b3jbldh7enkx7" path="res://assets/emerald_concept_04.png" id="1_lkgi4"]
+[ext_resource type="Texture2D" uid="uid://clwfoefktnke2" path="res://assets/emerald_decal.png" id="2_c7njm"]
+
+[node name="Carving" type="Decal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+extents = Vector3(0.835, 0.242, 0.83)
+texture_albedo = ExtResource("1_lkgi4")
+texture_orm = ExtResource("2_c7njm")
+emission_energy = 0.5
