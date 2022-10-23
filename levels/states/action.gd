@@ -20,9 +20,12 @@ func update(delta: float) -> void:
 			if success:
 				(owner as Level).points += 1
 				if (owner as Level).points % 4 == 0:
-					(owner as Level).time_scale += 0.1
+					(owner as Level).time_scale += 0.05
 					Engine.time_scale *= (owner as Level).time_scale
 					(%MusicLoop as AudioStreamPlayer).pitch_scale = owner.time_scale
+					(%MusicChords as AudioStreamPlayer).pitch_scale = owner.time_scale
+					var effect: AudioEffectPitchShift = AudioServer.get_bus_effect(2, 0)
+					effect.pitch_scale = 1/owner.time_scale
 				
 				state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.IDLE])
 			else:

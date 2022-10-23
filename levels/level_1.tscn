@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://djnk47ggrh1da"]
+[gd_scene load_steps=37 format=3 uid="uid://djnk47ggrh1da"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://b1krtw0tymt2a" path="res://assets/another_new_recruit.mp3" id="15_rau4d"]
 [ext_resource type="Script" path="res://levels/subtitle.gd" id="16_tu68o"]
 [ext_resource type="AudioStream" uid="uid://m30kwae4t6ta" path="res://assets/no_that_is_incorrect.mp3" id="17_jykm6"]
+[ext_resource type="AudioStream" uid="uid://c6svu4g4a37ar" path="res://assets/ritual_music.mp3" id="17_msjp3"]
 [ext_resource type="AudioStream" uid="uid://c04e2tkaypomb" path="res://assets/do_not_be_nervous.mp3" id="17_owcnm"]
 [ext_resource type="AudioStream" uid="uid://cxg2h8os2bgdb" path="res://assets/when_you_are_ready_to_begin.mp3" id="18_rs64x"]
 [ext_resource type="AudioStream" uid="uid://bllgjocr8in5k" path="res://assets/oh_im_afraid_you_have_failed.mp3" id="18_wxptk"]
@@ -430,6 +431,12 @@ script = ExtResource("12_x3rd8")
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_86scu")
+volume_db = -12.694
+bus = &"Music"
+
+[node name="MusicChords" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("17_msjp3")
 volume_db = -12.694
 bus = &"Music"
 

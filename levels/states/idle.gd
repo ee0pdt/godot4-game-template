@@ -9,6 +9,8 @@ func enter(_msg := {}) -> void:
 	
 	if %MusicLoop.is_playing() == false:
 		%MusicLoop.play()
+	if %MusicChords.is_playing() == false:
+		%MusicChords.play()
 	
 	if (owner as Level).points > (owner as Level).points_target:
 		state_machine.transition_to((owner as Level).States.keys()[(owner as Level).States.WIN])

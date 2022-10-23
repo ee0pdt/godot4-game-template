@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cschcs3vw8mm6"]
+[gd_scene load_steps=5 format=3 uid="uid://cschcs3vw8mm6"]
 
 [ext_resource type="Script" path="res://splash_screen/splash_screen.gd" id="1_ok4q6"]
 [ext_resource type="Texture2D" uid="uid://b8ruhexokxns7" path="res://assets/baby_godot_logo.svg" id="3_4xwal"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="3_jodsr"]
+[ext_resource type="Texture2D" uid="uid://bd5gphrhuj642" path="res://assets/ritual Logo.png" id="3_x6u51"]
 
 [node name="Splashscreen" type="Node2D"]
 script = ExtResource("1_ok4q6")
@@ -24,26 +25,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -128.0
-offset_right = 354.0
-offset_bottom = 352.0
+offset_left = -113.0
+offset_top = -185.0
+offset_right = 367.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_4xwal")
 stretch_mode = 5
 
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = 84.0
+offset_right = 529.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x6u51")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 336.0
-offset_top = 434.0
-offset_right = -354.0
-offset_bottom = -14.0
+offset_left = 349.0
+offset_top = 377.0
+offset_right = -341.0
+offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_jodsr")
 bbcode_enabled = true
-text = "[center]Made with the Godot[/center]"
+text = "[center]Made with the Godot for Godot Wild Jam 50[/center]"

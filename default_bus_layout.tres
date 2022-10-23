@@ -1,8 +1,12 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://d3381cofw8yd4"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://d3381cofw8yd4"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_obxrb"]
 resource_name = "Reverb"
 wet = 0.34
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_avb5a"]
+resource_name = "PitchShift"
+oversampling = 8
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_yucvq"]
 resource_name = "Compressor"
@@ -29,6 +33,8 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 1.556
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectPitchShift_avb5a")
+bus/2/effect/0/enabled = true
 bus/3/name = &"Dialog"
 bus/3/solo = false
 bus/3/mute = false

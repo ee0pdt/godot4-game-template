@@ -3,6 +3,7 @@ extends State
 
 func enter(_msg := {}) -> void:
 	%MusicLoop.stop()
+	%MusicChords.stop()
 	%DialogVeryGood.play()
 	await %DialogVeryGood.finished
 	%DialogCongratulations.play()
