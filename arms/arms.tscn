@@ -451,7 +451,7 @@ transform = Transform3D(0.869865, -0.470876, -0.147005, 0.484763, 0.871158, 0.07
 mesh = ExtResource("3_vkl46")
 
 [node name="Hand_r" type="Node3D" parent="RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r"]
-transform = Transform3D(0.999862, 0.0165218, 0.000670323, -0.0165219, 0.996575, 0.0809833, 0.000669969, -0.0809833, 0.996712, -0.031553, 0.565209, -0.00338441)
+transform = Transform3D(0.999862, 0.0165218, 0.000670323, -0.0165219, 0.996575, 0.0809834, 0.000669969, -0.0809833, 0.996712, -0.031553, 0.565209, -0.00338441)
 
 [node name="HandMesh_r" type="MeshInstance3D" parent="RightArm/MeshInstance3d/ElbowJoint_r/LowerArm_r/Hand_r"]
 transform = Transform3D(-1.45558, -0.173021, 0.318367, -0.21532, 1.47303, -0.183907, -0.291429, -0.224161, -1.45424, 0.0322191, -0.146565, 0.00641444)
