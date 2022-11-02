@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=2 format=3 uid="uid://qywvxsjh5sln"]
 
-[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_p4fku"]
-[ext_resource type="PackedScene" uid="uid://brmrxvtukr80b" path="res://game/game.tscn" id="2_8d1ow"]
-[ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
+[ext_resource type="Script" path="res://settings/settings.gd" id="1_bkxy4"]
 
-[node name="main_menu" type="Node2D"]
-script = ExtResource("1_p4fku")
-game = ExtResource("2_8d1ow")
+[node name="SettingsMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_bkxy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -28,79 +26,137 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_bottom = 120
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
 offset_top = 120.0
 offset_right = 1152.0
 offset_bottom = 528.0
 
-[node name="Spacer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-offset_right = 381.0
+[node name="Spacer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 227.0
 offset_bottom = 408.0
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-offset_left = 385.0
-offset_right = 766.0
+[node name="AudioSlider1" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 231.0
+offset_right = 458.0
 offset_bottom = 408.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
+alignment = 1
 
-[node name="StartGameWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_right = 381.0
-offset_bottom = 133.0
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1"]
+layout_mode = 2
+offset_left = 105.0
+offset_right = 121.0
+offset_bottom = 336.0
+size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/margin_bottom = 20
+size_flags_stretch_ratio = 5.0
 
-[node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper"]
-offset_right = 381.0
-offset_bottom = 113.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("4_qljup")
-theme_override_font_sizes/font_size = 30
-text = "Audio"
+[node name="SoundEffectsSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1/SliderMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 336.0
 
-[node name="SettingsWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 137.0
-offset_right = 381.0
-offset_bottom = 270.0
-size_flags_vertical = 3
-theme_override_constants/margin_bottom = 20
-
-[node name="SettingsButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/SettingsWrapper"]
-offset_right = 381.0
-offset_bottom = 113.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("4_qljup")
-theme_override_font_sizes/font_size = 30
-text = "Controls"
-
-[node name="QuitWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 274.0
-offset_right = 381.0
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1"]
+layout_mode = 2
+offset_top = 340.0
+offset_right = 227.0
 offset_bottom = 408.0
 size_flags_vertical = 3
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 20
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/QuitWrapper"]
-offset_right = 381.0
-offset_bottom = 114.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("4_qljup")
-theme_override_font_sizes/font_size = 30
-text = "Quit"
+[node name="SFXLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1/LabelMargin"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = 68.0
+bbcode_enabled = true
+text = "[center]SoundEffects[/center]"
+
+[node name="AudioSlider2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 462.0
+offset_right = 689.0
+offset_bottom = 408.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2"]
+layout_mode = 2
+offset_left = 105.0
+offset_right = 121.0
+offset_bottom = 336.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2/SliderMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 336.0
+
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2"]
+layout_mode = 2
+offset_top = 340.0
+offset_right = 227.0
+offset_bottom = 408.0
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="MusicLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2/LabelMargin"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = 68.0
+bbcode_enabled = true
+text = "[center]Music[/center]"
+
+[node name="AudioSlider3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 693.0
+offset_right = 920.0
+offset_bottom = 408.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3"]
+layout_mode = 2
+offset_left = 105.0
+offset_right = 121.0
+offset_bottom = 336.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3/SliderMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 336.0
+
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3"]
+layout_mode = 2
+offset_top = 340.0
+offset_right = 227.0
+offset_bottom = 408.0
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="DialogLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3/LabelMargin"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = 68.0
+bbcode_enabled = true
+text = "[center]Dialog[/center]"
 
 [node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-offset_left = 770.0
+layout_mode = 2
+offset_left = 924.0
 offset_right = 1152.0
 offset_bottom = 408.0
 size_flags_horizontal = 3
-
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper/StartGameButton" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/SettingsWrapper/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/QuitWrapper/QuitButton" to="." method="_on_quit_pressed"]

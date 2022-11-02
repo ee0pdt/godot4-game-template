@@ -30,6 +30,6 @@ func _handle_quit():
 
 
 func _handle_settings():
-	print("settings")
 	get_tree().paused = true
+	get_tree().change_scene_to_file(settings)
 	
