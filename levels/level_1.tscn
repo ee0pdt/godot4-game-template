@@ -35,14 +35,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -50,7 +48,6 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -60,7 +57,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -68,8 +64,7 @@ size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0

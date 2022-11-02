@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=5 format=3 uid="uid://qywvxsjh5sln"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_p4fku"]
 [ext_resource type="PackedScene" uid="uid://brmrxvtukr80b" path="res://game/game.tscn" id="2_8d1ow"]
+[ext_resource type="Texture2D" uid="uid://b8ruhexokxns7" path="res://assets/baby_godot_logo.svg" id="3_4s4l6"]
 [ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
 
 [node name="main_menu" type="Node2D"]
@@ -24,26 +25,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-offset_top = 20.0
+offset_top = 50.0
 offset_right = 1152.0
-offset_bottom = 628.0
+offset_bottom = 598.0
 
 [node name="Spacer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 offset_right = 412.0
-offset_bottom = 608.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 416.0
 offset_right = 736.0
-offset_bottom = 608.0
+offset_bottom = 548.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,26 +56,28 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Logo" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/LogoWrapper"]
-custom_minimum_size = Vector2i(320, 320)
+custom_minimum_size = Vector2(320, 320)
 layout_mode = 2
 offset_top = 20.0
 offset_right = 320.0
 offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_4s4l6")
+ignore_texture_size = true
 
 [node name="StartGameWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 offset_top = 364.0
 offset_right = 320.0
-offset_bottom = 484.0
+offset_bottom = 454.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper"]
 layout_mode = 2
 offset_right = 320.0
-offset_bottom = 100.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -104,16 +107,16 @@ text = "Settings"
 
 [node name="QuitWrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 488.0
+offset_top = 458.0
 offset_right = 320.0
-offset_bottom = 608.0
+offset_bottom = 548.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 20
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/QuitWrapper"]
 layout_mode = 2
 offset_right = 320.0
-offset_bottom = 100.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -125,8 +128,12 @@ text = "Quit"
 layout_mode = 2
 offset_left = 740.0
 offset_right = 1152.0
-offset_bottom = 608.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
+
+[node name="BabyGodotLogo" type="Sprite2D" parent="."]
+position = Vector2(575, 279)
+texture = ExtResource("3_4s4l6")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameWrapper/StartGameButton" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/SettingsWrapper/SettingsButton" to="." method="_on_settings_button_pressed"]
