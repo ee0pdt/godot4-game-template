@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _register_events() -> void:
 	GameEvents.next_level.connect(self._handle_level_changed)
-	GameEvents.subtitle.connect(self._handle_subtitle)
 
 
 func _handle_level_changed() -> void:
@@ -36,7 +35,3 @@ func _handle_level_changed() -> void:
 	add_child(next_scene_instance)
 	current_level_scene.queue_free()
 	current_level_scene = next_scene_instance
-
-
-func _handle_subtitle(msg: String) -> void:
-	%SubtitleOverlay.set_text(msg)

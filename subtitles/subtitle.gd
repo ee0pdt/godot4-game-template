@@ -6,6 +6,7 @@ var processed := false
 
 
 func _ready() -> void:
+	self.stream.set_loop(false)
 	finished.connect(_clear_text)
 
 

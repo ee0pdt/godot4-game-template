@@ -110,4 +110,4 @@ unique_name_in_owner = true
 stream = ExtResource("4_3b16o")
 bus = &"Dialog"
 script = ExtResource("5_doulm")
-subtitle_text = "Devs are not normally voiceover artists"
+subtitle_text = "Developers are not normally voiceover artists"
