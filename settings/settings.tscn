@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=5 format=3 uid="uid://qywvxsjh5sln"]
 
 [ext_resource type="Script" path="res://settings/settings.gd" id="1_bkxy4"]
 [ext_resource type="Script" path="res://settings/audio_bus_slider.gd" id="2_aitbg"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_vv1lt"]
+[ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
 
 [node name="SettingsMenu" type="Node2D"]
 process_mode = 3
@@ -27,199 +28,251 @@ grow_vertical = 2
 theme_override_constants/margin_top = 120
 theme_override_constants/margin_bottom = 120
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 offset_top = 120.0
 offset_right = 1152.0
 offset_bottom = 528.0
 
-[node name="Spacer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 286.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Spacer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_right = 188.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_horizontal = 3
 
-[node name="AudioSlider0" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="AudioSlider0" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 192.0
 offset_right = 381.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider0"]
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_left = 86.0
 offset_right = 102.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="MasterSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider0/SliderMargin"]
+[node name="MasterSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
 
-[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider0"]
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
-offset_top = 340.0
+offset_top = 236.0
 offset_right = 189.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider0/LabelMargin"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/LabelMargin"]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 68.0
+offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Master[/center]"
+fit_content_height = true
 
-[node name="AudioSlider1" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="AudioSlider1" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 385.0
 offset_right = 574.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1"]
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_left = 86.0
 offset_right = 102.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="SoundEffectsSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1/SliderMargin"]
+[node name="SoundEffectsSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/SliderMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
 audio_bus_name = "SFX"
 
-[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1"]
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
-offset_top = 340.0
+offset_top = 236.0
 offset_right = 189.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="SFXLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider1/LabelMargin"]
+[node name="SFXLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/LabelMargin"]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 68.0
+offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Sound Effects[/center]"
+fit_content_height = true
 
-[node name="AudioSlider2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="AudioSlider2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 578.0
 offset_right = 766.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2"]
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_left = 86.0
 offset_right = 102.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2/SliderMargin"]
+[node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
 audio_bus_name = "Music"
 
-[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2"]
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
-offset_top = 340.0
+offset_top = 236.0
 offset_right = 188.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider2/LabelMargin"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/LabelMargin"]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 188.0
-offset_bottom = 68.0
+offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Music[/center]"
+fit_content_height = true
 
-[node name="AudioSlider3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="AudioSlider3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 770.0
 offset_right = 959.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3"]
+[node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_left = 86.0
 offset_right = 102.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3/SliderMargin"]
+[node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 336.0
+offset_bottom = 232.0
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
 audio_bus_name = "Dialog"
 
-[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3"]
+[node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
-offset_top = 340.0
+offset_top = 236.0
 offset_right = 189.0
-offset_bottom = 408.0
+offset_bottom = 286.0
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer/AudioSlider3/LabelMargin"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/LabelMargin"]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 68.0
+offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Dialog[/center]"
+fit_content_height = true
 
-[node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="Spacer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 963.0
 offset_right = 1152.0
+offset_bottom = 286.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 290.0
+offset_right = 1152.0
 offset_bottom = 408.0
+
+[node name="Spacer4" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+offset_right = 381.0
+offset_bottom = 118.0
+size_flags_horizontal = 3
+
+[node name="Wrapper" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+offset_left = 385.0
+offset_right = 766.0
+offset_bottom = 118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="DoneButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Wrapper"]
+layout_mode = 2
+offset_top = 50.0
+offset_right = 381.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_qljup")
+theme_override_font_sizes/font_size = 30
+text = "Done"
+
+[node name="Spacer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+offset_left = 770.0
+offset_right = 1152.0
+offset_bottom = 118.0
 size_flags_horizontal = 3
 
 [node name="MusicTestSound" type="AudioStreamPlayer" parent="."]
@@ -227,3 +280,5 @@ size_flags_horizontal = 3
 [node name="SoundEffectsTestSound" type="AudioStreamPlayer" parent="."]
 
 [node name="DialogTestSound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Wrapper/DoneButton" to="." method="_on_done_button_pressed"]
