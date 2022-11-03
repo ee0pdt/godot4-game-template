@@ -65,15 +65,14 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 90.0
+offset_bottom = 51.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 70.0
+offset_bottom = 31.0
 size_flags_stretch_ratio = 2.0
 texture = ExtResource("2_raxg0")
 ignore_texture_size = true
@@ -82,9 +81,9 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 94.0
+offset_top = 55.0
 offset_right = 102.0
-offset_bottom = 366.0
+offset_bottom = 364.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
@@ -92,7 +91,7 @@ size_flags_stretch_ratio = 6.0
 [node name="MasterSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 272.0
+offset_bottom = 309.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -100,7 +99,7 @@ script = ExtResource("2_aitbg")
 
 [node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
-offset_top = 370.0
+offset_top = 368.0
 offset_right = 189.0
 offset_bottom = 420.0
 size_flags_vertical = 3
@@ -110,7 +109,7 @@ theme_override_constants/margin_top = 20
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 50.0
+offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -128,15 +127,14 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 90.0
+offset_bottom = 51.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 70.0
+offset_bottom = 31.0
 texture = ExtResource("6_w2eir")
 ignore_texture_size = true
 stretch_mode = 5
@@ -144,9 +142,9 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 94.0
+offset_top = 55.0
 offset_right = 102.0
-offset_bottom = 366.0
+offset_bottom = 364.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
@@ -155,7 +153,7 @@ size_flags_stretch_ratio = 6.0
 unique_name_in_owner = true
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 272.0
+offset_bottom = 309.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -164,7 +162,7 @@ audio_bus_name = "SFX"
 
 [node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
-offset_top = 370.0
+offset_top = 368.0
 offset_right = 189.0
 offset_bottom = 420.0
 size_flags_vertical = 3
@@ -174,7 +172,7 @@ theme_override_constants/margin_top = 20
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 50.0
+offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -192,15 +190,14 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_right = 188.0
-offset_bottom = 90.0
+offset_bottom = 51.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/IconMargin"]
 layout_mode = 2
 offset_right = 188.0
-offset_bottom = 70.0
+offset_bottom = 31.0
 texture = ExtResource("7_dv3dw")
 ignore_texture_size = true
 stretch_mode = 5
@@ -208,9 +205,9 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 94.0
+offset_top = 55.0
 offset_right = 102.0
-offset_bottom = 366.0
+offset_bottom = 364.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
@@ -218,7 +215,7 @@ size_flags_stretch_ratio = 6.0
 [node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 272.0
+offset_bottom = 309.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -227,7 +224,7 @@ audio_bus_name = "Music"
 
 [node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
-offset_top = 370.0
+offset_top = 368.0
 offset_right = 188.0
 offset_bottom = 420.0
 size_flags_vertical = 3
@@ -237,7 +234,7 @@ theme_override_constants/margin_top = 20
 layout_mode = 2
 offset_top = 20.0
 offset_right = 188.0
-offset_bottom = 50.0
+offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -255,15 +252,14 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 90.0
+offset_bottom = 51.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 70.0
+offset_bottom = 31.0
 texture = ExtResource("8_s2q3r")
 ignore_texture_size = true
 stretch_mode = 5
@@ -271,9 +267,9 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 94.0
+offset_top = 55.0
 offset_right = 102.0
-offset_bottom = 366.0
+offset_bottom = 364.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
@@ -281,7 +277,7 @@ size_flags_stretch_ratio = 6.0
 [node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 272.0
+offset_bottom = 309.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -290,7 +286,7 @@ audio_bus_name = "Dialog"
 
 [node name="LabelMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
-offset_top = 370.0
+offset_top = 368.0
 offset_right = 189.0
 offset_bottom = 420.0
 size_flags_vertical = 3
@@ -300,7 +296,7 @@ theme_override_constants/margin_top = 20
 layout_mode = 2
 offset_top = 20.0
 offset_right = 189.0
-offset_bottom = 50.0
+offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -394,19 +390,16 @@ size_flags_horizontal = 3
 [node name="MusicTestSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_ycyox")
-autoplay = true
 bus = &"Music"
 
 [node name="SoundEffectsTestSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_pa5mr")
-autoplay = true
 bus = &"SFX"
 
 [node name="DialogTestSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_mchd7")
-autoplay = true
 bus = &"Dialog"
 
 [connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Wrapper/TestAudioToggle" to="." method="_on_test_audio_toggle_toggled"]
