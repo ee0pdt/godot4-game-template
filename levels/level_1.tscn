@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
+[ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
 ambient_light_energy = 0.0
@@ -35,12 +37,14 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -48,6 +52,7 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -57,6 +62,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -65,6 +71,7 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -94,3 +101,9 @@ mesh = SubResource("PlaneMesh_p827g")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Ground/StaticBody3d"]
 shape = SubResource("ConcavePolygonShape3D_rs80d")
+
+[node name="SubtitleDialogTest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3b16o")
+bus = &"Dialog"
+script = ExtResource("5_doulm")
+subtitle_text = "Devs are not normally voice over artists"
