@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=6 format=3 uid="uid://qywvxsjh5sln"]
 
 [ext_resource type="Script" path="res://settings/settings.gd" id="1_bkxy4"]
 [ext_resource type="Script" path="res://settings/audio_bus_slider.gd" id="2_aitbg"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_vv1lt"]
 [ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
+[ext_resource type="AudioStream" uid="uid://c5qq8iucqo38s" path="res://settings/assets/music_loop.mp3" id="5_ycyox"]
 
 [node name="SettingsMenu" type="Node2D"]
 process_mode = 3
@@ -276,9 +277,14 @@ offset_bottom = 118.0
 size_flags_horizontal = 3
 
 [node name="MusicTestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ycyox")
+autoplay = true
+bus = &"Music"
 
 [node name="SoundEffectsTestSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="DialogTestSound" type="AudioStreamPlayer" parent="."]
+bus = &"Dialog"
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Wrapper/DoneButton" to="." method="_on_done_button_pressed"]
