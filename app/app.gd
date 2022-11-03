@@ -11,10 +11,15 @@ func _ready():
 
 
 func _register_events():
-	AppEvents.main_menu.connect(self._handle_main_menu)
-	AppEvents.start_game.connect(self._handle_start_game)
-	AppEvents.quit.connect(self._handle_quit)
-	AppEvents.settings.connect(self._handle_settings)
+	var errors: Array[Dictionary] = []
+	errors.append({"name": "MainMenu", "result": AppEvents.main_menu.connect(self._handle_main_menu)})
+	errors.append({"name": "StartGame", "result": AppEvents.start_game.connect(self._handle_start_game)})
+	errors.append({"name": "Quit", "result": AppEvents.quit.connect(self._handle_quit)})
+	errors.append({"name": "Result", "result": AppEvents.settings.connect(self._handle_settings)})
+	
+	for item in errors:
+		if item.result != 0:
+			print("ERROR: ", item.name, item.result)
 
 
 func _handle_main_menu():

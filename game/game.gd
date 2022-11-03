@@ -9,18 +9,19 @@ var current_level_scene: Node
 var current_level = 0
 
 
-func _ready():
+func _ready() -> void:
 	_register_events()
 	current_level_scene = levels[0].instantiate()
 	add_child(current_level_scene)
 	$SoundMusic.play()
 
 
-func _register_events():
+func _register_events() -> void:
 	GameEvents.next_level.connect(self._handle_level_changed)
+	GameEvents.subtitle.connect(self._handle_subtitle)
 
 
-func _handle_level_changed():
+func _handle_level_changed() -> void:
 	current_level += 1
 	
 	var next_scene: PackedScene
@@ -35,3 +36,7 @@ func _handle_level_changed():
 	add_child(next_scene_instance)
 	current_level_scene.queue_free()
 	current_level_scene = next_scene_instance
+
+
+func _handle_subtitle(msg: String) -> void:
+	%SubtitleOverlay.set_text(msg)

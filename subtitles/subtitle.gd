@@ -2,16 +2,22 @@ extends AudioStreamPlayer
 
 
 @export var subtitle_text: String = "Enter title here"
+var processed := false
 
 
-func _ready():
+func _ready() -> void:
 	finished.connect(_clear_text)
 
 
-func _process(_delta):
+func _process(_delta) -> void:
+	if processed:
+		return
+	
 	if playing:
-		%Subtitle.text = "[center]" + subtitle_text + "[/center]"
+		processed = true
+		var msg = "[center]" + subtitle_text + "[/center]"
+		GameEvents.subtitle.emit(msg)
 
 
-func _clear_text():
-	%Subtitle.text = ""
+func _clear_text() -> void:
+	GameEvents.subtitle.emit("")

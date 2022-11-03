@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=10 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
+[ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
@@ -20,6 +21,8 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
+
+[node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 
 [node name="HUD" type="Node2D" parent="."]
 
@@ -103,7 +106,8 @@ mesh = SubResource("PlaneMesh_p827g")
 shape = SubResource("ConcavePolygonShape3D_rs80d")
 
 [node name="SubtitleDialogTest" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("4_3b16o")
 bus = &"Dialog"
 script = ExtResource("5_doulm")
-subtitle_text = "Devs are not normally voice over artists"
+subtitle_text = "Devs are not normally voiceover artists"

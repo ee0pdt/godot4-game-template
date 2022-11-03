@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1i1st7e7ojvd"]
+
+[ext_resource type="Script" path="res://subtitles/subtitle_overlay.gd" id="1_1kr3i"]
+
+[node name="SubtitleOverlay" type="Node2D"]
+script = ExtResource("1_1kr3i")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/MarginContainer"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer"]
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
+offset_right = 1052.0
+offset_bottom = 453.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
+offset_top = 457.0
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Subtitle" type="RichTextLabel" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+offset_right = 1052.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "test"
