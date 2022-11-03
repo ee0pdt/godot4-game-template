@@ -65,15 +65,16 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 65.0
+offset_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 55.0
+offset_bottom = 37.0
+size_flags_stretch_ratio = 2.0
 texture = ExtResource("2_raxg0")
 ignore_texture_size = true
 stretch_mode = 5
@@ -81,17 +82,17 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 69.0
+offset_top = 61.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 6.0
 
 [node name="MasterSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 163.0
+offset_bottom = 171.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -127,15 +128,15 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 65.0
+offset_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 55.0
+offset_bottom = 37.0
 texture = ExtResource("6_w2eir")
 ignore_texture_size = true
 stretch_mode = 5
@@ -143,18 +144,18 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 69.0
+offset_top = 61.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 6.0
 
 [node name="SoundEffectsSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/SliderMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 163.0
+offset_bottom = 171.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -191,15 +192,15 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_right = 188.0
-offset_bottom = 65.0
+offset_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/IconMargin"]
 layout_mode = 2
 offset_right = 188.0
-offset_bottom = 55.0
+offset_bottom = 37.0
 texture = ExtResource("7_dv3dw")
 ignore_texture_size = true
 stretch_mode = 5
@@ -207,17 +208,17 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 69.0
+offset_top = 61.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 6.0
 
 [node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 163.0
+offset_bottom = 171.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
@@ -254,15 +255,15 @@ alignment = 1
 [node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 65.0
+offset_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/IconMargin"]
 layout_mode = 2
 offset_right = 189.0
-offset_bottom = 55.0
+offset_bottom = 37.0
 texture = ExtResource("8_s2q3r")
 ignore_texture_size = true
 stretch_mode = 5
@@ -270,17 +271,17 @@ stretch_mode = 5
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 69.0
+offset_top = 61.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 6.0
 
 [node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 163.0
+offset_bottom = 171.0
 theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
