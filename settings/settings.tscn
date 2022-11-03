@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://qywvxsjh5sln"]
+[gd_scene load_steps=12 format=3 uid="uid://qywvxsjh5sln"]
 
 [ext_resource type="Script" path="res://settings/settings.gd" id="1_bkxy4"]
 [ext_resource type="Script" path="res://settings/audio_bus_slider.gd" id="2_aitbg"]
+[ext_resource type="Texture2D" uid="uid://di5pq7unnk115" path="res://settings/assets/speaker_icon.svg" id="2_raxg0"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_vv1lt"]
 [ext_resource type="Theme" uid="uid://buoc2adjg78ea" path="res://assets/ui_theme.tres" id="4_qljup"]
 [ext_resource type="AudioStream" uid="uid://c5qq8iucqo38s" path="res://settings/assets/music_loop.mp3" id="5_ycyox"]
 [ext_resource type="AudioStream" uid="uid://bbbvrc4uoat66" path="res://settings/assets/sfx_loop.mp3" id="6_pa5mr"]
+[ext_resource type="Texture2D" uid="uid://cb64ms3rs3uk4" path="res://settings/assets/sfx_icon.svg" id="6_w2eir"]
+[ext_resource type="Texture2D" uid="uid://cmt60mblwm13u" path="res://settings/assets/music_icon.svg" id="7_dv3dw"]
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="7_mchd7"]
+[ext_resource type="Texture2D" uid="uid://bmv23vnq5iqjd" path="res://settings/assets/dialog_icon.svg" id="8_s2q3r"]
 
 [node name="SettingsMenu" type="Node2D"]
 process_mode = 3
@@ -58,9 +62,26 @@ offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 65.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/IconMargin"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 55.0
+texture = ExtResource("2_raxg0")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0"]
 layout_mode = 2
 offset_left = 86.0
+offset_top = 69.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
@@ -70,7 +91,8 @@ size_flags_stretch_ratio = 5.0
 [node name="MasterSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider0/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 232.0
+offset_bottom = 163.0
+theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
@@ -102,9 +124,26 @@ offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 65.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1/IconMargin"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 55.0
+texture = ExtResource("6_w2eir")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider1"]
 layout_mode = 2
 offset_left = 86.0
+offset_top = 69.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
@@ -115,7 +154,8 @@ size_flags_stretch_ratio = 5.0
 unique_name_in_owner = true
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 232.0
+offset_bottom = 163.0
+theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
@@ -137,7 +177,7 @@ offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("2_vv1lt")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "[center]Sound Effects[/center]"
+text = "[center]SFX[/center]"
 fit_content_height = true
 
 [node name="AudioSlider2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -148,9 +188,26 @@ offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
+layout_mode = 2
+offset_right = 188.0
+offset_bottom = 65.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/IconMargin"]
+layout_mode = 2
+offset_right = 188.0
+offset_bottom = 55.0
+texture = ExtResource("7_dv3dw")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2"]
 layout_mode = 2
 offset_left = 86.0
+offset_top = 69.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
@@ -160,7 +217,8 @@ size_flags_stretch_ratio = 5.0
 [node name="MusicSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider2/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 232.0
+offset_bottom = 163.0
+theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
@@ -193,9 +251,26 @@ offset_bottom = 286.0
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="IconMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 65.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/IconMargin"]
+layout_mode = 2
+offset_right = 189.0
+offset_bottom = 55.0
+texture = ExtResource("8_s2q3r")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SliderMargin" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3"]
 layout_mode = 2
 offset_left = 86.0
+offset_top = 69.0
 offset_right = 102.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
@@ -205,7 +280,8 @@ size_flags_stretch_ratio = 5.0
 [node name="DialogSlider" type="VSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/AudioSlider3/SliderMargin"]
 layout_mode = 2
 offset_right = 16.0
-offset_bottom = 232.0
+offset_bottom = 163.0
+theme = ExtResource("4_qljup")
 max_value = 1.5
 step = 0.1
 script = ExtResource("2_aitbg")
