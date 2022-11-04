@@ -26,8 +26,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot 4 Game Template"
-config/description="A fairly opinionated base template for Game Jams and the like"
+config/name="Play Your Cards Right"
+config/description="A game where you play, with cards"
 run/main_scene="res://splash_screen/splash_screen.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
