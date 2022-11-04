@@ -63,44 +63,44 @@ points = PackedVector3Array(-0.96112, -0.992199, -0.96112, 0.96112, 0.992199, 0.
 [node name="Card3D" type="Node3D"]
 script = ExtResource("1_67b72")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="CardMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.63, 0, 0, 0, 0.88, 0, 0, 0, 0.01, 0, 0, 0)
 layers = 32
 mesh = SubResource("ArrayMesh_22yr4")
 skeleton = NodePath("")
 
-[node name="CardName" type="Label3D" parent="Cube"]
+[node name="CardName" type="Label3D" parent="CardMesh"]
 transform = Transform3D(0.31746, 0, 0, 0, 0.227273, 0, 0, 0, 20, -0.00476191, 0.863636, 1.5)
 layers = 32
 text = "Card Name"
 font_size = 96
 
-[node name="CardToughness" type="Label3D" parent="Cube"]
+[node name="CardToughness" type="Label3D" parent="CardMesh"]
 transform = Transform3D(0.31746, 0, 0, 0, 0.227273, 0, 0, 0, 20, 0.780952, -0.863636, 1.5)
 layers = 32
 text = "2
 "
 font_size = 127
 
-[node name="BerryCost" type="Sprite3D" parent="Cube"]
+[node name="BerryCost" type="Sprite3D" parent="CardMesh"]
 transform = Transform3D(0.031746, 0, 0, 0, 0.0227273, 0, 0, 0, 2, 0.750794, 0.590909, 1.8)
 layers = 32
 pixel_size = 0.03
 double_sided = false
 
-[node name="CardPower" type="Label3D" parent="Cube"]
+[node name="CardPower" type="Label3D" parent="CardMesh"]
 transform = Transform3D(0.31746, 0, 0, 0, 0.227273, 0, 0, 0, 20, -0.785714, -0.863636, 1.5)
 layers = 32
 text = "3"
 font_size = 127
 
-[node name="Outline" type="MeshInstance3D" parent="Cube"]
+[node name="Outline" type="MeshInstance3D" parent="CardMesh"]
 visible = false
 layers = 32
 material_override = SubResource("StandardMaterial3D_3gc38")
 mesh = SubResource("ArrayMesh_q3ryh")
 
-[node name="Ability" type="Sprite3D" parent="Cube"]
+[node name="Ability" type="Sprite3D" parent="CardMesh"]
 transform = Transform3D(0.15873, 0, 0, 0, 0.113636, 0, 0, 0, 10, -0.0031746, -0.454545, 1.5)
 layers = 32
 double_sided = false

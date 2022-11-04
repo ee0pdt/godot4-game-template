@@ -20,15 +20,15 @@ const ANIM_SPEED := 12.0
 
 signal play_card(card)
 
-@onready var card_name := $Cube/CardName
-@onready var card_power := $Cube/CardPower
-@onready var card_toughness := $Cube/CardToughness
-@onready var cost := $Cube/BerryCost
-@onready var stomp := $Cube/StompCost
-@onready var ability := $Cube/Ability
-@onready var outline := $Cube/Outline
-
-@onready var mesh := $Cube
+@onready var card_name := $CardMesh/CardName
+@onready var card_power := $CardMesh/CardPower
+@onready var card_toughness := $CardMesh/CardToughness
+@onready var cost := $CardMesh/BerryCost
+@onready var stomp := $CardMesh/StompCost
+@onready var ability := $CardMesh/Ability
+@onready var outline := $CardMesh/Outline
+@onready var target_transform := global_transform
+@onready var mesh := $CardMesh
 
 var camera_position: Vector2
 var camera_depth: float
@@ -50,14 +50,49 @@ var camera_depth: float
 #			_:
 #				cost.texture = null
 #				stomp.position = cost.position
-		
+
+func _process(delta: float) -> void:
+	if is_in_hand() and outline.visible:
+		# card hovered
+		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
+		var view_spot = target_transform
+		view_spot.origin = find_camera_pos()
+		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
+	else:
+		transform = transform.interpolate_with(target_transform, ANIM_SPEED * delta)
+		rotation.z = lerp(rotation.z, target_rotation, ANIM_SPEED * delta)
+
+
+func find_camera_pos() -> Vector3:
+	var camera = get_viewport().get_camera_3d()
+	var unprojected = camera.unproject_position(target_transform.origin)
+	# I fiddled with the y coordinate and distance here so the full card is visible
+	return camera.project_position(Vector2(unprojected.x, 750), 2.0)
+
+
+func _on_area_3d_mouse_entered() -> void:
+	outline.visible = true
+	if is_in_hand():
+		scale = Vector3.ONE * 1.1
+
+
+func _on_area_3d_mouse_exited() -> void:
+	outline.visible = false
+	scale = Vector3.ONE
+
+
 var stomp_cost = true:
 	set(cost_in):
 		stomp_cost = cost_in
 		stomp.visible = cost_in
-		
+
+
 var target_rotation := 0.0
 var sleepy := false
+
+func is_in_hand() -> bool:
+#	return get_parent() is Hand
+	return true
 
 func setup_card(card_resource: Resource) -> void:
 	if not is_inside_tree():
@@ -67,16 +102,4 @@ func setup_card(card_resource: Resource) -> void:
 #	card_name.text = card_resource.card_name
 #	card_power.text = str(card_resource.card_power)
 #	card_toughness.text = str(card_resource.card_toughness)
-#	card_ability = card_resource.ability
-
-func _on_area_3d_mouse_entered() -> void:
-	outline.visible = true
-	if in_stack:
-		mesh.position = Vector3.RIGHT * 1.4
-
-func _on_area_3d_mouse_exited() -> void:
-	outline.visible = false
-	if in_stack:
-		mesh.position = Vector3.ZERO
-	
-	
+#	card_ability = card_resource.ability	
