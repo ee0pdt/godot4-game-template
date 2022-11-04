@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
-[ext_resource type="PackedScene" uid="uid://cvwc7clxjpwcu" path="res://cards/card_3d.tscn" id="2_msx6g"]
+[ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -16,6 +16,22 @@ ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
 glow_bloom = 0.14
+
+[sub_resource type="Curve" id="Curve_hrehp"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pfbw7"]
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, -1), 0.0, 1.0, 0, 1, Vector2(0.5, -0.5), 0.0, 0.0, 0, 0, Vector2(1, -1), -1.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_c2mvs"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -87,9 +103,6 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Card3D" parent="3DWorld" instance=ExtResource("2_msx6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29136, 0)
-
 [node name="Ground" type="MeshInstance3D" parent="3DWorld"]
 mesh = SubResource("PlaneMesh_p827g")
 skeleton = NodePath("../..")
@@ -103,7 +116,7 @@ shape = SubResource("ConcavePolygonShape3D_rs80d")
 environment = SubResource("Environment_sytva")
 
 [node name="Camera3D" type="Camera3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46576, 7.03549)
+transform = Transform3D(1, 0, 0, 0, 0.949283, 0.314423, 0, -0.314423, 0.949283, 0, 4.11285, 9.51379)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.342922, 0.939364, 0, -0.939364, 0.342922, 0, 1.27067, 0)
@@ -111,3 +124,13 @@ shadow_enabled = true
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="Hand" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05684, 3.36178)
+script = ExtResource("4_il2hr")
+camera_path = NodePath("../3DWorld/Camera3D")
+spread_curve = SubResource("Curve_hrehp")
+height_curve = SubResource("Curve_pfbw7")
+rotation_curve = SubResource("Curve_c2mvs")
+width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
