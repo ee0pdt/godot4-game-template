@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=8 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="PackedScene" uid="uid://cvwc7clxjpwcu" path="res://cards/card_3d.tscn" id="2_msx6g"]
-[ext_resource type="Script" path="res://cards/card_3d.gd" id="5_8igel"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -90,8 +89,6 @@ text = "0"
 
 [node name="Card3D" parent="3DWorld" instance=ExtResource("2_msx6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29136, 0)
-script = ExtResource("5_8igel")
-in_stack = true
 
 [node name="Ground" type="MeshInstance3D" parent="3DWorld"]
 mesh = SubResource("PlaneMesh_p827g")

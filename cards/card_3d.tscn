@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvwc7clxjpwcu"]
 
-[ext_resource type="Script" path="res://EssentialGames/CardGame/Cards/SimpleCard.gd" id="1_67b72"]
+[ext_resource type="Script" path="res://cards/card_3d.gd" id="1_67b72"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52ews"]
 resource_name = "Material"
