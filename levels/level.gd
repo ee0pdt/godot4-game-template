@@ -6,7 +6,3 @@ enum States {
 	PLAYING,
 	OVER
 }
-
-
-func _ready() -> void:
-	%SubtitleDialogTest.play()
