@@ -54,12 +54,11 @@ var camera_depth: float
 
 func _process(delta: float) -> void:
 	if is_in_hand() and outline.visible:
-		pass
 		# card hovered
-#		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
-#		var view_spot = target_transform
+		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
+		var view_spot = target_transform
 #		view_spot.origin = find_camera_pos()
-#		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
+		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
 	else:
 		transform = transform.interpolate_with(target_transform, ANIM_SPEED * delta)
 		rotation.z = lerp(rotation.z, target_rotation, ANIM_SPEED * delta)
@@ -83,10 +82,10 @@ func _on_area_3d_mouse_exited() -> void:
 	scale = Vector3.ONE
 
 
-var stomp_cost = true:
-	set(cost_in):
-		stomp_cost = cost_in
-		stomp.visible = cost_in
+#var stomp_cost = true:
+#	set(cost_in):
+#		stomp_cost = cost_in
+#		stomp.visible = cost_in
 
 
 var target_rotation := 0.0

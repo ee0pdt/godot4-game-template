@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=17 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -33,6 +33,8 @@ ambient_light_energy = 0.0
 tonemap_mode = 3
 ssil_enabled = true
 glow_bloom = 0.14
+
+[sub_resource type="BoxMesh" id="BoxMesh_5o3ps"]
 
 [sub_resource type="Curve" id="Curve_hrehp"]
 min_value = -1.0
@@ -139,6 +141,10 @@ transform = Transform3D(1, 0, 0, 0, 0.949283, 0.314423, 0, -0.314423, 0.949283, 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.342922, 0.939364, 0, -0.939364, 0.342922, 0, 1.27067, 0)
 shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577965, 0)
+mesh = SubResource("BoxMesh_5o3ps")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
