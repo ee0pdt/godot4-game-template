@@ -2,19 +2,20 @@ extends Node3D
 
 @export var in_stack := true
 
-#var gather_symbol = preload("res://EssentialGames/CardGame/gatherer.png")
-#var poison_symbol = preload("res://EssentialGames/CardGame/poison.png")
-#
-#var card_ability: CardGameManager.abilities:
-#	set(ability_in):
-#		card_ability = ability_in
-#		match card_ability:
-#			CardGameManager.abilities.GATHERER:
-#				ability.texture = gather_symbol
-#			CardGameManager.abilities.POISON:
-#				ability.texture = poison_symbol
-#			_:
-#				ability.texture = null
+var turn_left_symbol = preload("res://cards/assets/turn_left_icon.svg")
+var turn_right_symbol = preload("res://cards/assets/turn_right_icon.svg")
+
+
+var type: Card.Types:
+	set(type_in):
+		type = type_in
+		match type:
+			Card.Types.TURN_LEFT:
+				ability.texture = turn_left_symbol
+			Card.Types.TURN_RIGHT:
+				ability.texture = turn_right_symbol
+			_:
+				ability.texture = null
 
 const ANIM_SPEED := 12.0
 
@@ -32,7 +33,6 @@ signal play_card(card)
 
 var camera_position: Vector2
 var camera_depth: float
-var type: Card.Types
 
 #var one_berry := preload("res://EssentialGames/CardGame/Cards/Runes/1-berry-2.png")
 #var two_berry := preload("res://EssentialGames/CardGame/Cards/Runes/2-berry-2.png")
@@ -54,11 +54,12 @@ var type: Card.Types
 
 func _process(delta: float) -> void:
 	if is_in_hand() and outline.visible:
+		pass
 		# card hovered
-		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
-		var view_spot = target_transform
-		view_spot.origin = find_camera_pos()
-		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
+#		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
+#		var view_spot = target_transform
+#		view_spot.origin = find_camera_pos()
+#		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
 	else:
 		transform = transform.interpolate_with(target_transform, ANIM_SPEED * delta)
 		rotation.z = lerp(rotation.z, target_rotation, ANIM_SPEED * delta)
@@ -71,7 +72,7 @@ func find_camera_pos() -> Vector3:
 	return camera.project_position(Vector2(unprojected.x, 750), 2.0)
 
 
-func _on_area_3d_mouse_entered() -> void:
+func _on_area_3d_mouse_entered() -> void:	
 	outline.visible = true
 	if is_in_hand():
 		scale = Vector3.ONE * 1.1

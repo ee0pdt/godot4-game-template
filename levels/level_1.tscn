@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -17,6 +17,10 @@ type = 1
 [sub_resource type="Resource" id="Resource_fxkop"]
 script = ExtResource("2_cd3wy")
 type = 2
+
+[sub_resource type="Resource" id="Resource_j62om"]
+script = ExtResource("2_cd3wy")
+type = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -48,7 +52,7 @@ point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
-starting_hand = [SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop")]
+starting_hand = [SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop"), SubResource("Resource_j62om")]
 
 [node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 

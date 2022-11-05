@@ -101,7 +101,7 @@ material_override = SubResource("StandardMaterial3D_3gc38")
 mesh = SubResource("ArrayMesh_q3ryh")
 
 [node name="Ability" type="Sprite3D" parent="CardMesh"]
-transform = Transform3D(0.15873, 0, 0, 0, 0.113636, 0, 0, 0, 10, -0.0031746, -0.454545, 1.5)
+transform = Transform3D(0.15873, 0, 0, 0, 0.113636, 0, 0, 0, 10, -0.0031746, -0.06401, 1.5)
 layers = 32
 double_sided = false
 

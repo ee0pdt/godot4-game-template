@@ -18,6 +18,7 @@ const CARD := preload("res://cards/card_3d.tscn")
 func _ready() -> void:
 	for type in starting_hand:
 		add_card(type)
+		await get_tree().create_timer(0.3).timeout
 	
 	for card in hand.get_children():
 		var hand_ratio = 0.5
