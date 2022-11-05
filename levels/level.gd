@@ -9,12 +9,15 @@ enum States {
 
 
 const CARD := preload("res://cards/card_3d.tscn")
+@export var starting_hand: Array[Card]
+
 
 @onready var hand: Hand = %Hand
 
 
 func _ready() -> void:
-	add_n_cards(5)
+	for type in starting_hand:
+		add_card(type)
 	
 	for card in hand.get_children():
 		var hand_ratio = 0.5
@@ -23,7 +26,8 @@ func _ready() -> void:
 			hand_ratio = float(card.get_index()) / float(hand.get_child_count() - 1)
 
 
-func add_n_cards(total: int):
-	for _x in 5:
-		var card = CARD.instantiate()
-		hand.add_new_card(card)
+func add_card(card_resource: Card):
+	var card = CARD.instantiate()
+#	var card_resource = Card.new()
+	card.setup_card(card_resource)
+	hand.add_new_card(card)

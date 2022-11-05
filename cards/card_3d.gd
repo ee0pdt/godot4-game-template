@@ -32,6 +32,7 @@ signal play_card(card)
 
 var camera_position: Vector2
 var camera_depth: float
+var type: Card.Types
 
 #var one_berry := preload("res://EssentialGames/CardGame/Cards/Runes/1-berry-2.png")
 #var two_berry := preload("res://EssentialGames/CardGame/Cards/Runes/2-berry-2.png")
@@ -97,6 +98,16 @@ func is_in_hand() -> bool:
 func setup_card(card_resource: Resource) -> void:
 	if not is_inside_tree():
 		await ready
+	
+	type = card_resource.type
+	
+	match type:
+		Card.Types.TURN_LEFT:
+			card_name.text = "Turn Left"
+		Card.Types.TURN_RIGHT:
+			card_name.text = "Turn Right"
+		Card.Types.SHEILD:
+			card_name.text =  "Shield"
 #	berry_cost = card_resource.berry_cost
 #	stomp_cost = card_resource.stomp
 #	card_name.text = card_resource.card_name

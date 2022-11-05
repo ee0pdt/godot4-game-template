@@ -1,9 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=15 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
+[ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
+
+[sub_resource type="Resource" id="Resource_ddjah"]
+script = ExtResource("2_cd3wy")
+type = 0
+
+[sub_resource type="Resource" id="Resource_l7q2c"]
+script = ExtResource("2_cd3wy")
+type = 1
+
+[sub_resource type="Resource" id="Resource_fxkop"]
+script = ExtResource("2_cd3wy")
+type = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
@@ -35,6 +48,7 @@ point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
+starting_hand = [SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop")]
 
 [node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 
@@ -116,7 +130,7 @@ shape = SubResource("ConcavePolygonShape3D_rs80d")
 environment = SubResource("Environment_sytva")
 
 [node name="Camera3D" type="Camera3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 0.949283, 0.314423, 0, -0.314423, 0.949283, 0, 4.11285, 9.51379)
+transform = Transform3D(1, 0, 0, 0, 0.949283, 0.314423, 0, -0.314423, 0.949283, 0, 3.93052, 9.51379)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.342922, 0.939364, 0, -0.939364, 0.342922, 0, 1.27067, 0)

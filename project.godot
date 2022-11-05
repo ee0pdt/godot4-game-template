@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Resource",
+"class": &"Card",
+"language": &"GDScript",
+"path": "res://cards/card.gd"
+}, {
 "base": "Node3D",
 "class": &"Hand",
 "language": &"GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[{
 "path": "res://fsm/state_machine.gd"
 }]
 _global_script_class_icons={
+"Card": "",
 "Hand": "",
 "State": "",
 "StateMachine": ""
