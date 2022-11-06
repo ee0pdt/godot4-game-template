@@ -15,6 +15,11 @@ _global_script_classes=[{
 "path": "res://cards/card.gd"
 }, {
 "base": "Node3D",
+"class": &"Card3D",
+"language": &"GDScript",
+"path": "res://cards/card_3d.gd"
+}, {
+"base": "Node3D",
 "class": &"Hand",
 "language": &"GDScript",
 "path": "res://cards/hand.gd"
@@ -31,6 +36,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Card": "",
+"Card3D": "",
 "Hand": "",
 "State": "",
 "StateMachine": ""
