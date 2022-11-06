@@ -34,6 +34,11 @@ func add_new_card(card) -> void:
 #	card.inspect.connect(inspection)
 
 
+func play_card(card) -> void:
+	remove_child(card)
+	sort_hand()
+
+
 func sort_hand() -> void:
 	var max_width 
 	if get_child_count() >= width_array.size():

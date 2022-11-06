@@ -38,3 +38,4 @@ func _add_card(card_resource: Card):
 
 func _handle_play_card(card: Card3D):
 	print("Card played: ", card.type)
+	hand.play_card(card)
