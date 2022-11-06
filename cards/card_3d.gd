@@ -4,10 +4,6 @@ class_name Card3D
 
 
 @onready var card_name := $CardMesh/CardName
-@onready var card_power := $CardMesh/CardPower
-@onready var card_toughness := $CardMesh/CardToughness
-@onready var cost := $CardMesh/BerryCost
-@onready var stomp := $CardMesh/StompCost
 @onready var ability := $CardMesh/Ability
 @onready var outline := $CardMesh/Outline
 @onready var target_transform := global_transform
@@ -69,14 +65,7 @@ func setup_card(card_resource: Resource) -> void:
 		await ready
 	
 	type = card_resource.type
-	
-	match type:
-		Card.Types.TURN_LEFT:
-			card_name.text = "Turn Left"
-		Card.Types.TURN_RIGHT:
-			card_name.text = "Turn Right"
-		Card.Types.SHEILD:
-			card_name.text =  "Shield"
+	card_name.text = card_resource.get_type_as_string()
 
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int) -> void:
