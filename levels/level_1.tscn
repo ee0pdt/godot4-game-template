@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=22 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
+[ext_resource type="Script" path="res://levels/Player.gd" id="5_ljsa3"]
 
 [sub_resource type="Resource" id="Resource_ddjah"]
 script = ExtResource("2_cd3wy")
@@ -35,6 +36,17 @@ ssil_enabled = true
 glow_bloom = 0.14
 
 [sub_resource type="BoxMesh" id="BoxMesh_5o3ps"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xd0ui"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pdhnd"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18pg7"]
+albedo_color = Color(0, 0.313726, 0.705882, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bfchy"]
 
 [sub_resource type="Curve" id="Curve_hrehp"]
 min_value = -1.0
@@ -145,6 +157,23 @@ shadow_enabled = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577965, 0)
 mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="Player" type="CharacterBody3D" parent="3DWorld"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, 3.09409)
+script = ExtResource("5_ljsa3")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="3DWorld/Player"]
+mesh = SubResource("CapsuleMesh_xd0ui")
+
+[node name="EyesMesh" type="MeshInstance3D" parent="3DWorld/Player/BodyMesh"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -0.0269866, 0.483314, 0.527099)
+mesh = SubResource("CapsuleMesh_pdhnd")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_18pg7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/Player"]
+shape = SubResource("CapsuleShape3D_bfchy")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

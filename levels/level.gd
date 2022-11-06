@@ -13,6 +13,7 @@ const CARD_SCENE := preload("res://cards/card_3d.tscn")
 @export var starting_hand: Array[Card]
 
 @onready var hand: Hand = %Hand
+@onready var player := %Player
 
 
 func _ready() -> void:
@@ -38,4 +39,13 @@ func _add_card(card_resource: Card):
 
 func _handle_play_card(card: Card3D):
 	print("Card played: ", card.type)
+	
+	match card.type:
+		Card.Types.TURN_LEFT:
+			player.rotate_left()
+		Card.Types.TURN_RIGHT:
+			player.rotate_right()
+		_:
+			pass
+	
 	hand.play_card(card)
