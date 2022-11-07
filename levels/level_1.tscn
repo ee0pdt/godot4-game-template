@@ -172,13 +172,13 @@ mesh = SubResource("BoxMesh_5o3ps")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wvdvt")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="3DWorld"]
+[node name="Wall" type="MeshInstance3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.051549, 0.577965, 5.70448)
 mesh = SubResource("BoxMesh_ougde")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/Wall"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/Wall/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_fterq")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
