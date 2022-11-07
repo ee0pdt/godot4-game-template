@@ -19,10 +19,20 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://cards/card_3d.gd"
 }, {
+"base": "Node",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://game/game.gd"
+}, {
 "base": "Node3D",
 "class": &"Hand",
 "language": &"GDScript",
 "path": "res://cards/hand.gd"
+}, {
+"base": "Node3D",
+"class": &"Level",
+"language": &"GDScript",
+"path": "res://levels/level.gd"
 }, {
 "base": "Node",
 "class": &"State",
@@ -37,7 +47,9 @@ _global_script_classes=[{
 _global_script_class_icons={
 "Card": "",
 "Card3D": "",
+"Game": "",
 "Hand": "",
+"Level": "",
 "State": "",
 "StateMachine": ""
 }

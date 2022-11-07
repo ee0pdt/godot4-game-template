@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=24 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
 [ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_b14ja"]
+[ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
 
 [sub_resource type="Resource" id="Resource_ddjah"]
 script = ExtResource("2_cd3wy")
@@ -62,6 +63,10 @@ min_value = -1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h157l"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_5hleo"]
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
 starting_hand = [SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop"), SubResource("Resource_j62om")]
@@ -84,14 +89,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -99,7 +102,6 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -109,7 +111,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -118,7 +119,6 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -183,7 +183,7 @@ shape = SubResource("ConcavePolygonShape3D_fterq")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
-SPEED = 0.5
+SPEED = 1.5
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
@@ -197,3 +197,16 @@ spread_curve = SubResource("Curve_hrehp")
 height_curve = SubResource("Curve_pfbw7")
 rotation_curve = SubResource("Curve_c2mvs")
 width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
+
+[node name="Exit" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96542, 0, 0)
+script = ExtResource("7_1r1ia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit"]
+shape = SubResource("CylinderShape3D_h157l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 0.0382483, -0.999268, 0, 0.999268, 0.0382483, 0, 1.21044, 0)
+mesh = SubResource("TorusMesh_5hleo")
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
