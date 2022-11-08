@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=21 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
 [ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_b14ja"]
-[ext_resource type="PackedScene" uid="uid://b7bubg88j0oy8" path="res://tiles/floor_tile.tscn" id="6_txkae"]
+[ext_resource type="PackedScene" uid="uid://x1fmv5e2bbuo" path="res://tiles/basic_tile.tscn" id="6_bwau4"]
 [ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
 
 [sub_resource type="Resource" id="Resource_ddjah"]
@@ -25,12 +25,6 @@ type = 2
 script = ExtResource("2_cd3wy")
 type = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
-size = Vector2(20, 20)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
-
 [sub_resource type="Environment" id="Environment_sytva"]
 ambient_light_energy = 0.0
 tonemap_mode = 3
@@ -41,12 +35,6 @@ glow_bloom = 0.14
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wvdvt"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ougde"]
-size = Vector3(10, 1, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fterq"]
-data = PackedVector3Array(-5, 0.5, 0.5, 5, 0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, -0.5, 5, -0.5, -0.5, -5, 0.5, -0.5, -5, -0.5, -0.5, 5, -0.5, -0.5, 5, 0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, -0.5, 5, -0.5, 0.5, -5, 0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, 0.5, -5, -0.5, -0.5, 5, 0.5, 0.5, -5, 0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, 0.5, -5, 0.5, -0.5, 5, 0.5, -0.5, -5, -0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, -0.5, 5, -0.5, 0.5, 5, -0.5, -0.5, -5, -0.5, -0.5)
 
 [sub_resource type="Curve" id="Curve_hrehp"]
 min_value = -1.0
@@ -139,21 +127,11 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
-visible = false
-mesh = SubResource("PlaneMesh_p827g")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
 [node name="Camera3D" type="Camera3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 0.1456, 0.989344, 0, -0.989344, 0.1456, 0, 18.5703, 3.38535)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19.7316, 0.547846)
 fov = 50.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
@@ -179,20 +157,194 @@ mesh = SubResource("BoxMesh_5o3ps")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wvdvt")
 
-[node name="Wall" type="MeshInstance3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.051549, 0.577965, 5.70448)
-mesh = SubResource("BoxMesh_ougde")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/Wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/Wall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fterq")
-
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
 SPEED = 1.5
 
-[node name="FloorTile" parent="3DWorld" instance=ExtResource("6_txkae")]
+[node name="BasicTile" parent="3DWorld" instance=ExtResource("6_bwau4")]
+
+[node name="BasicTile2" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="BasicTile3" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="BasicTile4" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="BasicTile5" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="BasicTile6" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BasicTile8" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="BasicTile9" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="BasicTile10" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="BasicTile11" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="BasicTile12" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="BasicTile13" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="BasicTile14" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="BasicTile15" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="BasicTile16" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="BasicTile17" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="BasicTile18" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="BasicTile19" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="BasicTile20" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="BasicTile21" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="BasicTile22" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="BasicTile23" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+
+[node name="BasicTile24" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+
+[node name="BasicTile25" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
+
+[node name="BasicTile26" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="BasicTile27" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+
+[node name="BasicTile28" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+
+[node name="BasicTile29" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
+
+[node name="BasicTile31" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="BasicTile32" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+
+[node name="BasicTile33" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+
+[node name="BasicTile34" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+
+[node name="BasicTile35" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -8)
+
+[node name="BasicTile36" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="BasicTile37" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="BasicTile38" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="BasicTile39" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="BasicTile40" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="BasicTile41" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+
+[node name="BasicTile42" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="BasicTile43" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+
+[node name="BasicTile44" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
+
+[node name="BasicTile45" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="BasicTile46" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+
+[node name="BasicTile47" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="BasicTile48" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+
+[node name="BasicTile49" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
+
+[node name="BasicTile50" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+
+[node name="BasicTile51" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2)
+
+[node name="BasicTile52" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="BasicTile53" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
+
+[node name="BasicTile54" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
+
+[node name="BasicTile30" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+
+[node name="BasicTile57" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="BasicTile58" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="BasicTile59" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
+
+[node name="BasicTile60" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+
+[node name="BasicTile61" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+
+[node name="BasicTile62" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="BasicTile63" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 6)
+
+[node name="BasicTile55" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
+
+[node name="BasicTile56" parent="3DWorld" instance=ExtResource("6_bwau4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
