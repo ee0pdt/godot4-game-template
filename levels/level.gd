@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _register_events():
-	GameEvents.player_exited.connect(_handle_player_exit)
+	var _result = GameEvents.player_exited.connect(_handle_player_exit)
 
 
 func _initialise_hand():

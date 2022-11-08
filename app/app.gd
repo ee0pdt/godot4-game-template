@@ -23,11 +23,11 @@ func _register_events() -> void:
 
 
 func _handle_main_menu() -> void:
-	get_tree().change_scene_to_file(main_menu)
+	var _result = get_tree().change_scene_to_file(main_menu)
 
 
 func _handle_start_game() -> void:
-	get_tree().change_scene_to_file(game)
+	var _result = get_tree().change_scene_to_file(game)
 
 
 func _handle_quit() -> void:
@@ -36,5 +36,5 @@ func _handle_quit() -> void:
 
 func _handle_settings() -> void:
 	get_tree().paused = true
-	get_tree().change_scene_to_file(settings)
+	var _result = get_tree().change_scene_to_file(settings)
 	

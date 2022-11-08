@@ -24,7 +24,7 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	level = owner
 	print("Idle")
-	GameEvents.press_card.connect(_handle_press_card)
+	var _result = GameEvents.press_card.connect(_handle_press_card)
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function

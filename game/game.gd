@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func _register_events() -> void:
-	GameEvents.next_level.connect(self._handle_level_changed)
+	var _result = GameEvents.next_level.connect(self._handle_level_changed)
 
 
 func _handle_level_changed() -> void:

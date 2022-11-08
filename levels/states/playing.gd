@@ -32,13 +32,13 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	level = owner
 	print("Pressing")
-	GameEvents.release_card.connect(_handle_release_card)
+	var _result = GameEvents.release_card.connect(_handle_release_card)
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.
 func exit() -> void:
-	GameEvents.press_card.disconnect(_handle_release_card)
+	GameEvents.release_card.disconnect(_handle_release_card)
 
 
 func _handle_release_card(card: Card3D) -> void:	
