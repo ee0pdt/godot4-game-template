@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=25 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_b14ja"]
 [ext_resource type="PackedScene" uid="uid://x1fmv5e2bbuo" path="res://tiles/basic_tile.tscn" id="6_bwau4"]
 [ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
+[ext_resource type="Script" path="res://fsm/state_machine.gd" id="9_0mcew"]
+[ext_resource type="Script" path="res://levels/states/idle.gd" id="9_x887c"]
+[ext_resource type="Script" path="res://levels/states/playing.gd" id="11_5lv01"]
+[ext_resource type="Script" path="res://levels/states/over.gd" id="12_o8qoo"]
 
 [sub_resource type="Resource" id="Resource_j62om"]
 script = ExtResource("2_cd3wy")
@@ -373,5 +377,18 @@ shape = SubResource("CylinderShape3D_h157l")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
 transform = Transform3D(1, 0, 0, 0, 0.0382483, -0.999268, 0, 0.999268, 0.0382483, 0, 1.21044, 0)
 mesh = SubResource("TorusMesh_5hleo")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_0mcew")
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="StateMachine"]
+script = ExtResource("9_x887c")
+
+[node name="PRESSING" type="Node" parent="StateMachine"]
+script = ExtResource("11_5lv01")
+
+[node name="OVER" type="Node" parent="StateMachine"]
+script = ExtResource("12_o8qoo")
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

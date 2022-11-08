@@ -2,8 +2,8 @@ extends Node3D
 class_name Level
 
 enum States {
-	BEFORE,
-	PLAYING,
+	IDLE,
+	PRESSING,
 	OVER
 }
 
@@ -22,7 +22,6 @@ func _ready() -> void:
 
 
 func _register_events():
-	GameEvents.play_card.connect(_handle_play_card)
 	GameEvents.player_exited.connect(_handle_player_exit)
 
 
@@ -36,20 +35,6 @@ func _add_card(card_resource: Card):
 	var card = CARD_SCENE.instantiate()
 	card.setup_card(card_resource)
 	hand.add_new_card(card)
-
-
-func _handle_play_card(card: Card3D) -> void:	
-	match card.type:
-		Card.Types.FORWARD:
-			player.forward()
-		Card.Types.TURN_LEFT:
-			player.rotate_left()
-		Card.Types.TURN_RIGHT:
-			player.rotate_right()
-		_:
-			pass
-	
-	hand.play_card(card)
 
 
 func _handle_player_exit() -> void:

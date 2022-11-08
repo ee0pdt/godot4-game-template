@@ -72,5 +72,9 @@ func setup_card(card_resource: Resource) -> void:
 
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event.is_pressed():
-		GameEvents.play_card.emit(self)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				GameEvents.press_card.emit(self)
+			else:
+				GameEvents.release_card.emit(self)
