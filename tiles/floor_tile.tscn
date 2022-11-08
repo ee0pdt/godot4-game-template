@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7bubg88j0oy8"]
+
+[ext_resource type="Script" path="res://tiles/floor_tile.gd" id="1_0mhhn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4w00m"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.2
+
+[node name="FloorTile" type="Node3D"]
+script = ExtResource("1_0mhhn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("CylinderMesh_4w00m")

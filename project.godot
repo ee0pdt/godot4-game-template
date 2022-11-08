@@ -35,9 +35,9 @@ _global_script_classes=[{
 "path": "res://levels/level.gd"
 }, {
 "base": "Node3D",
-"class": &"MapTile",
+"class": &"MapTileItem",
 "language": &"GDScript",
-"path": "res://levels/map_tile.gd"
+"path": "res://tiles/map_tile_item.gd"
 }, {
 "base": "Node",
 "class": &"State",
@@ -55,7 +55,7 @@ _global_script_class_icons={
 "Game": "",
 "Hand": "",
 "Level": "",
-"MapTile": "",
+"MapTileItem": "",
 "State": "",
 "StateMachine": ""
 }

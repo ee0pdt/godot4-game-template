@@ -1,5 +1,5 @@
 extends Node3D
-class_name MapTile
+class_name MapTileItem
 
 @tool
 

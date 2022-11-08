@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=25 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
 [ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_b14ja"]
-[ext_resource type="Script" path="res://levels/floor_tile.gd" id="6_3rkqe"]
+[ext_resource type="PackedScene" uid="uid://b7bubg88j0oy8" path="res://tiles/floor_tile.tscn" id="6_txkae"]
 [ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
 
 [sub_resource type="Resource" id="Resource_ddjah"]
@@ -47,9 +47,6 @@ size = Vector3(10, 1, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fterq"]
 data = PackedVector3Array(-5, 0.5, 0.5, 5, 0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, -0.5, 5, -0.5, -0.5, -5, 0.5, -0.5, -5, -0.5, -0.5, 5, -0.5, -0.5, 5, 0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, -0.5, 5, -0.5, 0.5, -5, 0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, 0.5, -5, -0.5, -0.5, 5, 0.5, 0.5, -5, 0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, 0.5, -5, 0.5, -0.5, 5, 0.5, -0.5, -5, -0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, -0.5, 5, -0.5, 0.5, 5, -0.5, -0.5, -5, -0.5, -0.5)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_4w00m"]
-height = 0.2
 
 [sub_resource type="Curve" id="Curve_hrehp"]
 min_value = -1.0
@@ -195,12 +192,7 @@ shape = SubResource("ConcavePolygonShape3D_fterq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
 SPEED = 1.5
 
-[node name="SnapToNode" type="Node3D" parent="3DWorld"]
-script = ExtResource("6_3rkqe")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="3DWorld/SnapToNode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-mesh = SubResource("CylinderMesh_4w00m")
+[node name="FloorTile" parent="3DWorld" instance=ExtResource("6_txkae")]
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
