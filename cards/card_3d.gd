@@ -9,18 +9,21 @@ class_name Card3D
 @onready var target_transform := global_transform
 @onready var mesh := $CardMesh
 
-var turn_left_symbol = preload("res://cards/assets/turn_left_icon.svg")
-var turn_right_symbol = preload("res://cards/assets/turn_right_icon.svg")
+var forward_icon = preload("res://cards/assets/forward_icon.svg")
+var turn_left_icon = preload("res://cards/assets/turn_left_icon.svg")
+var turn_right_icon = preload("res://cards/assets/turn_right_icon.svg")
 
 
 var type: Card.Types:
 	set(type_in):
 		type = type_in
 		match type:
+			Card.Types.FORWARD:
+				ability.texture = forward_icon
 			Card.Types.TURN_LEFT:
-				ability.texture = turn_left_symbol
+				ability.texture = turn_left_icon
 			Card.Types.TURN_RIGHT:
-				ability.texture = turn_right_symbol
+				ability.texture = turn_right_icon
 			_:
 				ability.texture = null
 

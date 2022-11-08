@@ -40,6 +40,8 @@ func _add_card(card_resource: Card):
 
 func _handle_play_card(card: Card3D) -> void:	
 	match card.type:
+		Card.Types.FORWARD:
+			player.forward()
 		Card.Types.TURN_LEFT:
 			player.rotate_left()
 		Card.Types.TURN_RIGHT:

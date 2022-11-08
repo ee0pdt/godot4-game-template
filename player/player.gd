@@ -1,7 +1,9 @@
 extends CharacterBody3D
 
+class_name Player
 
-@export var SPEED = 0.5
+
+@export var SPEED = 0.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,6 +29,10 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func forward():
+	SPEED = 1.5
 
 
 func rotate_left():

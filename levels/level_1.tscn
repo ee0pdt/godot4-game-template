@@ -9,9 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://x1fmv5e2bbuo" path="res://tiles/basic_tile.tscn" id="6_bwau4"]
 [ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
 
-[sub_resource type="Resource" id="Resource_ddjah"]
+[sub_resource type="Resource" id="Resource_j62om"]
 script = ExtResource("2_cd3wy")
 type = 0
+
+[sub_resource type="Resource" id="Resource_ddjah"]
+script = ExtResource("2_cd3wy")
+type = 1
 
 [sub_resource type="Resource" id="Resource_l7q2c"]
 script = ExtResource("2_cd3wy")
@@ -20,10 +24,6 @@ type = 1
 [sub_resource type="Resource" id="Resource_fxkop"]
 script = ExtResource("2_cd3wy")
 type = 2
-
-[sub_resource type="Resource" id="Resource_j62om"]
-script = ExtResource("2_cd3wy")
-type = 0
 
 [sub_resource type="Environment" id="Environment_sytva"]
 ambient_light_energy = 0.0
@@ -58,7 +58,7 @@ point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
-starting_hand = [SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop"), SubResource("Resource_j62om")]
+starting_hand = [SubResource("Resource_j62om"), SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop")]
 
 [node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 
@@ -159,7 +159,7 @@ shape = SubResource("ConcavePolygonShape3D_wvdvt")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
-SPEED = 1.5
+SPEED = 0.0
 
 [node name="BasicTile" parent="3DWorld" instance=ExtResource("6_bwau4")]
 

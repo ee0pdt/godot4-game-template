@@ -2,12 +2,14 @@ extends Resource
 class_name Card
 
 enum Types {
+	FORWARD,
 	TURN_LEFT,
 	TURN_RIGHT,
 	SHEILD,
 }
 
 const card_names = {
+	Types.FORWARD: "Forward",
 	Types.TURN_LEFT: "Turn Left",
 	Types.TURN_RIGHT: "Turn Right",
 	Types.SHEILD: "Sheild",
