@@ -163,7 +163,6 @@ shape = SubResource("ConcavePolygonShape3D_wvdvt")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
-SPEED = 0.0
 
 [node name="FloorTiles" type="Node3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
