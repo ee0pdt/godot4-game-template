@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=26 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="Script" path="res://cards/hand.gd" id="4_il2hr"]
 [ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_b14ja"]
+[ext_resource type="Script" path="res://levels/floor_tile.gd" id="6_3rkqe"]
 [ext_resource type="Script" path="res://exit/exit.gd" id="7_1r1ia"]
 
 [sub_resource type="Resource" id="Resource_ddjah"]
@@ -46,6 +47,9 @@ size = Vector3(10, 1, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fterq"]
 data = PackedVector3Array(-5, 0.5, 0.5, 5, 0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, -0.5, 5, -0.5, -0.5, -5, 0.5, -0.5, -5, -0.5, -0.5, 5, -0.5, -0.5, 5, 0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, 0.5, 5, 0.5, -0.5, 5, -0.5, -0.5, 5, -0.5, 0.5, -5, 0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, -0.5, -5, 0.5, 0.5, -5, -0.5, 0.5, -5, -0.5, -0.5, 5, 0.5, 0.5, -5, 0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, 0.5, -5, 0.5, -0.5, 5, 0.5, -0.5, -5, -0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, -0.5, 5, -0.5, 0.5, 5, -0.5, -0.5, -5, -0.5, -0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4w00m"]
+height = 0.2
 
 [sub_resource type="Curve" id="Curve_hrehp"]
 min_value = -1.0
@@ -89,12 +93,14 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -102,6 +108,7 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -111,6 +118,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -119,6 +127,7 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -134,6 +143,7 @@ text = "0"
 [node name="3DWorld" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="3DWorld"]
+visible = false
 mesh = SubResource("PlaneMesh_p827g")
 skeleton = NodePath("../..")
 
@@ -184,6 +194,13 @@ shape = SubResource("ConcavePolygonShape3D_fterq")
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, -6.34078)
 SPEED = 1.5
+
+[node name="SnapToNode" type="Node3D" parent="3DWorld"]
+script = ExtResource("6_3rkqe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3DWorld/SnapToNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("CylinderMesh_4w00m")
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
