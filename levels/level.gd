@@ -14,6 +14,7 @@ const CARD_SCENE := preload("res://cards/card_3d.tscn")
 
 @onready var hand: Hand = %Hand
 @onready var player := %Player
+@onready var current_card: Card3D
 
 
 func _ready() -> void:
