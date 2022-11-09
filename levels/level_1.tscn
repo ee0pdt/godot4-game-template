@@ -378,6 +378,7 @@ transform = Transform3D(1, 0, 0, 0, 0.0382483, -0.999268, 0, 0.999268, 0.0382483
 mesh = SubResource("TorusMesh_5hleo")
 
 [node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("9_0mcew")
 initial_state = NodePath("IDLE")
 

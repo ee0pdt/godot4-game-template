@@ -55,7 +55,7 @@ func find_camera_pos() -> Vector3:
 
 func _on_area_3d_mouse_entered() -> void:	
 	outline.visible = true
-	scale = Vector3.ONE * 1.1
+#	scale = Vector3.ONE * 1.1
 
 
 func _on_area_3d_mouse_exited() -> void:
