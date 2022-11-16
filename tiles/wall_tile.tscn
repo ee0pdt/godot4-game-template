@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cykpfp8ndi8lc"]
+
+[ext_resource type="Script" path="res://tiles/floor_tile.gd" id="1_pqs2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7kfk8"]
+
+[node name="WallTile" type="Node3D"]
+script = ExtResource("1_pqs2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+mesh = SubResource("BoxMesh_7kfk8")

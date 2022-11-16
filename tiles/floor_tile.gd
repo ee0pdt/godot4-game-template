@@ -8,8 +8,11 @@ extends MapTileItem
 		var radius = float(tile_size_in) / 2
 		
 		var mesh_node: MeshInstance3D = $MeshInstance3D
-		var mesh: CylinderMesh = mesh_node.get_mesh()
-		mesh.top_radius = radius
-		mesh.bottom_radius = radius
+		var mesh: BoxMesh = mesh_node.get_mesh()
+		mesh.size.x = tile_size
+		mesh.size.z = tile_size
+		mesh.size.y = 1
 		
-		mesh_node.position = Vector3(position.x + radius, position.y, position.z + radius)
+		print(global_position)
+		
+		mesh_node.global_position = Vector3(global_position.x + radius, global_position.y + 0.5, global_position.z + radius)
