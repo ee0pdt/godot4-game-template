@@ -28,6 +28,7 @@ var type: Card.Types:
 				ability.texture = null
 
 const ANIM_SPEED := 12.0
+const HOVER_SCALE := 1.1
 
 var camera_position: Vector2
 var camera_depth: float
@@ -36,11 +37,12 @@ var target_rotation := 0.0
 
 func _process(delta: float) -> void:
 	if outline.visible:
+		position.y = get_parent().position.y + 0.2
+		return
 		# card hovered
 		rotation.z = lerp(rotation.z, 0.0, ANIM_SPEED * delta)
 		var view_spot = target_transform
 #		view_spot.origin = find_camera_pos()
-		transform = transform.interpolate_with(view_spot, ANIM_SPEED * delta)
 	else:
 		transform = transform.interpolate_with(target_transform, ANIM_SPEED * delta)
 		rotation.z = lerp(rotation.z, target_rotation, ANIM_SPEED * delta)
@@ -55,7 +57,7 @@ func find_camera_pos() -> Vector3:
 
 func _on_area_3d_mouse_entered() -> void:	
 	outline.visible = true
-#	scale = Vector3.ONE * 1.1
+	scale = Vector3.ONE * HOVER_SCALE
 
 
 func _on_area_3d_mouse_exited() -> void:

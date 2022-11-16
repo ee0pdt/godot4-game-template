@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=26 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="9_x887c"]
 [ext_resource type="Script" path="res://levels/states/playing.gd" id="11_5lv01"]
 [ext_resource type="Script" path="res://levels/states/over.gd" id="12_o8qoo"]
+
+[sub_resource type="Resource" id="Resource_jby1s"]
+script = ExtResource("2_cd3wy")
+type = 0
 
 [sub_resource type="Resource" id="Resource_j62om"]
 script = ExtResource("2_cd3wy")
@@ -62,7 +66,7 @@ point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
-starting_hand = [SubResource("Resource_j62om"), SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop")]
+starting_hand = [SubResource("Resource_jby1s"), SubResource("Resource_j62om"), SubResource("Resource_ddjah"), SubResource("Resource_l7q2c"), SubResource("Resource_fxkop")]
 
 [node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 
@@ -82,14 +86,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -97,7 +99,6 @@ size_flags_horizontal = 3
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_right = 524.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -107,7 +108,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 528.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -116,7 +116,6 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 offset_left = 424.0
 offset_right = 524.0
 offset_bottom = 548.0
@@ -159,6 +158,87 @@ mesh = SubResource("BoxMesh_5o3ps")
 [node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85913, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03246, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22237, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65073, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2084, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38004, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67759, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1016, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D13/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wvdvt")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07996, 0.577965, -3.91746)
+mesh = SubResource("BoxMesh_5o3ps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/MeshInstance3D14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/MeshInstance3D14/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wvdvt")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
@@ -358,7 +438,7 @@ bus = &"Music"
 
 [node name="Hand" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47723, 3.04161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5645, 2.07746)
 script = ExtResource("4_il2hr")
 camera_path = NodePath("../3DWorld/Camera3D")
 spread_curve = SubResource("Curve_hrehp")

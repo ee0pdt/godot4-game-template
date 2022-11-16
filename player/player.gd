@@ -3,15 +3,17 @@ extends CharacterBody3D
 class_name Player
 
 
-@export var speed := 0.0
-@export var MAX_SPEED := 2.0
-@export var ROTATION_SPEED := 45.0
-@export var ACCELERATION := 1.0
+@export var speed: float = 0.0
+@export var MAX_SPEED: float = 2.0
+@export var ROTATION_SPEED: float = 120.0
+@export var ACCELERATION: float = 1.0
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY: float  = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var moving := false
 
 
 func _physics_process(delta: float) -> void:
@@ -25,18 +27,23 @@ func _physics_process(delta: float) -> void:
 
 	var direction := (transform.basis * Vector3(0, 0, 1)).normalized()
 	
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+	if moving:
+		speed = MAX_SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		speed = move_toward(speed, 0, 0.01)
+	
+	velocity.x = move_toward(velocity.x, direction.x * speed, ACCELERATION)
+	velocity.z = move_toward(velocity.z, direction.z * speed, ACCELERATION)
 
 	var _result = move_and_slide()
 
 
 func forward(delta: float):
-	speed = clamp(speed + (delta * ACCELERATION), 0, MAX_SPEED)
+	moving = true
+
+
+func stop():
+	moving = false
 
 
 func rotate_left(delta: float):
