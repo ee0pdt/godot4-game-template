@@ -15,4 +15,4 @@ extends MapTileItem
 		
 		print(global_position)
 		
-		mesh_node.global_position = Vector3(global_position.x + radius, global_position.y + 0.5, global_position.z + radius)
+		mesh_node.global_position = Vector3(global_position.x + radius, global_position.y, global_position.z + radius)
