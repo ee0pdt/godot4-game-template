@@ -24,7 +24,6 @@ func physics_update(_delta: float) -> void:
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
 	level = owner
-	print("Idle")
 	var _result = GameEvents.press_card.connect(_handle_press_card)
 
 

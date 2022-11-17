@@ -45,7 +45,6 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	level = owner
 	original_card_position = level.current_card.position
-	print("Pressing")
 	var _result = GameEvents.release_card.connect(_handle_release_card)
 
 

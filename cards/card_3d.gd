@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 #		view_spot.origin = find_camera_pos()
 	else:
 		transform = transform.interpolate_with(target_transform, ANIM_SPEED * delta)
-		rotation.z = lerp(rotation.z, target_rotation, ANIM_SPEED * delta)
+		rotation.z = snapped(lerp(rotation.z, target_rotation, ANIM_SPEED * delta), 0.01)
 
 
 func find_camera_pos() -> Vector3:
