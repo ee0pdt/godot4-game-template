@@ -4,9 +4,9 @@ class_name Player
 
 
 @export var speed: float = 0.0
-@export var MAX_SPEED: float = 2.0
+@export var MAX_SPEED: float = 3.0
 @export var ROTATION_SPEED: float = 120.0
-@export var ACCELERATION: float = 1.0
+@export var ACCELERATION: float = 0.05
 
 const JUMP_VELOCITY: float  = 4.5
 

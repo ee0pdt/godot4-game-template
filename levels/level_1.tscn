@@ -64,8 +64,8 @@ radius = 0.8
 height = 1.6
 
 [sub_resource type="Gradient" id="Gradient_sbkw7"]
-offsets = PackedFloat32Array(0.0102041, 0.489796, 1)
-colors = PackedColorArray(0, 0.878431, 1, 0.819608, 0.537255, 0.517647, 0.533333, 0, 1, 0, 0.0196078, 1)
+offsets = PackedFloat32Array(0.0102041, 0.170918, 0.214286, 0.829082, 1)
+colors = PackedColorArray(0, 0.878431, 1, 0.819608, 0.537255, 0.517647, 0.533333, 0, 0.497247, 0.544514, 0.568085, 0.0610347, 0.737255, 0.286275, 0.305882, 0, 1, 0, 0.0196078, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nyexp"]
 
@@ -198,7 +198,7 @@ Press [R] to restart the level.[/center]"
 environment = SubResource("Environment_sytva")
 
 [node name="Camera3D" type="Camera3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19.7316, 0.547846)
+transform = Transform3D(0.96236, -0.0603643, 0.264988, -0.0153888, 0.961354, 0.274885, -0.27134, -0.268616, 0.92424, 5.14991, 4.72809, 14.294)
 fov = 50.0
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
@@ -361,6 +361,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
 [node name="BasicTile20" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
 
+[node name="Hand" type="Node3D" parent="3DWorld"]
+unique_name_in_owner = true
+transform = Transform3D(0.992079, -0.0603643, 0.110158, 0.0280841, 0.961354, 0.273879, -0.122433, -0.268616, 0.955435, 1.56412, -0.523096, 3.93008)
+script = ExtResource("4_il2hr")
+camera_path = NodePath("../Camera3D")
+spread_curve = SubResource("Curve_hrehp")
+height_curve = SubResource("Curve_pfbw7")
+rotation_curve = SubResource("Curve_c2mvs")
+width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22981, 2.17781, -1.32501)
 light_color = Color(1, 0.666667, 0.701961, 1)
@@ -388,16 +398,6 @@ omni_range = 8.37324
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
-[node name="Hand" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5645, 2.07746)
-script = ExtResource("4_il2hr")
-camera_path = NodePath("../3DWorld/Camera3D")
-spread_curve = SubResource("Curve_hrehp")
-height_curve = SubResource("Curve_pfbw7")
-rotation_curve = SubResource("Curve_c2mvs")
-width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
-
 [node name="Exit" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.969, 0, -0.810556)
 script = ExtResource("7_1r1ia")
@@ -407,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14431, 0.702029)
 shape = SubResource("CylinderShape3D_h157l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
-transform = Transform3D(-0.410054, 0.587743, -0.697433, 0.297889, 0.809047, 0.506659, 0.862043, 0, -0.506835, -0.0464535, 1.45985, 0.8)
+transform = Transform3D(0.0129402, 0.999674, 0.0220091, 0.50667, -0.0255314, 0.861761, 0.862043, -9.54581e-09, -0.506835, -0.0464535, 1.45985, 0.8)
 mesh = SubResource("SphereMesh_vbiwr")
 surface_material_override/0 = SubResource("ShaderMaterial_mhl8d")
 script = ExtResource("10_dmfa0")
