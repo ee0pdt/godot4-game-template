@@ -23,6 +23,11 @@ func _ready() -> void:
 	_initialise_hand()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+
+
 func _register_events():
 	var _result = GameEvents.player_exited.connect(_handle_player_exit)
 

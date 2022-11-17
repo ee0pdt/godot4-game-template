@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6gyklc7eklt"]
+[gd_scene load_steps=9 format=3 uid="uid://6gyklc7eklt"]
 
 [ext_resource type="Script" path="res://tiles/map_tile_item.gd" id="1_l21wr"]
 
@@ -39,6 +39,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sas7v")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f10jq"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xsomy"]
+noise = SubResource("FastNoiseLite_f10jq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrxjn"]
+albedo_color = Color(0.356863, 0.290196, 0.282353, 1)
+roughness_texture = SubResource("NoiseTexture2D_xsomy")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b3ac5"]
 data = PackedVector3Array(-1, -0.064, -1, -0.9589, -0.0075, 0.9589, -1, -0.064, 1, -1, -0.064, -1, -0.9589, -0.0075, -0.9589, -0.9589, -0.0075, 0.9589, 1, -0.1294, 1, -1, -0.064, 1, 1, -0.064, 1, 1, -0.1294, 1, -1, -0.1294, 1, -1, -0.064, 1, -1, -0.1294, 1, -1, -0.064, -1, -1, -0.064, 1, -1, -0.1294, 1, -1, -0.1294, -1, -1, -0.064, -1, -1, -0.1294, -1, 1, -0.1294, 1, 1, -0.1294, -1, -1, -0.1294, -1, -1, -0.1294, 1, 1, -0.1294, 1, 1, -0.1294, -1, 1, -0.064, 1, 1, -0.064, -1, 1, -0.1294, -1, 1, -0.1294, 1, 1, -0.064, 1, -1, -0.1294, -1, 1, -0.064, -1, -1, -0.064, -1, -1, -0.1294, -1, 1, -0.1294, -1, 1, -0.064, -1, 0.9589, -0.0075, -0.9589, -0.9589, -0.0075, 0.9589, -0.9589, -0.0075, -0.9589, 0.9589, -0.0075, -0.9589, 0.9589, -0.0075, 0.9589, -0.9589, -0.0075, 0.9589, 1, -0.064, 1, 0.9589, -0.0075, -0.9589, 1, -0.064, -1, 1, -0.064, 1, 0.9589, -0.0075, 0.9589, 0.9589, -0.0075, -0.9589, 1, -0.064, -1, -0.9589, -0.0075, -0.9589, -1, -0.064, -1, 1, -0.064, -1, 0.9589, -0.0075, -0.9589, -0.9589, -0.0075, -0.9589, -1, -0.064, 1, 0.9589, -0.0075, 0.9589, 1, -0.064, 1, -1, -0.064, 1, -0.9589, -0.0075, 0.9589, 0.9589, -0.0075, 0.9589)
 
@@ -48,6 +60,7 @@ script = ExtResource("1_l21wr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 1, 0.628278, 1)
 mesh = SubResource("ArrayMesh_75iig")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrxjn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 

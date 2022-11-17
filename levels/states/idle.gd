@@ -11,7 +11,8 @@ func handle_input(_event: InputEvent) -> void:
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
-	pass
+	if not level.hand.has_cards():
+		state_machine.transition_to(Level.States.keys()[Level.States.OVER])
 
 
 # Virtual function. Corresponds to the `_physics_process()` callback.

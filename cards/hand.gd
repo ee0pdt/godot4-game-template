@@ -39,6 +39,10 @@ func play_card(card) -> void:
 	sort_hand()
 
 
+func has_cards() -> bool:
+	return get_child_count() > 0
+
+
 func sort_hand() -> void:
 	var max_width 
 	if get_child_count() >= width_array.size():

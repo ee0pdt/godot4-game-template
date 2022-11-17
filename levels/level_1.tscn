@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=25 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -14,7 +14,23 @@
 [ext_resource type="Script" path="res://levels/states/playing.gd" id="11_5lv01"]
 [ext_resource type="Script" path="res://levels/states/over.gd" id="12_o8qoo"]
 
-[sub_resource type="Resource" id="Resource_jby1s"]
+[sub_resource type="Resource" id="Resource_xarwp"]
+script = ExtResource("2_cd3wy")
+type = 0
+
+[sub_resource type="Resource" id="Resource_0ljit"]
+script = ExtResource("2_cd3wy")
+type = 1
+
+[sub_resource type="Resource" id="Resource_1gu6l"]
+script = ExtResource("2_cd3wy")
+type = 2
+
+[sub_resource type="Resource" id="Resource_rq65h"]
+script = ExtResource("2_cd3wy")
+type = 0
+
+[sub_resource type="Resource" id="Resource_7636g"]
 script = ExtResource("2_cd3wy")
 type = 0
 
@@ -46,7 +62,7 @@ point_count = 2
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
-starting_hand = [SubResource("Resource_jby1s")]
+starting_hand = [SubResource("Resource_xarwp"), SubResource("Resource_0ljit"), SubResource("Resource_1gu6l"), SubResource("Resource_rq65h"), SubResource("Resource_7636g")]
 
 [node name="SubtitleOverlay" parent="." instance=ExtResource("2_gy041")]
 
@@ -65,45 +81,51 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Canvas/MarginContainer"]
 layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_right = 524.0
-offset_bottom = 548.0
+offset_left = 948.0
+offset_right = 1052.0
+offset_bottom = 469.0
+size_flags_horizontal = 8
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.34
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_bottom = 469.0
 size_flags_horizontal = 3
 
-[node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-offset_right = 524.0
-offset_bottom = 548.0
+offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_left = 528.0
-offset_right = 1052.0
-offset_bottom = 548.0
+offset_left = 4.0
+offset_right = 104.0
+offset_bottom = 469.0
 size_flags_horizontal = 3
 
-[node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-offset_left = 424.0
-offset_right = 524.0
-offset_bottom = 548.0
+offset_right = 100.0
+offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -112,6 +134,28 @@ theme_override_fonts/normal_font = ExtResource("2_de73j")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 473.0
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RestartMessage" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]You have no more cards.
+Press [R] to restart the level.[/center]"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
