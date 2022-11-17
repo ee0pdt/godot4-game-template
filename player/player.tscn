@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cchx4ii6uukef"]
+[gd_scene load_steps=7 format=3 uid="uid://cchx4ii6uukef"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_geggf"]
+[ext_resource type="PackedScene" uid="uid://b5dkgynan60lu" path="res://player/Tank.glb" id="2_omutm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xd0ui"]
 
@@ -12,14 +13,15 @@ height = 0.5
 albedo_color = Color(0, 0.313726, 0.705882, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bfchy"]
+radius = 1.1951
+height = 2.41811
 
 [node name="Player" type="CharacterBody3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940615, 3.09409)
 script = ExtResource("1_geggf")
-SPEED = 0.2
 
 [node name="BodyMesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_xd0ui")
 
 [node name="EyesMesh" type="MeshInstance3D" parent="BodyMesh"]
@@ -29,4 +31,8 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_18pg7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170643, 0)
 shape = SubResource("CapsuleShape3D_bfchy")
+
+[node name="Tank" parent="." instance=ExtResource("2_omutm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
