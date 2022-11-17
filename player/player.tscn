@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cchx4ii6uukef"]
+[gd_scene load_steps=15 format=3 uid="uid://cchx4ii6uukef"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_geggf"]
 [ext_resource type="PackedScene" uid="uid://b5dkgynan60lu" path="res://player/Tank.glb" id="2_omutm"]
 [ext_resource type="Texture2D" uid="uid://b8ruhexokxns7" path="res://assets/baby_godot_logo.svg" id="3_tvpuc"]
+[ext_resource type="Shader" path="res://exit/exit.gdshader" id="4_3pug2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xd0ui"]
 
@@ -16,6 +17,34 @@ albedo_color = Color(0, 0.313726, 0.705882, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bfchy"]
 radius = 1.1951
 height = 2.41811
+
+[sub_resource type="Gradient" id="Gradient_0qktl"]
+colors = PackedColorArray(0, 0, 0, 0.254902, 1, 1, 1, 0.407843)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k3nvr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_movq7"]
+color_ramp = SubResource("Gradient_0qktl")
+noise = SubResource("FastNoiseLite_k3nvr")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gvpfn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xaf8l"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_gvpfn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cn6ds"]
+render_priority = 0
+shader = ExtResource("4_3pug2")
+shader_parameter/albedo = Vector4(0, 1, 1, 5)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_movq7")
+shader_parameter/brightness = 1.0
+shader_parameter/disp_scale = Vector2(1, 1)
+shader_parameter/flowMap = SubResource("NoiseTexture2D_xaf8l")
+shader_parameter/speed = 1.0
+shader_parameter/strength = 1.0
+shader_parameter/uv1_offset = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
 
 [node name="Player" type="CharacterBody3D"]
 unique_name_in_owner = true
@@ -51,3 +80,23 @@ extents = Vector3(0.3, 0.3, 0.3)
 texture_albedo = ExtResource("3_tvpuc")
 upper_fade = 0.000313997
 lower_fade = 0.000673066
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465429, -2.15667)
+light_color = Color(0.698039, 0.945098, 1, 1)
+shadow_enabled = true
+omni_range = 1.97016
+
+[node name="RightExhaustCone" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999786, -0.00900042, -0.0186, 0.0206632, 0.435484, 0.899959, 0, -0.900152, 0.435577, -0.274336, 0.538342, -2.04904)
+radius = 0.188221
+height = 0.926467
+cone = true
+material = SubResource("ShaderMaterial_cn6ds")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.190603, 0.981667, 0, -0.981667, -0.190603, -0.195863, 7.73203, -2.00026)
+light_energy = 3.502
+shadow_enabled = true
+spot_range = 11.3061
+spot_angle = 24.9295

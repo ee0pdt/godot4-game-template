@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=35 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -36,8 +36,20 @@ type = 0
 script = ExtResource("2_cd3wy")
 type = 0
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tpy3b"]
+sky_top_color = Color(0.0862745, 0.0980392, 0.121569, 1)
+sky_horizon_color = Color(0.0784314, 0.0352941, 0.376471, 1)
+sky_curve = 0.0803833
+ground_bottom_color = Color(0.0196078, 0.0156863, 0.0117647, 1)
+ground_horizon_color = Color(0.262745, 0.235294, 0.533333, 1)
+ground_curve = 0.0373213
+
+[sub_resource type="Sky" id="Sky_fgcw3"]
+sky_material = SubResource("ProceduralSkyMaterial_tpy3b")
+
 [sub_resource type="Environment" id="Environment_sytva"]
 background_mode = 2
+sky = SubResource("Sky_fgcw3")
 tonemap_mode = 3
 glow_bloom = 0.14
 
@@ -126,6 +138,7 @@ offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 offset_left = 948.0
 offset_right = 1052.0
@@ -174,7 +187,6 @@ text = "0"
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 473.0
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -185,7 +197,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 offset_right = 1052.0
-offset_bottom = 75.0
+offset_bottom = 548.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -200,7 +212,7 @@ Press [R] to restart the level.[/center]"
 environment = SubResource("Environment_sytva")
 
 [node name="Camera3D" type="Camera3D" parent="3DWorld"]
-transform = Transform3D(0.96236, -0.0603643, 0.264988, -0.0153888, 0.961354, 0.274885, -0.27134, -0.268616, 0.92424, 5.14991, 4.72809, 14.294)
+transform = Transform3D(0.961262, -0.075976, 0.26496, 0, 0.961262, 0.275637, -0.275637, -0.26496, 0.924024, 5.14991, 4.72809, 14.294)
 fov = 50.0
 
 [node name="Player" parent="3DWorld" instance=ExtResource("5_b14ja")]
@@ -368,7 +380,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
 
 [node name="Hand" type="Node3D" parent="3DWorld"]
 unique_name_in_owner = true
-transform = Transform3D(0.992079, -0.0603643, 0.110158, 0.0280841, 0.961354, 0.273879, -0.122433, -0.268616, 0.955435, 1.56412, -0.523096, 3.93008)
+transform = Transform3D(0.992079, -0.0603643, 0.110158, 0.0280841, 0.961354, 0.273879, -0.122433, -0.268616, 0.955435, 1.21625, -0.523096, 3.93008)
 script = ExtResource("4_il2hr")
 camera_path = NodePath("../Camera3D")
 spread_curve = SubResource("Curve_hrehp")
@@ -376,26 +388,37 @@ height_curve = SubResource("Curve_pfbw7")
 rotation_curve = SubResource("Curve_c2mvs")
 width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
 
+[node name="CSGBox3D" type="CSGBox3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.46898, 6.49802)
+size = Vector3(53.9789, 1, 13.584)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22981, 2.17781, -1.32501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22981, 0.46795, -2.73502)
 light_color = Color(1, 0.666667, 0.701961, 1)
 shadow_enabled = true
 omni_range = 8.37324
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50685, 2.17781, -1.32501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50685, 0.586071, -1.32501)
 light_color = Color(1, 0.666667, 0.701961, 1)
 shadow_enabled = true
 omni_range = 8.37324
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41675, 2.64109, 3.48703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41675, 1.03757, 3.48703)
 light_color = Color(0.666667, 0.890196, 1, 1)
 shadow_enabled = true
 omni_range = 8.37324
 
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.824858, 2.04598, 6.02047)
+light_color = Color(1, 0.815686, 0.698039, 1)
+light_energy = 0.417
+shadow_enabled = true
+omni_range = 8.37324
+
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77118, 2.64109, 3.48703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77118, 0.873868, 3.05651)
 light_color = Color(0.666667, 0.890196, 1, 1)
 shadow_enabled = true
 omni_range = 8.37324
@@ -419,6 +442,7 @@ script = ExtResource("10_dmfa0")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Exit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00284672, 1.17555, 0.824311)
+shadow_enabled = true
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true

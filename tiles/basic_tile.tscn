@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://x1fmv5e2bbuo"]
+[gd_scene load_steps=7 format=3 uid="uid://x1fmv5e2bbuo"]
 
 [ext_resource type="Script" path="res://tiles/map_tile_item.gd" id="1_g3gbv"]
 [ext_resource type="ArrayMesh" uid="uid://dq3q6ckaf4qai" path="res://tiles/meshes/basic_tile.res" id="1_ypqow"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4ca14"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vsd10"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_4ca14")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnfjy"]
 albedo_color = Color(0.145098, 0.145098, 0.145098, 1)
-roughness = 0.5
+roughness = 0.49
+roughness_texture = SubResource("NoiseTexture2D_vsd10")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b3ac5"]
 data = PackedVector3Array(-1, -0.064, -1, -0.9589, -0.0075, 0.9589, -1, -0.064, 1, -1, -0.064, -1, -0.9589, -0.0075, -0.9589, -0.9589, -0.0075, 0.9589, 1, -0.1294, 1, -1, -0.064, 1, 1, -0.064, 1, 1, -0.1294, 1, -1, -0.1294, 1, -1, -0.064, 1, -1, -0.1294, 1, -1, -0.064, -1, -1, -0.064, 1, -1, -0.1294, 1, -1, -0.1294, -1, -1, -0.064, -1, -1, -0.1294, -1, 1, -0.1294, 1, 1, -0.1294, -1, -1, -0.1294, -1, -1, -0.1294, 1, 1, -0.1294, 1, 1, -0.1294, -1, 1, -0.064, 1, 1, -0.064, -1, 1, -0.1294, -1, 1, -0.1294, 1, 1, -0.064, 1, -1, -0.1294, -1, 1, -0.064, -1, -1, -0.064, -1, -1, -0.1294, -1, 1, -0.1294, -1, 1, -0.064, -1, 0.9589, -0.0075, -0.9589, -0.9589, -0.0075, 0.9589, -0.9589, -0.0075, -0.9589, 0.9589, -0.0075, -0.9589, 0.9589, -0.0075, 0.9589, -0.9589, -0.0075, 0.9589, 1, -0.064, 1, 0.9589, -0.0075, -0.9589, 1, -0.064, -1, 1, -0.064, 1, 0.9589, -0.0075, 0.9589, 0.9589, -0.0075, -0.9589, 1, -0.064, -1, -0.9589, -0.0075, -0.9589, -1, -0.064, -1, 1, -0.064, -1, 0.9589, -0.0075, -0.9589, -0.9589, -0.0075, -0.9589, -1, -0.064, 1, 0.9589, -0.0075, 0.9589, 1, -0.064, 1, -1, -0.064, 1, -0.9589, -0.0075, 0.9589, 0.9589, -0.0075, 0.9589)
