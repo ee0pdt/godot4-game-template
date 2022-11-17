@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6gyklc7eklt"]
+[gd_scene load_steps=10 format=3 uid="uid://6gyklc7eklt"]
 
 [ext_resource type="Script" path="res://tiles/map_tile_item.gd" id="1_l21wr"]
 
@@ -39,15 +39,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sas7v")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_f10jq"]
-noise_type = 3
+[sub_resource type="Gradient" id="Gradient_fsopk"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xsomy"]
-noise = SubResource("FastNoiseLite_f10jq")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3l10e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eop5j"]
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_fsopk")
+noise = SubResource("FastNoiseLite_3l10e")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrxjn"]
-albedo_color = Color(0.356863, 0.290196, 0.282353, 1)
-roughness_texture = SubResource("NoiseTexture2D_xsomy")
+albedo_color = Color(0.572549, 0.572549, 0.572549, 1)
+roughness = 0.45
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_eop5j")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
