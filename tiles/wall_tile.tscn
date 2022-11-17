@@ -64,7 +64,7 @@ data = PackedVector3Array(-1, -0.064, -1, -0.9589, -0.0075, 0.9589, -1, -0.064, 
 script = ExtResource("1_l21wr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 1, 0.628278, 1)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 1, 0.380561, 1)
 mesh = SubResource("ArrayMesh_75iig")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrxjn")
 

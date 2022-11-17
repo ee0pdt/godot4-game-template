@@ -17,6 +17,7 @@ void vertex() {
 void fragment() {
 	float c = TIME * speed;
 	vec4 offset = texture(flowMap, disp_scale.xy * vec2(UV.x + c, UV.y + c)) * strength;
-	//ALPHA = albedo.a * texture(albedo_texture, (vec2(UV.x + offset.x, UV.y + offset.y) - vec2(0.5,0.5))).a;
+	ALPHA = albedo.a * texture(albedo_texture, (vec2(UV.x + offset.x, UV.y + offset.y) - vec2(0.5,0.5))).a;
 	ALBEDO = brightness * albedo.rgb * texture(albedo_texture, (vec2(UV.x + offset.x, UV.y + offset.y) - vec2(0.5,0.5))).rgb;
+	EMISSION = albedo.rgb * texture(albedo_texture, (vec2(UV.x + offset.x, UV.y + offset.y) - vec2(0.5,0.5))).rgb;
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=33 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -39,7 +39,6 @@ type = 0
 [sub_resource type="Environment" id="Environment_sytva"]
 background_mode = 1
 tonemap_mode = 3
-ssil_enabled = true
 glow_bloom = 0.14
 
 [sub_resource type="Curve" id="Curve_hrehp"]
@@ -61,14 +60,19 @@ point_count = 2
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h157l"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vbiwr"]
-radius = 1.0
-height = 2.0
+radius = 0.8
+height = 1.6
+
+[sub_resource type="Gradient" id="Gradient_sbkw7"]
+offsets = PackedFloat32Array(0.0102041, 0.489796, 1)
+colors = PackedColorArray(0, 0.878431, 1, 0.819608, 0.537255, 0.517647, 0.533333, 0, 1, 0, 0.0196078, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nyexp"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3cbaw"]
 seamless = true
 seamless_blend_skirt = 0.05
+color_ramp = SubResource("Gradient_sbkw7")
 noise = SubResource("FastNoiseLite_nyexp")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xlagn"]
@@ -81,12 +85,12 @@ noise = SubResource("FastNoiseLite_xlagn")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mhl8d"]
 render_priority = 0
 shader = ExtResource("10_u6dc4")
-shader_parameter/albedo = Vector4(10, 1, 1, 1)
+shader_parameter/albedo = Vector4(2, 2, 2, 2)
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_3cbaw")
 shader_parameter/brightness = 1.0
 shader_parameter/disp_scale = Vector2(1, 1)
 shader_parameter/flowMap = SubResource("NoiseTexture2D_vorql")
-shader_parameter/speed = 1.0
+shader_parameter/speed = 0.1
 shader_parameter/strength = 1.0
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
@@ -403,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14431, 0.702029)
 shape = SubResource("CylinderShape3D_h157l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
-transform = Transform3D(-0.180073, 0, -0.983653, 0, 1, 0, 0.983653, 0, -0.180073, -0.0464535, 1.12644, 0.8)
+transform = Transform3D(-0.410054, 0.587743, -0.697433, 0.297889, 0.809047, 0.506659, 0.862043, 0, -0.506835, -0.0464535, 1.45985, 0.8)
 mesh = SubResource("SphereMesh_vbiwr")
 surface_material_override/0 = SubResource("ShaderMaterial_mhl8d")
 script = ExtResource("10_dmfa0")
