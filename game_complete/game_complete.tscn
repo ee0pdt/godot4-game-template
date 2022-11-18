@@ -21,27 +21,23 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
 offset_bottom = 598.0
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 180.0
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 184.0
 offset_right = 1052.0
 offset_bottom = 364.0
 size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 180.0
 grow_horizontal = 2
@@ -53,7 +49,6 @@ bbcode_enabled = true
 text = "[center]You Win![/center]"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 368.0
 offset_right = 1052.0
 offset_bottom = 548.0
@@ -64,7 +59,6 @@ theme_override_constants/margin_right = 200
 theme_override_constants/margin_bottom = 50
 
 [node name="main_menuButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
 offset_left = 200.0
 offset_top = 50.0
 offset_right = 852.0

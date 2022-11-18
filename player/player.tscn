@@ -88,8 +88,19 @@ shadow_enabled = true
 omni_range = 1.97016
 
 [node name="RightExhaustCone" type="CSGCylinder3D" parent="."]
-transform = Transform3D(0.999786, -0.00900042, -0.0186, 0.0206632, 0.435484, 0.899959, 0, -0.900152, 0.435577, -0.274336, 0.538342, -2.04904)
-radius = 0.188221
+unique_name_in_owner = true
+transform = Transform3D(0.999786, -0.00900042, -0.0186, 0.0206632, 0.435484, 0.899959, 0, -0.900152, 0.435577, -0.297742, 0.538342, -2.04904)
+visible = false
+radius = 0.17
+height = 0.926467
+cone = true
+material = SubResource("ShaderMaterial_cn6ds")
+
+[node name="LeftExhaustCone" type="CSGCylinder3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.999786, -0.00900042, -0.0186, 0.0206632, 0.435484, 0.899959, 0, -0.900152, 0.435577, 0.28201, 0.538342, -2.04904)
+visible = false
+radius = 0.17
 height = 0.926467
 cone = true
 material = SubResource("ShaderMaterial_cn6ds")
