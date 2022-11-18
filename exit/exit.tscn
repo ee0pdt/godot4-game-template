@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://25cqk1jh6scb"]
+
+[ext_resource type="Script" path="res://exit/exit.gd" id="1_g1fu8"]
+[ext_resource type="Shader" path="res://exit/exit.gdshader" id="2_22td5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h157l"]
+height = 1.5
+radius = 0.858
+
+[sub_resource type="SphereMesh" id="SphereMesh_vbiwr"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="Gradient" id="Gradient_sbkw7"]
+offsets = PackedFloat32Array(0.0102041, 0.170918, 0.214286, 0.829082, 1)
+colors = PackedColorArray(0, 0.878431, 1, 0.819608, 0.537255, 0.517647, 0.533333, 0, 0.497247, 0.544514, 0.568085, 0.0610347, 0.737255, 0.286275, 0.305882, 0, 1, 0, 0.0196078, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nyexp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3cbaw"]
+seamless = true
+seamless_blend_skirt = 0.05
+color_ramp = SubResource("Gradient_sbkw7")
+noise = SubResource("FastNoiseLite_nyexp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xlagn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vorql"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_xlagn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhl8d"]
+render_priority = 0
+shader = ExtResource("2_22td5")
+shader_parameter/albedo = Vector4(2, 2, 2, 2)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_3cbaw")
+shader_parameter/brightness = 1.0
+shader_parameter/disp_scale = Vector2(1, 1)
+shader_parameter/flowMap = SubResource("NoiseTexture2D_vorql")
+shader_parameter/speed = 0.1
+shader_parameter/strength = 1.0
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+
+[node name="Exit" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.969, 0, -0.810556)
+script = ExtResource("1_g1fu8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.939208, 0.702029)
+shape = SubResource("CylinderShape3D_h157l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0129402, 0.999674, 0.0220091, 0.50667, -0.0255314, 0.861761, 0.862043, -9.54581e-09, -0.506835, -0.0464535, 1.0579, 0.8)
+mesh = SubResource("SphereMesh_vbiwr")
+surface_material_override/0 = SubResource("ShaderMaterial_mhl8d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00284672, 1.17555, 0.824311)
+shadow_enabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
