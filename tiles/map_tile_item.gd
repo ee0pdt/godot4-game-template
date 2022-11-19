@@ -4,7 +4,7 @@ class_name MapTileItem
 @tool
 
 
-@export_range(1, 3) var CELL_SIZE: int = 1 # or whatever
+@export var CELL_SIZE: float = 1.0 # or whatever
 
 
 func _process(_delta: float) -> void:

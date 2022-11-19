@@ -158,158 +158,209 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.083
 
 [node name="BasicTile" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile2" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile3" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile4" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile5" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile6" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile7" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile8" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile9" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile14" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile15" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile16" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile31" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile64" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile32" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile37" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile38" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile39" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile44" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile45" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile46" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile51" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile65" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile52" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile53" parent="3DWorld/FloorTiles" instance=ExtResource("6_bwau4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="WallTiles" type="Node3D" parent="3DWorld"]
 
 [node name="BasicTile" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile21" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile22" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile23" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile25" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile26" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile27" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+CELL_SIZE = 1.0
 
 [node name="BasicTile5" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile6" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile7" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile8" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile9" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile10" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile2" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile3" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile4" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+CELL_SIZE = 1.0
 
 [node name="BasicTile11" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile12" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile13" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile14" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile15" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile16" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile17" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(0.999326, 0, 0.036696, 0, 1, 0, -0.036696, 0, 0.999326, 8, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile18" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile19" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="BasicTile20" parent="3DWorld/WallTiles" instance=ExtResource("7_le67h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+CELL_SIZE = 1.0
 
 [node name="Hand" type="Node3D" parent="3DWorld"]
 unique_name_in_owner = true

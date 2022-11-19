@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbab27swwms5t"
+uid="uid://dxwysw8p5ln6b"
 path="res://.godot/imported/Tiles.glb-b0293c5057319623fa9cf3b160077f42.scn"
 
 [deps]
@@ -28,7 +28,7 @@ animation/fps=30
 import_script/path=""
 _subresources={
 "meshes": {
-"Tiles_Cube": {
+"Tiles_Cube001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -36,7 +36,37 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://tiles/meshes/basic_tile.res"
+"save_to_file/path": "res://tiles/meshes/wall_tile.res"
+},
+"Tiles_FloorTile": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://tiles/meshes/floor_tile.res"
+},
+"Tiles_FloorTile001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://tiles/meshes/ramp_tile.res"
+},
+"Tiles_FloorTile004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://tiles/meshes/steep_ramp_tile.res"
 }
 }
 }
