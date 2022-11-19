@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bum111iw73oex"]
+[gd_scene load_steps=24 format=3 uid="uid://bum111iw73oex"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="Script" path="res://cards/card.gd" id="2_cd3wy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x1fmv5e2bbuo" path="res://tiles/basic_tile.tscn" id="6_bwau4"]
 [ext_resource type="PackedScene" uid="uid://6gyklc7eklt" path="res://tiles/wall_tile.tscn" id="7_le67h"]
 [ext_resource type="Script" path="res://fsm/state_machine.gd" id="9_0mcew"]
+[ext_resource type="PackedScene" uid="uid://bfcfc6gjwwqlw" path="res://table/table.tscn" id="9_dupaw"]
 [ext_resource type="PackedScene" uid="uid://25cqk1jh6scb" path="res://exit/exit.tscn" id="9_up0wh"]
 [ext_resource type="Script" path="res://levels/states/idle.gd" id="9_x887c"]
 [ext_resource type="Script" path="res://levels/states/playing.gd" id="11_5lv01"]
@@ -82,6 +83,7 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
@@ -89,6 +91,7 @@ offset_bottom = 598.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
 visible = false
+layout_mode = 2
 offset_left = 948.0
 offset_right = 1052.0
 offset_bottom = 469.0
@@ -97,12 +100,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.34
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_bottom = 469.0
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -111,6 +116,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 4.0
 offset_right = 104.0
 offset_bottom = 469.0
@@ -119,6 +125,7 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 offset_right = 100.0
 offset_bottom = 469.0
 grow_horizontal = 2
@@ -131,6 +138,7 @@ bbcode_enabled = true
 text = "0"
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -139,6 +147,7 @@ size_flags_vertical = 3
 [node name="RestartMessage" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 grow_horizontal = 2
@@ -382,9 +391,7 @@ height_curve = SubResource("Curve_pfbw7")
 rotation_curve = SubResource("Curve_c2mvs")
 width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
 
-[node name="Table" type="CSGBox3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.46898, 6.49802)
-size = Vector3(53.9789, 1, 13.584)
+[node name="Table" parent="3DWorld" instance=ExtResource("9_dupaw")]
 
 [node name="Lights" type="Node3D" parent="3DWorld"]
 
