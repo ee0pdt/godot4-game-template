@@ -83,7 +83,6 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1102.0
@@ -91,7 +90,6 @@ offset_bottom = 598.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
 visible = false
-layout_mode = 2
 offset_left = 948.0
 offset_right = 1052.0
 offset_bottom = 469.0
@@ -100,14 +98,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.34
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_bottom = 469.0
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -116,7 +112,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 4.0
 offset_right = 104.0
 offset_bottom = 469.0
@@ -125,7 +120,6 @@ size_flags_horizontal = 3
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 offset_right = 100.0
 offset_bottom = 469.0
 grow_horizontal = 2
@@ -138,7 +132,6 @@ bbcode_enabled = true
 text = "0"
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 size_flags_horizontal = 3
@@ -147,7 +140,6 @@ size_flags_vertical = 3
 [node name="RestartMessage" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 offset_right = 1052.0
 offset_bottom = 548.0
 grow_horizontal = 2

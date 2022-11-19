@@ -14,9 +14,8 @@ height = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18pg7"]
 albedo_color = Color(0, 0.313726, 0.705882, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bfchy"]
-radius = 1.1951
-height = 2.41811
+[sub_resource type="SphereShape3D" id="SphereShape3D_wrknb"]
+radius = 1.217
 
 [sub_resource type="Gradient" id="Gradient_0qktl"]
 colors = PackedColorArray(0, 0, 0, 0.254902, 1, 1, 1, 0.407843)
@@ -61,8 +60,8 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_18pg7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170643, 0)
-shape = SubResource("CapsuleShape3D_bfchy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55664, 0)
+shape = SubResource("SphereShape3D_wrknb")
 
 [node name="Tank" parent="." instance=ExtResource("2_omutm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -81,8 +80,10 @@ texture_albedo = ExtResource("3_tvpuc")
 upper_fade = 0.000313997
 lower_fade = 0.000673066
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="ExhaustLight" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465429, -2.15667)
+visible = false
 light_color = Color(0.698039, 0.945098, 1, 1)
 shadow_enabled = true
 omni_range = 1.97016

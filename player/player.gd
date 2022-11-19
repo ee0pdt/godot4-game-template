@@ -31,9 +31,11 @@ func _physics_process(delta: float) -> void:
 		speed = MAX_SPEED
 		%RightExhaustCone.show()
 		%LeftExhaustCone.show()
+		%ExhaustLight.show()
 	else:
 		%RightExhaustCone.hide()
 		%LeftExhaustCone.hide()
+		%ExhaustLight.hide()
 		speed = move_toward(speed, 0, 0.01)
 	
 	velocity.x = move_toward(velocity.x, direction.x * speed, ACCELERATION)

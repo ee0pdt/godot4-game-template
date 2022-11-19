@@ -1,0 +1,419 @@
+[gd_scene load_steps=24 format=3 uid="uid://bbfn1ktvo2yws"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_siia0"]
+[ext_resource type="Script" path="res://cards/card.gd" id="2_u5u0c"]
+[ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="3_u1a37"]
+[ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="4_8yiu5"]
+[ext_resource type="PackedScene" uid="uid://cchx4ii6uukef" path="res://player/player.tscn" id="5_ua0a2"]
+[ext_resource type="PackedScene" uid="uid://x1fmv5e2bbuo" path="res://tiles/basic_tile.tscn" id="6_0bxc1"]
+[ext_resource type="PackedScene" uid="uid://6gyklc7eklt" path="res://tiles/wall_tile.tscn" id="7_62fdj"]
+[ext_resource type="Script" path="res://cards/hand.gd" id="8_jnjky"]
+[ext_resource type="PackedScene" uid="uid://bfcfc6gjwwqlw" path="res://table/table.tscn" id="9_smmq4"]
+[ext_resource type="PackedScene" uid="uid://25cqk1jh6scb" path="res://exit/exit.tscn" id="10_kx0fu"]
+[ext_resource type="Script" path="res://fsm/state_machine.gd" id="11_84ypq"]
+[ext_resource type="Script" path="res://levels/states/idle.gd" id="12_jymii"]
+[ext_resource type="Script" path="res://levels/states/playing.gd" id="13_tnq17"]
+[ext_resource type="Script" path="res://levels/states/over.gd" id="14_gttik"]
+
+[sub_resource type="Resource" id="Resource_rq65h"]
+script = ExtResource("2_u5u0c")
+type = 0
+
+[sub_resource type="Resource" id="Resource_tshhq"]
+script = ExtResource("2_u5u0c")
+type = 0
+
+[sub_resource type="Resource" id="Resource_73eno"]
+script = ExtResource("2_u5u0c")
+type = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tpy3b"]
+sky_top_color = Color(0.0862745, 0.0980392, 0.121569, 1)
+sky_horizon_color = Color(0.0784314, 0.0352941, 0.376471, 1)
+sky_curve = 0.0803833
+ground_bottom_color = Color(0.0196078, 0.0156863, 0.0117647, 1)
+ground_horizon_color = Color(0.262745, 0.235294, 0.533333, 1)
+ground_curve = 0.0373213
+
+[sub_resource type="Sky" id="Sky_fgcw3"]
+sky_material = SubResource("ProceduralSkyMaterial_tpy3b")
+
+[sub_resource type="Environment" id="Environment_sytva"]
+background_mode = 2
+sky = SubResource("Sky_fgcw3")
+reflected_light_source = 2
+tonemap_mode = 3
+glow_bloom = 0.14
+
+[sub_resource type="Curve" id="Curve_hrehp"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pfbw7"]
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, -1), 0.0, 1.0, 0, 1, Vector2(0.5, -0.5), 0.0, 0.0, 0, 0, Vector2(1, -1), -1.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_c2mvs"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_siia0")
+starting_hand = [SubResource("Resource_rq65h"), SubResource("Resource_tshhq"), SubResource("Resource_73eno")]
+
+[node name="SubtitleOverlay" parent="." instance=ExtResource("3_u1a37")]
+
+[node name="HUD" type="Node2D" parent="."]
+
+[node name="Canvas" type="CanvasLayer" parent="HUD"]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Canvas/MarginContainer"]
+layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+offset_left = 948.0
+offset_right = 1052.0
+offset_bottom = 469.0
+size_flags_horizontal = 8
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.34
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_bottom = 469.0
+size_flags_horizontal = 3
+
+[node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 104.0
+offset_bottom = 469.0
+size_flags_horizontal = 3
+
+[node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("4_8yiu5")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RestartMessage" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_right = 1052.0
+offset_bottom = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]You have no more cards.
+Press [R] to restart the level.[/center]"
+
+[node name="3DWorld" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
+environment = SubResource("Environment_sytva")
+
+[node name="Camera3D" type="Camera3D" parent="3DWorld"]
+transform = Transform3D(0.961262, -0.075976, 0.26496, 0, 0.961262, 0.275637, -0.275637, -0.26496, 0.924024, 5.14991, 4.72809, 14.294)
+fov = 50.0
+
+[node name="Player" parent="3DWorld" instance=ExtResource("5_ua0a2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.083, 2.38364, 0)
+
+[node name="FloorTiles" type="Node3D" parent="3DWorld"]
+
+[node name="BasicTile3" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="BasicTile4" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="BasicTile5" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="BasicTile7" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 1)
+
+[node name="BasicTile8" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -1)
+
+[node name="BasicTile9" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -3)
+
+[node name="BasicTile14" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+
+[node name="BasicTile15" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+
+[node name="BasicTile16" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+
+[node name="BasicTile31" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+
+[node name="BasicTile64" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+
+[node name="BasicTile32" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+
+[node name="BasicTile37" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -3)
+
+[node name="BasicTile38" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -1)
+
+[node name="BasicTile39" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 1)
+
+[node name="BasicTile44" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -3)
+
+[node name="BasicTile11" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -5)
+
+[node name="BasicTile40" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -5)
+
+[node name="BasicTile47" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -5)
+
+[node name="BasicTile13" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -7)
+
+[node name="BasicTile41" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -7)
+
+[node name="BasicTile48" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -7)
+
+[node name="BasicTile18" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -9)
+
+[node name="BasicTile42" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -9)
+
+[node name="BasicTile49" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -9)
+
+[node name="BasicTile45" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -1)
+
+[node name="BasicTile46" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, 1)
+
+[node name="BasicTile51" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+
+[node name="BasicTile65" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="BasicTile52" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1)
+
+[node name="BasicTile53" parent="3DWorld/FloorTiles" instance=ExtResource("6_0bxc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+
+[node name="WallTiles" type="Node3D" parent="3DWorld"]
+
+[node name="BasicTile" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)
+
+[node name="BasicTile21" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+
+[node name="BasicTile22" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+
+[node name="BasicTile23" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 0.994937, 0.100501, 0, -0.100501, 0.994937, -10, 0, 1)
+
+[node name="BasicTile25" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -3)
+
+[node name="BasicTile26" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -1)
+
+[node name="BasicTile27" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, 1)
+
+[node name="BasicTile5" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="BasicTile7" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -11)
+
+[node name="BasicTile8" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -11)
+
+[node name="BasicTile9" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, -11)
+
+[node name="BasicTile10" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -5)
+
+[node name="BasicTile28" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -9)
+
+[node name="BasicTile29" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -7)
+
+[node name="BasicTile24" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -11)
+
+[node name="BasicTile2" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+
+[node name="BasicTile3" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+
+[node name="BasicTile4" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+
+[node name="BasicTile11" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 3)
+
+[node name="BasicTile12" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="BasicTile14" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 3)
+
+[node name="BasicTile15" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 3)
+
+[node name="BasicTile16" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1, 3)
+
+[node name="BasicTile17" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(0.999326, 0, 0.036696, 0, 1, 0, -0.036696, 0, 0.999326, 8, -1, 3)
+
+[node name="BasicTile18" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+
+[node name="BasicTile19" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+
+[node name="BasicTile20" parent="3DWorld/WallTiles" instance=ExtResource("7_62fdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+
+[node name="Hand" type="Node3D" parent="3DWorld"]
+unique_name_in_owner = true
+transform = Transform3D(0.992079, -0.0603643, 0.110158, 0.0280841, 0.961354, 0.273879, -0.122433, -0.268616, 0.955435, 1.21625, -0.523096, 3.93008)
+script = ExtResource("8_jnjky")
+camera_path = NodePath("../Camera3D")
+spread_curve = SubResource("Curve_hrehp")
+height_curve = SubResource("Curve_pfbw7")
+rotation_curve = SubResource("Curve_c2mvs")
+width_array = [0.0, 0.0, 0.75, 1.25, 1.75, 2.0]
+
+[node name="Table" parent="3DWorld" instance=ExtResource("9_smmq4")]
+
+[node name="Lights" type="Node3D" parent="3DWorld"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="3DWorld/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22981, 0.46795, -2.73502)
+light_color = Color(1, 0.666667, 0.701961, 1)
+shadow_enabled = true
+omni_range = 8.37324
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="3DWorld/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352944, 0.586071, -7.48872)
+light_color = Color(1, 0.666667, 0.701961, 1)
+shadow_enabled = true
+omni_range = 8.37324
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="3DWorld/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39273, -0.149181, -0.37322)
+light_color = Color(0.666667, 0.890196, 1, 1)
+shadow_enabled = true
+omni_range = 8.37324
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="3DWorld/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.824858, 2.04598, 6.02047)
+light_color = Color(1, 0.815686, 0.698039, 1)
+light_energy = 0.417
+shadow_enabled = true
+omni_range = 8.37324
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="3DWorld/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.65555, 0.873868, 3.05651)
+light_color = Color(0.666667, 0.890196, 1, 1)
+shadow_enabled = true
+omni_range = 8.37324
+
+[node name="Exit" parent="3DWorld" instance=ExtResource("10_kx0fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.969, -1.18675, -6.79935)
+
+[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_84ypq")
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="StateMachine"]
+script = ExtResource("12_jymii")
+
+[node name="PRESSING" type="Node" parent="StateMachine"]
+script = ExtResource("13_tnq17")
+
+[node name="OVER" type="Node" parent="StateMachine"]
+script = ExtResource("14_gttik")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.92444, 0.381328, 0, -0.381328, 0.92444, 0, 0, 0, 1, 1.49793, -1.00073, 0)
+use_collision = true
+size = Vector3(4.02213, 0.364087, 8.95278)
