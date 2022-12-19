@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dha06573f03fh" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="PackedScene" uid="uid://btiorj8ywkoke" path="res://destructable_item/destructable_item.tscn" id="4_lih3a"]
 [ext_resource type="Script" path="res://player/player.gd" id="6_mho4m"]
+[ext_resource type="PackedScene" uid="uid://3awxuq0bv0yi" path="res://bomb/bomb.tscn" id="7_53d72"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
 ambient_light_energy = 0.0
@@ -16,8 +17,8 @@ glow_bloom = 0.14
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(2000, 2000)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_inck7"]
+data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -78,11 +79,6 @@ environment = SubResource("Environment_sytva")
 mesh = SubResource("PlaneMesh_p827g")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
-
 [node name="DestructableItem" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
 
 [node name="DestructableItem2" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
@@ -97,6 +93,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90091, 0.463739, 4.36635)
 [node name="DestructableItem5" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29563, 0.463739, 8.15484)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="3DWorld/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_inck7")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(0.936898, -0.221983, 0.270084, 0, 0.772545, 0.63496, -0.349602, -0.594893, 0.723796, 0, 2.54826, 0)
 shadow_enabled = true
@@ -105,6 +106,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.436, 0)
 motion_mode = 1
 script = ExtResource("6_mho4m")
+
+[node name="Bomb" parent="3DWorld/Player" instance=ExtResource("7_53d72")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515516, 0)
+mass = 4.0
+script = null
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
