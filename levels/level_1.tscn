@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
-[ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
-[ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
-[ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
+[ext_resource type="PackedScene" uid="uid://dha06573f03fh" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="PackedScene" uid="uid://btiorj8ywkoke" path="res://destructable_item/destructable_item.tscn" id="4_lih3a"]
+[ext_resource type="Script" path="res://player/player.gd" id="6_mho4m"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
 ambient_light_energy = 0.0
@@ -14,7 +14,7 @@ ssil_enabled = true
 glow_bloom = 0.14
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
-size = Vector2(20, 20)
+size = Vector2(2000, 2000)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -40,41 +40,28 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1102.0
-offset_bottom = 598.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_right = 524.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-offset_right = 524.0
-offset_bottom = 548.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_left = 528.0
-offset_right = 1052.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-offset_left = 424.0
-offset_right = 524.0
-offset_bottom = 548.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
@@ -84,25 +71,40 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
-[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
-[node name="Ground" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
 mesh = SubResource("PlaneMesh_p827g")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3d" type="StaticBody3D" parent="Ground"]
+[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="Ground/StaticBody3d"]
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
 shape = SubResource("ConcavePolygonShape3D_rs80d")
 
-[node name="SubtitleDialogTest" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_3b16o")
-bus = &"Dialog"
-script = ExtResource("5_doulm")
-subtitle_text = "Developers are not normally voiceover artists"
+[node name="DestructableItem" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
+
+[node name="DestructableItem2" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0286, 0.463739, -5.09943)
+
+[node name="DestructableItem3" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48078, 0.463739, -5.09943)
+
+[node name="DestructableItem4" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90091, 0.463739, 4.36635)
+
+[node name="DestructableItem5" parent="3DWorld/Ground" instance=ExtResource("4_lih3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29563, 0.463739, 8.15484)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
+transform = Transform3D(0.936898, -0.221983, 0.270084, 0, 0.772545, 0.63496, -0.349602, -0.594893, 0.723796, 0, 2.54826, 0)
+shadow_enabled = true
+
+[node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.436, 0)
+motion_mode = 1
+script = ExtResource("6_mho4m")
+
+[node name="SoundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
