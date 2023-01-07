@@ -6,20 +6,24 @@
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="4_cc1iq"]
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
+[ext_resource type="PackedScene" uid="uid://c3oxtmh05co8y" path="res://Environment/Terrain/terrain.tscn" id="9_054rq"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4rr31"]
+rayleigh_color = Color(0.219608, 0.341176, 0.670588, 1)
+ground_color = Color(1, 0.701961, 0.341176, 1)
+
+[sub_resource type="Sky" id="Sky_28itp"]
+sky_material = SubResource("PhysicalSkyMaterial_4rr31")
 
 [sub_resource type="Environment" id="Environment_sytva"]
+background_mode = 2
+sky = SubResource("Sky_28itp")
 ambient_light_energy = 0.0
-tonemap_mode = 3
-ssil_enabled = true
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 glow_bloom = 0.14
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
-size = Vector2(20, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xu4a"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3noco")
@@ -42,28 +46,37 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
+offset_right = 524.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+offset_right = 524.0
+offset_bottom = 548.0
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 528.0
+offset_right = 1052.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
+offset_left = 424.0
+offset_right = 524.0
+offset_bottom = 548.0
 size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
@@ -78,19 +91,12 @@ environment = SubResource("Environment_sytva")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("4_cc1iq")]
 
-[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
-mesh = SubResource("PlaneMesh_p827g")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1xu4a")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
-transform = Transform3D(1, 0, 0, 0, 0.775958, 0.630784, 0, -0.630784, 0.775958, 0, 0, 0)
+transform = Transform3D(0.857715, 0.39894, 0.324302, -0.514125, 0.665551, 0.541033, 0, -0.630784, 0.775958, 0, 51.4586, 6.18687)
 shadow_enabled = true
+
+[node name="Terrain" parent="3DWorld" instance=ExtResource("9_054rq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.42411, 0)
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
