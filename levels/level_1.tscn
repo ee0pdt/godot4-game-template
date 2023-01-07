@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
-[ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
+[ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="4_cc1iq"]
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
 
 [sub_resource type="Environment" id="Environment_sytva"]
@@ -15,6 +15,8 @@ glow_bloom = 0.14
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p827g"]
 size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xu4a"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rs80d"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -71,21 +73,27 @@ text = "0"
 
 [node name="3DWorld" type="Node3D" parent="."]
 
-[node name="Player" parent="3DWorld" instance=ExtResource("3_3ejiu")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld"]
 environment = SubResource("Environment_sytva")
 
+[node name="Player" parent="3DWorld" instance=ExtResource("4_cc1iq")]
+
+[node name="Ground" type="MeshInstance3D" parent="3DWorld"]
+mesh = SubResource("PlaneMesh_p827g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1xu4a")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="3DWorld/Ground"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="3DWorld/Ground/StaticBody3d"]
+shape = SubResource("ConcavePolygonShape3D_rs80d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
+transform = Transform3D(1, 0, 0, 0, 0.775958, 0.630784, 0, -0.630784, 0.775958, 0, 0, 0)
+shadow_enabled = true
+
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_p827g")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="Ground"]
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="Ground/StaticBody3d"]
-shape = SubResource("ConcavePolygonShape3D_rs80d")
 
 [node name="SubtitleDialogTest" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

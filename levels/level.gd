@@ -9,4 +9,4 @@ enum States {
 
 
 func _ready() -> void:
-	%SubtitleDialogTest.play()
+	pass
