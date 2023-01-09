@@ -2,12 +2,16 @@ class_name Collectable extends Node3D
 
 enum Types {
 	APPLE,
-	BREAD
+	BREAD,
+	CARROT,
+	CHEESE,
 }
 
 const names = {
 	Types.APPLE: "APPLE",
 	Types.BREAD: "BREAD",
+	Types.CARROT: "CARROT",
+	Types.CHEESE: "CHEESE",
 }
 
 @export var type: Types

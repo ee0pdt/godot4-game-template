@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnsmbngh5xljb"]
+[gd_scene load_steps=5 format=3 uid="uid://cnsmbngh5xljb"]
 
 [ext_resource type="Script" path="res://collectable/collectable.gd" id="1_xj273"]
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="2_0u11m"]
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="3_3qmll"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_skkss"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_vj65v"]
-radius = 0.25
-height = 0.5
 
 [node name="Collectable" type="Node3D"]
 script = ExtResource("1_xj273")
@@ -27,8 +23,5 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_skkss")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_vj65v")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

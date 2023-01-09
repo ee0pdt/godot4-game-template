@@ -1,7 +1,11 @@
 keys,en,el
 APPLE,apple,μήλο
-BREAD,bread,ψωμί
-MILK,milk,γάλα
 THE_APPLE,the apple,το μήλο
+BREAD,bread,ψωμί
 THE_BREAD,the bread,το ψωμί
 THE_MILK,the milk,το γάλα
+MILK,milk,γάλα
+CHEESE,cheese,τυρί
+THE_CHEESE,the cheese,το τυρί
+CARROT,carrot,καρότο
+THE_CARROT,the carrot,το καρότο

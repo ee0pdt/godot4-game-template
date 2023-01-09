@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="4_cc1iq"]
+[ext_resource type="AudioStream" uid="uid://d1mrboakxea5h" path="res://dialogue/apple_en.mp3" id="8_6olvg"]
 [ext_resource type="PackedScene" uid="uid://cnsmbngh5xljb" path="res://collectable/collectable.tscn" id="8_elcjv"]
+[ext_resource type="PackedScene" uid="uid://ddqw3j8tsjh3r" path="res://collectable/Bread.glb" id="8_luj2r"]
 [ext_resource type="PackedScene" uid="uid://c3oxtmh05co8y" path="res://Environment/Terrain/terrain.tscn" id="9_054rq"]
+[ext_resource type="PackedScene" uid="uid://dosel0cspfdtr" path="res://collectable/Apple.glb" id="9_226o2"]
 [ext_resource type="AudioStream" uid="uid://drbb84ewqu7lp" path="res://dialogue/bread_en.mp3" id="9_g7b63"]
+[ext_resource type="PackedScene" uid="uid://wr444isac662" path="res://collectable/Carrot.glb" id="11_1hv8q"]
+[ext_resource type="PackedScene" uid="uid://dwwus6uiha2fa" path="res://collectable/Cheese.glb" id="12_itf8w"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4rr31"]
 rayleigh_color = Color(0.219608, 0.341176, 0.670588, 1)
@@ -93,7 +98,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.59425, 0)
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
-[node name="Collectable" parent="." instance=ExtResource("8_elcjv")]
+[node name="Bread" parent="." instance=ExtResource("8_elcjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70997, 4.69467)
 type = 1
 audio_stream = ExtResource("9_g7b63")
+
+[node name="Bread" parent="Bread" instance=ExtResource("8_luj2r")]
+
+[node name="Apple" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76721, 1.70997, 1.68648)
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Apple" parent="Apple" instance=ExtResource("9_226o2")]
+
+[node name="Carrot" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76721, 1.70997, -2.6407)
+type = 2
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Carrot" parent="Carrot" instance=ExtResource("11_1hv8q")]
+
+[node name="Cheese" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265074, 1.70997, -5.00717)
+type = 3
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Cheese" parent="Cheese" instance=ExtResource("12_itf8w")]
