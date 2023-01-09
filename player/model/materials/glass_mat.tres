@@ -5,4 +5,4 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0.443137)
 metallic_specular = 1.0
 roughness = 0.1
-emission_energy_multiplier = 1.88761
+emission_energy_multiplier = 2.42985

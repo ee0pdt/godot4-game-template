@@ -3,6 +3,7 @@ extends AudioStreamPlayer
 
 @export var subtitle_text: String = "Enter title here"
 var processed := false
+var msg := ""
 
 
 func _ready() -> void:
@@ -16,9 +17,14 @@ func _process(_delta) -> void:
 	
 	if playing:
 		processed = true
-		var msg = "[center]" + subtitle_text + "[/center]"
+		msg = "[center]" + subtitle_text + "[/center]"
 		GameEvents.subtitle.emit(msg)
 
 
 func _clear_text() -> void:
-	GameEvents.subtitle.emit("")
+	GameEvents.hide_subtitle.emit(msg)
+
+
+func show():
+	processed = false
+	self.play();

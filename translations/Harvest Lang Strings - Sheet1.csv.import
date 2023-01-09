@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dcgsnyorbq87"
+
+[deps]
+
+files=["res://translations/Harvest Lang Strings - Sheet1.en.translation", "res://translations/Harvest Lang Strings - Sheet1.el.translation"]
+
+source_file="res://translations/Harvest Lang Strings - Sheet1.csv"
+dest_files=["res://translations/Harvest Lang Strings - Sheet1.en.translation", "res://translations/Harvest Lang Strings - Sheet1.el.translation"]
+
+[params]
+
+compress=true
+delimiter=0

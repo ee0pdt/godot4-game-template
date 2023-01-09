@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
-[ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="4_cc1iq"]
-[ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
+[ext_resource type="PackedScene" uid="uid://cnsmbngh5xljb" path="res://collectable/collectable.tscn" id="8_elcjv"]
 [ext_resource type="PackedScene" uid="uid://c3oxtmh05co8y" path="res://Environment/Terrain/terrain.tscn" id="9_054rq"]
+[ext_resource type="AudioStream" uid="uid://drbb84ewqu7lp" path="res://dialogue/bread_en.mp3" id="9_g7b63"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4rr31"]
 rayleigh_color = Color(0.219608, 0.341176, 0.670588, 1)
@@ -46,37 +46,28 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1102.0
-offset_bottom = 598.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_right = 524.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-offset_right = 524.0
-offset_bottom = 548.0
+layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_left = 528.0
-offset_right = 1052.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-offset_left = 424.0
-offset_right = 524.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
@@ -94,16 +85,15 @@ environment = SubResource("Environment_sytva")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(0.857715, 0.39894, 0.324302, -0.514125, 0.665551, 0.541033, 0, -0.630784, 0.775958, 0, 51.4586, 6.18687)
 shadow_enabled = true
+shadow_opacity = 0.5
 
 [node name="Terrain" parent="3DWorld" instance=ExtResource("9_054rq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.42411, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.59425, 0)
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
-[node name="SubtitleDialogTest" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_3b16o")
-bus = &"Dialog"
-script = ExtResource("5_doulm")
-subtitle_text = "Developers are not normally voiceover artists"
+[node name="Collectable" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70997, 4.69467)
+type = 1
+audio_stream = ExtResource("9_g7b63")

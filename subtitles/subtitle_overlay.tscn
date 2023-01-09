@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1i1st7e7ojvd"]
+[gd_scene load_steps=4 format=3 uid="uid://b1i1st7e7ojvd"]
 
 [ext_resource type="Script" path="res://subtitles/subtitle_overlay.gd" id="1_1kr3i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybfnq"]
+bg_color = Color(0, 0, 0, 0.0627451)
+
+[sub_resource type="Theme" id="Theme_wf0rf"]
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 2
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 2
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = null
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_ybfnq")
 
 [node name="SubtitleOverlay" type="Node2D"]
 script = ExtResource("1_1kr3i")
@@ -19,37 +53,31 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Canvas/MarginContainer"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1102.0
-offset_bottom = 598.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer"]
-offset_right = 1052.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_right = 1052.0
-offset_bottom = 453.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 457.0
-offset_right = 1052.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Subtitle" type="RichTextLabel" parent="Canvas/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-offset_right = 1052.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 1
+theme = SubResource("Theme_wf0rf")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "test"
+fit_content_height = true
