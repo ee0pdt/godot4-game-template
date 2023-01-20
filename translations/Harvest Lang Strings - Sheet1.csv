@@ -1,11 +1,50 @@
 keys,en,el
 APPLE,apple,μήλο
 THE_APPLE,the apple,το μήλο
+AN_APPLE,an apple,ένα μήλο
 BREAD,bread,ψωμί
+A BREAD,a bread,ένα καρβέλι ψωμί
 THE_BREAD,the bread,το ψωμί
-THE_MILK,the milk,το γάλα
 MILK,milk,γάλα
+A_MILK,a bottle of milk,ένα μπουκάλι γάλα
+THE_MILK,the milk,το γάλα
 CHEESE,cheese,τυρί
+A_CHEESE,a piece of cheese,ένα κομμάτι τυρί
 THE_CHEESE,the cheese,το τυρί
 CARROT,carrot,καρότο
+A_CARROT,a carrot,ένα καρότο
 THE_CARROT,the carrot,το καρότο
+POTATO,potato,πατάτα
+A_POTATO,a potato,μια πατάτα
+THE_POTATO,the potato,η πατάτα
+PIZZA,pizza,πίτσα
+A_PIZZA,a slice of pizza,μια χάρτα πίτσας
+THE_PIZZA,the pizza,η πίτσα
+CHICKEN,chicken,κοτόπουλο
+A_CHICKEN,a chicken,ένα κοτόπουλο
+THE_CHICKEN,the chicken,το κοτόπουλο
+PUT_THE_THING_IN_THE_BOX,put THE_THING in the box,βάλτε THE_THING στο κουτί
+WATER,water,νερό
+A_WATER,a bottle of water,ένα μπουκάλι νερό
+THE_WATER,the water,το νερό
+WINE,wine,κρασί
+A_WINE,a bottle of wine,ένα μπουκάλι κρασί
+THE_WINE,the wine,το κρασί
+TOMATO,tomato,ντομάτα
+A_TOMATO,a tomato,μια ντομάτα
+THE_TOMATO,the tomato,η ντομάτα
+BUTTER,butter,βούτυρο
+A_BUTTER,a butter,ένα βούτυρο
+THE_BUTTER,the butter,το βούτυρο
+ONION,onion,κρεμμύδι
+A_ONION,an onion,ένα κρεμμύδι
+THE_ONION,the onion,το κρεμμύδι
+RED_PEPPER,red pepper,κόκκινο πιπέρι
+A_RED_PEPPER,a red pepper,ένα κόκκινο πιπέρι
+THE_RED_PEPPER,the red pepper,το κόκκινο πιπέρι
+CRISPS,crisps,χips
+A_PACKET_OF_CRISPS,a packet of crisps,ένα πακέτο χips
+THE_CRISPS,the crisps,τα χips
+CHOCOLATE,chocolate,σοκολάτα
+A_CHOCOLATE,a chocolate bar,μια σαντιγί σοκολάτας
+THE_CHOCOLATE,the chocolate,η σαντιγί σοκολάτα

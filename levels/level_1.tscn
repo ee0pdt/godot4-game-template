@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://defeg5n6m8oia"]
+[gd_scene load_steps=23 format=3 uid="uid://defeg5n6m8oia"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
@@ -11,7 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://dosel0cspfdtr" path="res://collectable/Apple.glb" id="9_226o2"]
 [ext_resource type="AudioStream" uid="uid://drbb84ewqu7lp" path="res://dialogue/bread_en.mp3" id="9_g7b63"]
 [ext_resource type="PackedScene" uid="uid://wr444isac662" path="res://collectable/Carrot.glb" id="11_1hv8q"]
+[ext_resource type="PackedScene" uid="uid://ffxs8tqs7yob" path="res://collectable/Chicken.glb" id="11_36eao"]
 [ext_resource type="PackedScene" uid="uid://dwwus6uiha2fa" path="res://collectable/Cheese.glb" id="12_itf8w"]
+[ext_resource type="PackedScene" uid="uid://uubrqope4trg" path="res://collectable/Pizza.glb" id="13_12wxi"]
+[ext_resource type="PackedScene" uid="uid://7v7k81e13isq" path="res://collectable/Milk.glb" id="13_hfxy7"]
+[ext_resource type="PackedScene" uid="uid://dv3xp0wgllugk" path="res://collectable/Wine.glb" id="13_pcw3j"]
+[ext_resource type="PackedScene" uid="uid://pmm6ikuy08xw" path="res://collectable/Potato.glb" id="14_d2lwf"]
+[ext_resource type="PackedScene" uid="uid://y1y373w0swvh" path="res://collectable/Tomato.glb" id="18_oxhoi"]
+[ext_resource type="PackedScene" uid="uid://bv4sdgdtpo1bm" path="res://table/table.tscn" id="19_nwiq6"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4rr31"]
 rayleigh_color = Color(0.219608, 0.341176, 0.670588, 1)
@@ -51,28 +58,37 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 598.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
+offset_right = 524.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+offset_right = 524.0
+offset_bottom = 548.0
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 528.0
+offset_right = 1052.0
+offset_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
+offset_left = 424.0
+offset_right = 524.0
+offset_bottom = 548.0
 size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
@@ -86,41 +102,128 @@ text = "0"
 environment = SubResource("Environment_sytva")
 
 [node name="Player" parent="3DWorld" instance=ExtResource("4_cc1iq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88968, 0.613616, -5.06286)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(0.857715, 0.39894, 0.324302, -0.514125, 0.665551, 0.541033, 0, -0.630784, 0.775958, 0, 51.4586, 6.18687)
 shadow_enabled = true
-shadow_opacity = 0.5
+shadow_opacity = 0.89
+shadow_blur = 3.073
 
 [node name="Terrain" parent="3DWorld" instance=ExtResource("9_054rq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.59425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.11475, 0)
 
 [node name="SoundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
 [node name="Bread" parent="." instance=ExtResource("8_elcjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70997, 4.69467)
+transform = Transform3D(0.928252, 0, -0.371951, 0, 1, 0, 0.371951, 0, 0.928252, -0.781613, 1.83853, 4.104)
 type = 1
 audio_stream = ExtResource("9_g7b63")
 
 [node name="Bread" parent="Bread" instance=ExtResource("8_luj2r")]
+transform = Transform3D(0.888681, 0, -0.458525, 0, 1, 0, 0.458525, 0, 0.888681, 0.353076, 0.551125, 9.53674e-07)
 
 [node name="Apple" parent="." instance=ExtResource("8_elcjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76721, 1.70997, 1.68648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4507, 2.59882, -0.563304)
 audio_stream = ExtResource("8_6olvg")
 
 [node name="Apple" parent="Apple" instance=ExtResource("9_226o2")]
 
+[node name="Chicken" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(0.981036, 0, 0.193823, 0, 1, 0, -0.193823, 0, 0.981036, 5.39416, 1.83853, 5.23219)
+type = 7
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Chicken" parent="Chicken" instance=ExtResource("11_36eao")]
+transform = Transform3D(0.858083, 0, 0.513511, 0, 1, 0, -0.513511, 0, 0.858083, 0.179559, 0.446411, -1.08699)
+
 [node name="Carrot" parent="." instance=ExtResource("8_elcjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76721, 1.70997, -2.6407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79062, 2.67335, -12.7079)
 type = 2
 audio_stream = ExtResource("8_6olvg")
 
 [node name="Carrot" parent="Carrot" instance=ExtResource("11_1hv8q")]
+transform = Transform3D(0.108676, 0.994077, 0, -0.994077, 0.108676, 0, 0, 0, 1, 0, 0.0211539, 0)
+
+[node name="Wine" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6138, 2.96712, 4.80397)
+type = 9
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Wine" parent="Wine" instance=ExtResource("13_pcw3j")]
+transform = Transform3D(-0.872922, 0, -0.48786, 0, 1, 0, 0.48786, 0, -0.872922, 0, 0, 0)
 
 [node name="Cheese" parent="." instance=ExtResource("8_elcjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265074, 1.70997, -5.00717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8436, 2.70441, -3.0487)
 type = 3
 audio_stream = ExtResource("8_6olvg")
 
 [node name="Cheese" parent="Cheese" instance=ExtResource("12_itf8w")]
+transform = Transform3D(-0.572632, 0, -0.819812, 0, 1, 0, 0.819812, 0, -0.572632, 0, 0, 0)
+
+[node name="Pizza" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61772, 2.55932, -11.5478)
+type = 6
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Pizza" parent="Pizza" instance=ExtResource("13_12wxi")]
+
+[node name="Milk" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65426, 3.35084, -8.67212)
+type = 4
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Milk" parent="Milk" instance=ExtResource("13_hfxy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.301519, 0)
+
+[node name="Potato" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5296, 2.86375, -8.83465)
+type = 5
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Potato" parent="Potato" instance=ExtResource("14_d2lwf")]
+
+[node name="Tomato" parent="." instance=ExtResource("8_elcjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4057, 2.83759, 2.17433)
+type = 8
+audio_stream = ExtResource("8_6olvg")
+
+[node name="Tomato" parent="Tomato" instance=ExtResource("18_oxhoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371911, 0)
+
+[node name="Table" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(0.928252, 0, -0.371951, 0, 1, 0, 0.371951, 0, 0.928252, -0.821801, 0.128556, 4.2043)
+
+[node name="Table2" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33514, 0.128556, 4.80272)
+
+[node name="Table3" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(0.981036, 0, 0.193823, 0, 1, 0, -0.193823, 0, 0.981036, 5.18356, 0.128556, 4.32644)
+
+[node name="Table4" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(0.562415, 0, 0.826855, 0, 1, 0, -0.826855, 0, 0.562415, 13.5045, 0.226431, 2.72856)
+
+[node name="Table5" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(0.214514, 0, 0.976721, 0, 1, 0, -0.976721, 0, 0.214514, 14.7662, 0.226431, -0.226528)
+
+[node name="Table6" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(0.0211344, 0, 0.999777, 0, 1, 0, -0.999777, 0, 0.0211344, 14.9121, 0.226431, -3.11081)
+
+[node name="Table7" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.499501, 0, 0.866313, 0, 1, 0, -0.866313, 0, -0.499501, 10.8285, 0.535845, -9.03205)
+
+[node name="Table8" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.785889, 0, 0.618367, 0, 1, 0, -0.618367, 0, -0.785889, 8.71755, 0.535845, -11.4545)
+
+[node name="Table9" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.89084, 0, 0.454317, 0, 1, 0, -0.454317, 0, -0.89084, 6.18449, 0.535845, -12.8416)
+
+[node name="Table10" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.857832, 0, -0.513931, 0, 1, 0, 0.513931, 0, -0.857832, -1.19969, 0.493648, -13.3955)
+
+[node name="Table11" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.605127, 0, -0.796129, 0, 1, 0, 0.796129, 0, -0.605127, -3.58646, 0.493648, -11.2443)
+
+[node name="Table12" parent="." instance=ExtResource("19_nwiq6")]
+transform = Transform3D(-0.439343, 0, -0.898319, 0, 1, 0, 0.898319, 0, -0.439343, -4.93095, 0.493648, -8.68835)

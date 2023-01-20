@@ -5,6 +5,12 @@ enum Types {
 	BREAD,
 	CARROT,
 	CHEESE,
+	MILK,
+	POTATO,
+	PIZZA,
+	CHICKEN,
+	TOMATO,
+	WINE,
 }
 
 const names = {
@@ -12,6 +18,12 @@ const names = {
 	Types.BREAD: "BREAD",
 	Types.CARROT: "CARROT",
 	Types.CHEESE: "CHEESE",
+	Types.MILK: "MILK",
+	Types.POTATO: "POTATO",
+	Types.PIZZA: "PIZZA",
+	Types.CHICKEN: "CHICKEN",
+	Types.TOMATO: "TOMATO",
+	Types.WINE: "WINE",
 }
 
 @export var type: Types

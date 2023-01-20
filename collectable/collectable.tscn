@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="3_3qmll"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_skkss"]
+size = Vector3(2, 2, 2)
 
 [node name="Collectable" type="Node3D"]
 script = ExtResource("1_xj273")
