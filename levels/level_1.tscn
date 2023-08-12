@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3noco"]
 [ext_resource type="FontFile" uid="uid://ck4p7igo1qnsn" path="res://assets/FredokaOne-Regular.ttf" id="2_de73j"]
 [ext_resource type="PackedScene" uid="uid://b1i1st7e7ojvd" path="res://subtitles/subtitle_overlay.tscn" id="2_gy041"]
-[ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://player/player.tscn" id="3_3ejiu"]
+[ext_resource type="PackedScene" uid="uid://cyxaalm3c5gml" path="res://Player/player.tscn" id="3_3ejiu"]
 [ext_resource type="AudioStream" uid="uid://ck750vs64spo1" path="res://settings/assets/dialog_loop.mp3" id="4_3b16o"]
 [ext_resource type="Script" path="res://subtitles/subtitle.gd" id="5_doulm"]
 
@@ -40,41 +40,28 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Canvas/MarginContainer"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1102.0
-offset_bottom = 598.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_right = 524.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countdown" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-offset_right = 524.0
-offset_bottom = 548.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/Canvas/MarginContainer/HBoxContainer"]
-offset_left = 528.0
-offset_right = 1052.0
-offset_bottom = 548.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Countup" type="RichTextLabel" parent="HUD/Canvas/MarginContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
-offset_left = 424.0
-offset_right = 524.0
-offset_bottom = 548.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("2_de73j")
